@@ -16,7 +16,7 @@
   /* ---------- scale the 1600×900 stage to the window ---------- */
   function fit() {
     const s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
-    deck.style.transform = `scale(${s})`;
+    deck.style.transform = `translate(-50%, -50%) scale(${s})`;
     tribunal.resize(); hero.resize();
   }
 

@@ -105,8 +105,8 @@ code, pre { font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo,
 .arrows .pill { width: 42px; padding: 0; justify-content: center; border-color: rgba(255,255,255,.4); }
 
 /* ---------- stage: a fixed 1600×900 canvas scaled to the screen ---------- */
-.viewport { position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden; }
-.deck { position: relative; width: 1600px; height: 900px; flex: none; transform-origin: 50% 50%; }
+.viewport { position: fixed; inset: 0; overflow: hidden; }
+.deck { position: absolute; left: 50%; top: 50%; width: 1600px; height: 900px; transform-origin: 50% 50%; transform: translate(-50%, -50%); }
 .slide {
   position: absolute; inset: 0;
   padding: 112px var(--pad) 84px;

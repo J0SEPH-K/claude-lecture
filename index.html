@@ -28,7 +28,7 @@
       <span>클로드 정복 강의</span>
     </a>
     <nav class="nav__links" aria-label="슬라이드">
-      <span class="pill nav__count" data-count>01 / 61</span>
+      <span class="pill nav__count" data-count>01 / 68</span>
       <button type="button" class="pill" data-overview>전체 보기</button>
       <a class="pill is-accent" href="#3" data-go="s-toc">목차</a>
     </nav>
@@ -71,20 +71,21 @@
 
   <!-- 목차 -->
   <section class="slide" id="s-toc" data-title="목차" data-sec="목차">
-    <p class="tag mono-sq rv">목차 — 12 chapters</p>
+    <p class="tag mono-sq rv">목차 — 13 chapters</p>
     <ul class="toc rv">
       <li><a href="#" data-go="d1"><small>01</small>들어가며</a></li>
-      <li><a href="#" data-go="d7"><small>07</small>토론회 실전 활용</a></li>
-      <li><a href="#" data-go="d2"><small>02</small>지시하는 법</a></li>
       <li><a href="#" data-go="d8"><small>08</small>연결하기 MCP·API</a></li>
-      <li><a href="#" data-go="d3"><small>03</small>스킬의 종류</a></li>
+      <li><a href="#" data-go="d2"><small>02</small>지시하는 법</a></li>
       <li><a href="#" data-go="d9"><small>09</small>24시간 에이전트</a></li>
-      <li><a href="#" data-go="d4"><small>04</small>나만의 스킬</a></li>
+      <li><a href="#" data-go="d3"><small>03</small>스킬의 종류</a></li>
       <li><a href="#" data-go="d10"><small>10</small>에이전트에게 직업</a></li>
+      <li><a href="#" data-go="d4"><small>04</small>나만의 스킬</a></li>
+      <li><a href="#" data-go="d-del"><small>11</small>AI 위임</a></li>
       <li><a href="#" data-go="d5"><small>05</small>Obsidian + Claude</a></li>
-      <li><a href="#" data-go="d11"><small>11</small>직접 해보기</a></li>
+      <li><a href="#" data-go="d12"><small>12</small>직접 해보기</a></li>
       <li><a href="#" data-go="d6"><small>06</small>AI 토론회</a></li>
-      <li><a href="#" data-go="d12"><small>12</small>마치며</a></li>
+      <li><a href="#" data-go="d13"><small>13</small>마치며</a></li>
+      <li><a href="#" data-go="d7"><small>07</small>토론회 실전 활용</a></li>
     </ul>
   </section>
 
@@ -737,28 +738,125 @@ print(answer.content[0].text)</pre>
     <p class="lede rv" style="margin-top:32px">직업 가진 에이전트를 모으면 <strong>AI 팀</strong>. 토론자는 영업·재무·생산 과장, 심사위원은 법무·재무·고객 검토관 → 6장의 토론회가 더 강해집니다.</p>
   </section>
 
-  <!-- ============ 11 실습 ============ -->
-  <section class="slide divider" id="d11" data-title="11 직접 해보기" data-sec="11 실습">
+  <!-- ============ 11 AI 위임 ============ -->
+  <section class="slide divider" id="d-del" data-title="11 AI 위임" data-sec="11 AI 위임">
     <div class="divider__rail"></div>
     <div class="divider__num">11</div>
-    <p class="tag mono-sq rv">011 — 직접 해보기</p>
+    <p class="tag mono-sq rv">011 — AI 위임</p>
+    <h2 class="divider__word disp rv">DELEGATE<em>.</em></h2>
+    <p class="divider__ko rv">에이전트 15개 대신, 에이전트 1명 + 업무 매뉴얼</p>
+    <p class="divider__q rv">일이 늘어나면 에이전트가 아니라 매뉴얼이 늘어납니다.</p>
+  </section>
+
+  <section class="slide statement" data-theme="paper" data-title="반쯤 만든 프로젝트 15개" data-sec="11 AI 위임">
+    <p class="tag mono-sq rv">011 — 혹시 이런 경험?</p>
+    <h2 class="h1 rv">반쯤 만든 에이전트 <em>15개</em>,<br>제대로 도는 건 몇 개뿐.</h2>
+    <p class="lede rv" style="margin-top:40px">여러분 잘못이 아닙니다. <strong>"일마다 에이전트를 하나씩 만들고 서로 연결하라"</strong>고 배웠기 때문입니다. 바로 그 방식 때문에 에이전트가 멍청하게 느껴집니다.</p>
+  </section>
+
+  <section class="slide" data-title="Anthropic의 방향" data-sec="11 AI 위임">
+    <p class="tag mono-sq rv">011 — Claude를 만든 회사의 결론</p>
+    <h2 class="h2 rv">"에이전트를 만들지 말고, <em>스킬</em>을 만들어라"</h2>
+    <div class="cols c3 rv">
+      <div class="card"><span class="num">예전 생각</span><h3>분야마다 따로 에이전트</h3><p>코딩용, 리서치용, 재무용, 마케팅용…</p></div>
+      <div class="card"><span class="num">달라진 점</span><h3>범용 에이전트 하나로 충분</h3><p>모델이 좋아져 대부분의 일을 한 에이전트가 처리</p></div>
+      <div class="card is-hot"><span class="num accent">부족한 것</span><h3>능력이 아니라 노하우</h3><p>그래서 새 에이전트 대신 <b>업무 매뉴얼(스킬)</b>을 추가</p></div>
+    </div>
+    <p class="small rv" style="margin-top:26px">출처: Barry Zhang · Mahesh Murag (Anthropic), "Don't Build Agents, Build Skills Instead", AI Engineer Code 2025 · Claude 블로그 "Building agents with Skills" (2026-01-22)</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="기계 15대 vs 숙련 직원 1명" data-sec="11 AI 위임">
+    <p class="tag mono-sq rv">011 — 비유</p>
+    <div class="cols c2 rv">
+      <div class="card"><span class="num bad">✕ 일마다 에이전트</span><h3>작업마다 전용 기계 15대</h3><p>고장 나면 각각 수리. 서로 연결이 엉킨다. 새 일 = 새 기계.</p></div>
+      <div class="card is-hot"><span class="num">✓ AI 위임</span><h3>숙련 직원 1명 + 매뉴얼 바인더</h3><p>공구함과 검수표까지. 새 일 = 매뉴얼 한 권 추가. 실수하면 그 매뉴얼만 고친다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="AI 위임 4단계" data-sec="11 AI 위임">
+    <p class="tag mono-sq rv">011 — AI 위임 4단계</p>
+    <div class="cols c4 rv">
+      <div class="card frag"><span class="big disp accent">1</span><h3>🎤 인터뷰</h3><p>Claude가 <b>나를</b> 인터뷰. "내가 없어도 돌아갈 때까지" 질문.</p></div>
+      <div class="card frag"><span class="big disp accent">2</span><h3>📘 매뉴얼</h3><p>인터뷰 내용을 업무 매뉴얼(스킬)로. 없는 내용은 [확인 필요].</p></div>
+      <div class="card frag"><span class="big disp accent">3</span><h3>🧰 공구함</h3><p>양식·승인된 스크립트·완성본을 모아 매뉴얼과 규칙으로 연결. 두 번 만들지 않는다.</p></div>
+      <div class="card frag is-hot"><span class="big disp accent">4</span><h3>✅ 검증</h3><p>"완료"의 기준 체크리스트를 매뉴얼에. 넘기기 전에 스스로 검사.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="인터뷰 프롬프트" data-sec="11 AI 위임">
+    <p class="tag mono-sq rv">011 — 1단계 · 인터뷰 프롬프트 (배포 자료 11장)</p>
+    <div class="cols rv" style="grid-template-columns: 1.5fr 1fr; gap:48px; align-items:center">
+      <pre class="code" style="font-size:21px">너는 업무 인수인계 전문가야.
+내가 맡고 있는 "<span class="a">[업무 이름]</span>"을 <span class="a">나 없이도</span>
+누군가 똑같이 해낼 수 있도록 나를 인터뷰해줘.
+- 질문은 한 번에 1~2개씩만.
+- 목적 → 시작 시점 → 필요한 자료 → 처리 순서
+  → 판단 기준 → 자주 하는 실수 → "완료"의 기준 → 예외
+- 답이 애매하면 구체적인 예를 다시 물어봐.
+- 충분하면 "인터뷰 완료"라고 말해.</pre>
+      <div>
+        <h2 class="h2" style="font-size:46px">내가 설명하지 말고,<br><em>질문받으세요</em></h2>
+        <p class="lede" style="font-size:26px">머릿속 노하우는 질문을 받아야 나옵니다. 신입에게 인수인계하듯.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="공구함 · 검증 · 고치는 루프" data-sec="11 AI 위임">
+    <p class="tag mono-sq rv">011 — 공구함 · 검증 · 고치는 법</p>
+    <div class="cols c3 rv" style="align-items:start">
+      <div>
+        <div class="code-label"><span>3 · 공구함 구조</span></div>
+        <pre class="code" style="font-size:19px">업무위임/
+├── CLAUDE.md  <span class="c">← 공통 규칙</span>
+├── 매뉴얼/
+│   ├── 주간보고.md
+│   └── 견적비교.md
+└── 공구함/
+    ├── 양식/
+    ├── 스크립트/
+    └── 완성본/</pre>
+      </div>
+      <div>
+        <div class="code-label"><span>4 · 완료 체크리스트 (주간보고)</span></div>
+        <pre class="code" style="font-size:19px">☐ 첫 줄에 한 문장 요약?
+☐ 숫자가 원본과 일치?
+☐ 일마다 담당·마감일?
+☐ 지어낸 내용 없음?
+☐ A4 한 장?
+<span class="a">→ 확인 결과를 맨 아래 첨부
+→ 실패하면 고치고 재확인</span></pre>
+      </div>
+      <div class="card is-hot">
+        <span class="num accent">🔁 실수하면?</span>
+        <h3>대화로 고치지 말고, 그 업무의 매뉴얼을 고친다</h3>
+        <p>대화로 고치면 다음에 또 틀립니다. 매뉴얼을 고치면 영원히 반영. 시스템 전체가 아니라 <b>그 매뉴얼 한 권만</b>.</p>
+      </div>
+    </div>
+    <p class="lede rv" style="margin-top:30px; font-size:26px">인터뷰 → 매뉴얼 → 공구함 → 검증 → 실행 → <strong>틀리면 매뉴얼 수정</strong>. 이게 전체 루프입니다. 반복 업무는 위임, 중요한 결정은 토론회.</p>
+  </section>
+
+  <!-- ============ 12 실습 ============ -->
+  <section class="slide divider" id="d12" data-title="12 직접 해보기" data-sec="12 실습">
+    <div class="divider__rail"></div>
+    <div class="divider__num">12</div>
+    <p class="tag mono-sq rv">012 — 직접 해보기</p>
     <h2 class="divider__word disp rv">TRY<em>.</em></h2>
     <p class="divider__ko rv">잘하려고 하지 말고, 일단 해 보기</p>
     <p class="divider__q rv">결과를 옆 사람과 비교하는 게 목표입니다. 막히면 손을 들어 주세요.</p>
   </section>
 
-  <section class="slide" data-title="미션 1~4" data-sec="11 실습">
-    <p class="tag mono-sq rv">011 — 미션 (배포 자료 11장)</p>
+  <section class="slide" data-title="미션 1~4" data-sec="12 실습">
+    <p class="tag mono-sq rv">012 — 미션 (배포 자료 12장)</p>
     <div class="cols c4 rv">
       <div class="card"><span class="num accent">🟢 미션 1 · 5분</span><h3>지시서 업그레이드</h3><p>"사과 메일 써줘" vs 역목배형예금. 어느 쪽을 그대로 보낼 수 있나?</p></div>
       <div class="card"><span class="num accent">🟢 미션 2 · 5분</span><h3>첫 스킬 만들기</h3><p>"방금 메일 쓴 방식을 스킬로 만들어줘." description 찾아보기.</p></div>
       <div class="card is-hot"><span class="num accent">🟡 미션 3 · 8분</span><h3>간이 토론회</h3><p>"팀 회식 문화 바꾸기" 토론자 5명 · 심사위원 3명 · 최종 1개.</p></div>
       <div class="card"><span class="num accent">🟡 미션 4 · 5분</span><h3>AI 직원 채용</h3><p>프로젝트 만들기 + 7칸 직업 설명서 + 실제 업무 하나.</p></div>
     </div>
-    <p class="small rv" style="margin-top:24px">🔴 보너스: 9장 "24시간 에이전트 설계서" 채우기 · 막히면 → 새 대화로 시작했나? 이상하면 "다시"가 아니라 "무엇이 이상한지" 말하기</p>
+    <p class="small rv" style="margin-top:24px">🔴 보너스: 11장 인터뷰 프롬프트로 내 업무 인터뷰받기 · 9장 "24시간 에이전트 설계서" · 막히면 → 새 대화로 시작했나? 이상하면 "다시"가 아니라 "무엇이 이상한지" 말하기</p>
   </section>
 
-  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="11 실습">
+  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="12 실습">
     <div data-timer="25">
       <p class="tag mono-sq">실습 — Hands-on</p>
       <div class="timer">25:00</div>
@@ -768,41 +866,41 @@ print(answer.content[0].text)</pre>
   </section>
 
   <!-- ============ 12 마치며 ============ -->
-  <section class="slide divider" id="d12" data-title="12 마치며" data-sec="12 마치며">
+  <section class="slide divider" id="d13" data-title="13 마치며" data-sec="13 마치며">
     <div class="divider__rail"></div>
-    <div class="divider__num">12</div>
-    <p class="tag mono-sq rv">012 — 마치며</p>
+    <div class="divider__num">13</div>
+    <p class="tag mono-sq rv">013 — 마치며</p>
     <h2 class="divider__word disp rv">START<em>.</em></h2>
     <p class="divider__ko rv">내일 아침, 업무 하나만</p>
     <p class="divider__q rv">오늘 배운 걸 다 쓰려고 하지 마세요.</p>
   </section>
 
-  <section class="slide" data-title="한 장 정리" data-sec="12 마치며">
-    <p class="tag mono-sq rv">012 — 오늘 배운 것</p>
+  <section class="slide" data-title="한 장 정리" data-sec="13 마치며">
+    <p class="tag mono-sq rv">013 — 오늘 배운 것</p>
     <div class="rv" style="margin: 0 calc(var(--pad) * -1)">
-      <div class="marquee"><div>PROMPT · SKILLS · CRAFT · MEMORY · DEBATE · DECIDE · CONNECT · 24/7 · HIRE · TRY · PROMPT · SKILLS · CRAFT · MEMORY · DEBATE · DECIDE · CONNECT · 24/7 · HIRE · TRY · </div></div>
-      <div class="marquee marquee--ghost"><div>역목배형예금 · 레시피 카드 · 인수인계 노트 · 오디션 · 콘센트 · 알람과 초인종 · 직무기술서 · 역목배형예금 · 레시피 카드 · 인수인계 노트 · 오디션 · 콘센트 · 알람과 초인종 · 직무기술서 · </div></div>
+      <div class="marquee"><div>PROMPT · SKILLS · CRAFT · MEMORY · DEBATE · DECIDE · CONNECT · 24/7 · HIRE · DELEGATE · TRY · PROMPT · SKILLS · CRAFT · MEMORY · DEBATE · DECIDE · CONNECT · 24/7 · HIRE · DELEGATE · TRY · </div></div>
+      <div class="marquee marquee--ghost"><div>역목배형예금 · 레시피 카드 · 인수인계 노트 · 오디션 · 콘센트 · 알람과 초인종 · 직무기술서 · 매뉴얼 바인더 · 역목배형예금 · 레시피 카드 · 인수인계 노트 · 오디션 · 콘센트 · 알람과 초인종 · 직무기술서 · 매뉴얼 바인더 · </div></div>
     </div>
     <div class="cols c4 rv" style="margin-top:40px; gap:14px">
       <div class="card"><p><b>지시</b> 역할·목적·배경·형식·예시·금지</p></div>
-      <div class="card"><p><b>반복</b> 레시피 카드 = 스킬</p></div>
+      <div class="card"><p><b>반복</b> 에이전트 말고 매뉴얼을 늘린다</p></div>
       <div class="card"><p><b>결정</b> 10명 토론, 3명 심사, 1개 선택</p></div>
       <div class="card"><p><b>자동</b> 알람·초인종 + 안전 규칙</p></div>
     </div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="30일 실천 계획" data-sec="12 마치며">
-    <p class="tag mono-sq rv">012 — 30일 실천 계획</p>
+  <section class="slide" data-theme="paper" data-title="30일 실천 계획" data-sec="13 마치며">
+    <p class="tag mono-sq rv">013 — 30일 실천 계획</p>
     <div class="cols c4 rv">
       <div class="card frag"><span class="num">1주차</span><span class="big disp">W1</span><p>매일 업무 하나를 "역목배형예금"으로</p></div>
-      <div class="card frag"><span class="num">2주차</span><span class="big disp">W2</span><p>가장 자주 하는 일 하나를 스킬로</p></div>
+      <div class="card frag"><span class="num">2주차</span><span class="big disp">W2</span><p>가장 자주 하는 일 하나를 위임: 인터뷰 → 매뉴얼 → 체크리스트</p></div>
       <div class="card frag"><span class="num">3주차</span><span class="big disp">W3</span><p>프로젝트로 AI 직원 1명 + 커넥터 1개</p></div>
       <div class="card frag is-hot"><span class="num">4주차</span><span class="big disp">W4</span><p>중요한 결정 하나를 토론회로 / 예약 작업 1개</p></div>
     </div>
   </section>
 
-  <section class="slide statement" data-theme="paper" data-title="세 가지 약속" data-sec="12 마치며">
-    <p class="tag mono-sq rv">012 — 끝까지 지킬 세 가지 약속</p>
+  <section class="slide statement" data-theme="paper" data-title="세 가지 약속" data-sec="13 마치며">
+    <p class="tag mono-sq rv">013 — 끝까지 지킬 세 가지 약속</p>
     <ol class="list rv">
       <li class="frag" style="font-size:40px">최종 확인은 사람이<span>숫자 · 날짜 · 이름 · 법과 규정</span></li>
       <li class="frag" style="font-size:40px">보안은 회사 정책대로<span>모르면 넣기 전에 묻기</span></li>

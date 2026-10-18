@@ -16,13 +16,14 @@
   const ctx = cv.getContext('2d');
 
   let on = true, W = 0, H = 0, dpr = 1;
-  let x = -100, y = -100, sx = -100, sy = -100;   // raw and smoothed pointer
+  let x = -100, y = -100;   // pointer position in viewport pixels
   let down = null, current = null;
   const strokes = [];
 
   function resize() {
     dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = window.innerWidth; H = window.innerHeight;
+    W = document.documentElement.clientWidth; H = document.documentElement.clientHeight;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
     cv.width = W * dpr; cv.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
@@ -37,16 +38,22 @@
 
   const blocked = () => document.querySelector('.overview.is-open');
 
+  const addPoint = (px, py) => {
+    const pts = current.pts, l = pts[pts.length - 1];
+    if (Math.hypot(px - l.x, py - l.y) >= 1.5) pts.push({ x: px, y: py });
+  };
   window.addEventListener('pointermove', (e) => {
     x = e.clientX; y = e.clientY;
     if (!on || !down) return;
     if (!current) {
       if (Math.hypot(x - down.x, y - down.y) < DRAG_START) return;
       current = { pts: [{ x: down.x, y: down.y }], end: 0 };
-      sx = down.x; sy = down.y;
       strokes.push(current);
       document.documentElement.classList.add('laser-drawing');
     }
+    // use every intermediate sample the browser collected, at the exact pointer position
+    const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+    if (evs.length) evs.forEach((c) => addPoint(c.clientX, c.clientY)); else addPoint(x, y);
   }, { passive: true });
 
   window.addEventListener('pointerdown', (e) => {
@@ -78,8 +85,24 @@
     if ((e.key === 'l' || e.key === 'L') && !e.metaKey && !e.ctrlKey && !e.altKey) setOn(!on);
   });
 
-  // draw a polyline as a chain of quadratic curves through segment midpoints: no corners
-  function path(pts) {
+  // round off hand jitter without moving the line away from the cursor:
+  // each point is averaged with its neighbours on both sides, the two ends stay exactly where they were
+  function smooth(pts) {
+    if (pts.length < 5) return pts;
+    const out = [pts[0]];
+    for (let i = 1; i < pts.length - 1; i++) {
+      const k = Math.min(3, i, pts.length - 1 - i);
+      let sx = 0, sy = 0;
+      for (let j = i - k; j <= i + k; j++) { sx += pts[j].x; sy += pts[j].y; }
+      out.push({ x: sx / (2 * k + 1), y: sy / (2 * k + 1) });
+    }
+    out.push(pts[pts.length - 1]);
+    return out;
+  }
+
+  // draw as a chain of quadratic curves through segment midpoints: no corners
+  function path(raw) {
+    const pts = smooth(raw);
     ctx.beginPath();
     ctx.moveTo(pts[0].x, pts[0].y);
     if (pts.length < 3) { ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y); return; }
@@ -92,13 +115,6 @@
   }
 
   function frame(now) {
-    // smooth the live stroke: follow the pointer with easing and only keep points spaced apart
-    if (current) {
-      sx += (x - sx) * 0.35; sy += (y - sy) * 0.35;
-      const last = current.pts[current.pts.length - 1];
-      if (Math.hypot(sx - last.x, sy - last.y) > 2.5) current.pts.push({ x: sx, y: sy });
-    }
-
     ctx.clearRect(0, 0, W, H);
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     for (let i = strokes.length - 1; i >= 0; i--) {

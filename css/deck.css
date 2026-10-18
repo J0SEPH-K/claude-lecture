@@ -320,9 +320,9 @@ code, pre { font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo,
 }
 
 /* ---------- laser pointer (js/laser.js) ---------- */
-.laser-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 95; pointer-events: none; }
+.laser-canvas { position: fixed; left: 0; top: 0; z-index: 2147483646; pointer-events: none; }
 .laser-dot {
-  position: fixed; left: 0; top: 0; z-index: 96; pointer-events: none;
+  position: fixed; left: 0; top: 0; z-index: 2147483647; pointer-events: none;
   width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%;
   background: radial-gradient(circle, #fff6f4 0 22%, #ff3b30 46%, rgba(255,59,48,0) 72%);
   box-shadow: 0 0 10px 3px rgba(255,59,48,.75), 0 0 28px 8px rgba(255,59,48,.35);

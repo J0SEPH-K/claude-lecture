@@ -220,8 +220,8 @@
     const INK = '#111210', LIME = '#d4ff3a', WARN = '#ff6b3d';
     const cx = 1120;
     const user = { x: cx, y: 150, label: '나 (사용자)' };
-    const sj = { x: cx, y: 262, label: '슈퍼 심사위원' };
-    const lenses = ['원가', '고객', '디지털', '인력', '외주', '정부지원', '공급처', '설계', '가격', '현상유지'];
+    const sj = { x: cx, y: 262, label: '심사위원장' };
+    const lenses = ['고정가 계약', '헤지', '소재 대체', '경량화', '연동 단가', '공급처 다변화', '재생 소재', '손실 줄이기', '정부 지원', '현상 유지'];
     // two staggered rows of five agents
     const agents = lenses.map((l, i) => (i < 5
       ? { x: 820 + i * 150, y: 448, label: l, i }
@@ -329,7 +329,7 @@
           if (struck) {
             ctx.strokeStyle = WARN; ctx.lineWidth = 3;
             ctx.beginPath(); ctx.moveTo(a.x - 22, a.y - 22); ctx.lineTo(a.x + 22, a.y + 22); ctx.moveTo(a.x + 22, a.y - 22); ctx.lineTo(a.x - 22, a.y + 22); ctx.stroke();
-            label(a, '출처 없음 → 삭제', -r - 18, WARN, 15, 600);
+            label(a, '출처가 없으면 삭제', -r - 18, WARN, 15, 600);
           }
           if (S >= 3 && !struck && i % 3 === 0 && !isWin) label(a, '✓ 출처', -r - 16, 'rgba(17,18,16,.55)', 14, 500);
           if (talk === i && now - talkT < 1800) {
@@ -341,7 +341,7 @@
         // judges
         judges.forEach((jd) => { square(jd, 46, S >= 4 ? INK : '#ecece4', INK); label(jd, '⚖', 1, S >= 4 ? LIME : INK, 20); label(jd, jd.label, 46, INK, 17, 600); });
         // super judge + user
-        square(sj, 62, S >= 1 ? INK : '#ecece4', INK); label(sj, 'SJ', 1, S >= 1 ? LIME : INK, 20, 700); label(sj, sj.label, -48, INK, 18, 600);
+        square(sj, 62, S >= 1 ? INK : '#ecece4', INK); label(sj, '위원장', 1, S >= 1 ? LIME : INK, 15, 700); label(sj, sj.label, -48, INK, 18, 600);
         node(user, 26, S >= 6 ? LIME : '#ecece4', INK, 2); label(user, '👤', 1, INK, 20); label(user, user.label, -44, INK, 18, 600);
       }
       requestAnimationFrame(frame);

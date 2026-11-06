@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MACRO L03 · 화면 읽기: 좌표와 색</title>
+  <title>L03 화면 읽기: 좌표와 색 · 1:1 매크로 과정</title>
   <meta name="theme-color" content="#08090b">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,7 @@
   <div class="progress"></div>
   <main class="viewport">
   <div class="deck">
+
   <section class="slide hero" id="s-cover" data-title="표지" data-sec="3회차">
     <canvas class="hero__canvas" aria-hidden="true"></canvas>
     <div class="hero__hud" aria-hidden="true">
@@ -51,293 +52,278 @@
       <span class="hl"><span>MACRO</span></span>
       <span class="hl hl--2"><span>L03<em>.</em></span></span>
     </h1>
-    <p class="hero__sub rv"><strong>화면 읽기: 좌표와 색</strong><br>매크로에 눈을 달아, 색이 바뀌는 순간 키를 누르게 합니다.</p>
+    <p class="hero__sub rv"><strong>화면 읽기: 좌표와 색</strong><br>매크로에 눈을 달아 줍니다. 색이 바뀌는 순간 키를 누르는 매크로를 만듭니다.</p>
     <div class="hero__meta rv">2026-11-14 (토)<br><span class="dim">4시간 · 3/8회</span></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="복습과 숙제 확인" data-sec="복습">
-    <p class="tag mono-sq rv">000 — 지난주 복습 + 숙제 확인</p>
-    <ol class="list rv">
-      <li class="frag" style="font-size:36px">F8과 F12는 각각 무엇이었죠?<span>F8 시작/일시정지 · F12 완전히 끝</span></li>
-      <li class="frag" style="font-size:36px">숙제 ①: 키를 누르는 모드 보여 주기<span>config.json의 "action": "key" → 실행 → 커밋했는지 git log --oneline</span></li>
-      <li class="frag" style="font-size:36px">숙제 ②: 게임 버튼 좌표는 어떻게 쟀나요?<span>배율에 따라 틀렸을 수도 있어요. 오늘 그 이유를 풉니다.</span></li>
-    </ol>
+  <section class="slide" data-theme="paper" data-title="시간표" data-sec="3회차">
+    <p class="tag mono-sq rv">000 — 오늘의 시간표 (4시간)</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>시간</th><th>단계</th><th>끝나면</th></tr></thead><tbody><tr><td>0:00</td><td class='dim2'>0 · 이어서 켜기 · 숙제</td><td class='dim2'>키 누르기 모드 시연</td></tr><tr><td>0:15</td><td class='dim2'>1 · 개념: 좌표 · 배율 · RGB · 오차</td><td class='dim2'>내 화면 배율을 앎</td></tr><tr><td>0:45</td><td class='dim2'>2 · 연습 게임 color 모드</td><td class='dim2'>내 반응 속도 기록</td></tr><tr><td>1:15</td><td class='dim2'>☕ 휴식</td><td class='dim2'></td></tr><tr><td>1:25</td><td class='dim2'>3 · 도구함 screen.py · 허락 규칙</td><td class='dim2'>공통 도구함</td></tr><tr><td>2:05</td><td class='dim2'>4 · where.py 고치기 · 캡처 보여 주기</td><td class='dim2'>칸 좌표 · 색</td></tr><tr><td>2:25</td><td class='dim2'>☕ 휴식</td><td class='dim2'></td></tr><tr class="hot"><td>2:35</td><td class='dim2'>5 · 색 반응 매크로</td><td class='dim2'>손대지 않고 반응</td></tr><tr><td>3:20</td><td class='dim2'>6 · 실험 · 말 보태기</td><td class='dim2'>오차의 뜻을 몸으로</td></tr><tr><td>3:40</td><td class='dim2'>7 · 공정하게 · 저장</td><td class='dim2'></td></tr><tr><td>3:50</td><td class='dim2'>8 · 정리</td><td class='dim2'></td></tr></tbody></table></div>
   </section>
 
-  <section class="slide" data-title="오늘 만드는 것" data-sec="복습">
-    <p class="tag mono-sq rv">001 — 오늘 만드는 것</p>
-    <div class="cols c4 rv">
-      <div class="card frag"><span class="big disp accent">1</span><h3>color 모드</h3><p>빨강 → 초록이 되면 스페이스바, 반응 시간(ms) 표시</p></div>
-      <div class="card frag"><span class="big disp accent">2</span><h3>screen.py</h3><p>공통 도구함: 화면 찍기 · 색 읽기 · 입력</p></div>
-      <div class="card frag"><span class="big disp accent">3</span><h3>color_watch.py</h3><p>초록이 되면 대신 누르는 매크로</p></div>
-      <div class="card frag is-hot"><span class="big disp accent">4</span><h3>사람 대 매크로</h3><p>반응 속도 비교 기록 + 저장(커밋)</p></div>
-    </div>
+  <section class="slide divider" data-title="숙제: 키 누르기 모드" data-sec="시작">
+    <div class="divider__rail"></div>
+    <div class="divider__num">00</div>
+    <p class="tag mono-sq rv">0:00 — 이어서 켜기</p>
+    <h2 class="divider__word disp rv">RESUME<em>.</em></h2>
+    <p class="divider__ko rv">숙제: 키 누르기 모드</p>
+    <p class="divider__q rv"></p>
   </section>
 
-  <section class="slide divider" data-title="화면 좌표" data-sec="좌표">
+  <section class="slide" data-title="숙제 확인" data-sec="시작">
+    <p class="tag mono-sq rv">0 — 이어서 켜고 숙제 확인</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">cd C:\macro-study
+claude -c</pre><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:26px">notepad config.json</pre><div class="see"><code>"action": "key"</code> → 게임 + 매크로 실행 → F8로 시연</div></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:26px">!git log --oneline</pre><div class="see">숙제가 저장 지점으로 한 줄 있으면 완벽</div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:22px">지금 상태를 "2회차 숙제: 키 누르기 모드"로
+저장해 줘.</pre></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="좌표 · 배율 · RGB · 허용 오차" data-sec="개념">
     <div class="divider__rail"></div>
     <div class="divider__num">01</div>
-    <p class="tag mono-sq rv">0:20 — 화면 좌표와 배율</p>
-    <h2 class="divider__word disp rv">COORDS<em>.</em></h2>
-    <p class="divider__ko rv">화면 위의 주소</p>
-    <p class="divider__q rv">같은 점인데 프로그램마다 숫자가 다르다면? 노트북 화면 배율 때문입니다.</p>
+    <p class="tag mono-sq rv">0:15 — 개념</p>
+    <h2 class="divider__word disp rv">PIXEL<em>.</em></h2>
+    <p class="divider__ko rv">좌표 · 배율 · RGB · 허용 오차</p>
+    <p class="divider__q rv">매크로의 눈이 보는 세상</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="좌표계" data-sec="좌표">
-    <p class="tag mono-sq rv">101 — 화면은 픽셀(pixel)의 바둑판</p>
-    <div class="cols rv" style="grid-template-columns: 1.1fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:28px"><span class="a">(0, 0)</span> ──────────▶ X
+  <section class="slide" data-theme="paper" data-title="좌표와 배율" data-sec="개념">
+    <p class="tag mono-sq rv">1-1 · 1-2 — 좌표 다시 보기, 내 배율 확인</p>
+    
+    <div class="rv"><div class="step-grid"><div><pre class="code" style="font-size:24px">(0, 0) ──────────▶ X (오른쪽으로 커짐)
   │
-  │       ● (400, 300)
-  │
+  │       <span class="a">● (400, 300)</span>
   ▼
-  Y</pre>
-      <div>
-        <div class="card is-hot"><span class="num">왼쪽 위가 출발점</span><h3>X는 오른쪽, Y는 아래로 커짐</h3><p>수학 그래프와 Y 방향이 반대입니다.</p></div>
-        <div class="card" style="margin-top:18px"><span class="num">모니터가 여러 대라면</span><h3>주 모니터 왼쪽 위 = (0, 0)</h3><p>왼쪽 모니터는 X가 음수. 게임은 주 모니터에 띄웁니다.</p></div>
-      </div>
-    </div>
+  Y (아래로 커짐)</pre><div class="warn">창 테두리 때문에 안쪽은 (100,100)보다 조금 오른쪽·아래<br>→ <b>어림하지 말고 where.py로</b></div></div><div><ol class="list"><li><b>Windows 키</b> → <code>디스플레이 설정</code></li><li><b>배율 및 레이아웃</b> → 배율</li><li>숫자를 자료에 적기<span>100% · 125% · 150%</span></li></ol><div class="see">모니터가 여러 대면 게임은 <b>주 모니터</b>에</div></div></div></div>
   </section>
 
-  <section class="slide" data-title="배율 문제" data-sec="좌표">
-    <p class="tag mono-sq rv">102 — 화면 배율 125% · 150%가 좌표를 어긋나게 한다</p>
-    <h2 class="h2 rv">눈금이 다른 <em>자 두 개</em>로 같은 점을 재면</h2>
-    <div class="cols c2 rv">
-      <div class="card"><span class="num good">진짜 자 · 1칸 = 1픽셀</span><h3 style="font-size:48px">(500, 400)</h3><p>화면을 찍는 도구(mss)가 쓰는 자</p></div>
-      <div class="card is-hot"><span class="num bad">늘어난 자 · 1칸 = 1.25픽셀</span><h3 style="font-size:48px">(400, 320)</h3><p>배율을 모르는 프로그램에게 Windows가 건네주는 자</p></div>
-    </div>
-    <p class="lede rv" style="margin-top:32px">두 도구가 다른 자를 쓰면 매크로가 <strong>엉뚱한 곳을 보고, 엉뚱한 곳을 누릅니다.</strong></p>
+  <section class="slide" data-title="눈금이 다른 자" data-sec="개념">
+    <p class="tag mono-sq rv">1-3 — 배율이 좌표를 어긋나게 하는 이유</p>
+    <h2 class="h2 rv"><em>눈금이 다른 자</em> 두 개</h2>
+    <div class="rv"><div class="step-grid"><div><div class="cols c2" style="gap:16px"><div class="card"><span class="num accent">진짜 자</span><h3>1칸 = 1픽셀</h3><p>(500, 400)</p></div><div class="card is-hot"><span class="num accent">늘어난 자 (125%)</span><h3>1칸 = 1.25픽셀</h3><p>(400, 320)</p></div></div><p class="lede" style="margin-top:24px">화면 찍기는 진짜 자, 마우스 위치는 늘어난 자 → <strong>엉뚱한 곳을 보고 엉뚱한 곳을 누름</strong></p></div><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:22px">import ctypes
+ctypes.windll.shcore.SetProcessDpiAwareness(2)
+# 이 프로그램은 진짜 픽셀로 잰다</pre><div class="see"><b>DPI 인식</b>. 오늘 screen.py에 넣어 모든 매크로가 <b>같은 자</b>를 씀</div></div></div></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="DPI 인식" data-sec="좌표">
-    <p class="tag mono-sq rv">103 — 해결: DPI 인식(DPI awareness)</p>
-    <h2 class="h2 rv">시작할 때 "나는 <em>진짜 자</em>를 쓸게요"</h2>
-    <pre class="code rv" style="font-size:28px">import ctypes
-ctypes.windll.shcore.SetProcessDpiAwareness(<span class="a">2</span>)  <span class="c"># 진짜 픽셀로 잰다</span></pre>
-    <div class="cols c3 rv" style="margin-top:28px">
-      <div class="card"><span class="num">내 배율 확인</span><p>설정 → 시스템 → 디스플레이 → 배율 및 레이아웃</p></div>
-      <div class="card"><span class="num">어디에?</span><p>screen.py 맨 위에 <b>한 번만</b>. 가져다 쓰면 자동으로 켜짐</p></div>
-      <div class="card is-hot"><span class="num">규칙</span><p>좌표를 재는 where.py와 매크로가 <b>같은 자</b>를 쓴다</p></div>
-    </div>
+  <section class="slide" data-theme="paper" data-title="RGB · 허용 오차" data-sec="개념">
+    <p class="tag mono-sq rv">1-4 · 1-5 — RGB와 허용 오차</p>
+    
+    <div class="rv"><div class="step-grid"><div><table class="tbl sm"><thead><tr><th>(R, G, B)</th><th>색</th></tr></thead><tbody><tr><td>(255, 0, 0)</td><td class='dim2'>새빨강</td></tr><tr><td>(0, 0, 0)</td><td class='dim2'>검정</td></tr><tr><td>(255, 255, 255)</td><td class='dim2'>흰색</td></tr><tr><td>(192, 57, 43)</td><td class='dim2'>연습 게임 빨간 칸</td></tr><tr><td>(39, 174, 96)</td><td class='dim2'>연습 게임 초록 칸</td></tr></tbody></table><p class="small" style="margin-top:12px">전구 세 개, 각각 0 ~ 255</p></div><div><table class="tbl sm"><thead><tr><th>본 색</th><th>차이</th><th>오차 40</th></tr></thead><tbody><tr><td>(45, 170, 100)</td><td class='dim2'>(6, 4, 4)</td><td class='dim2'>✅ 같은 색</td></tr><tr><td>(192, 57, 43)</td><td class='dim2'>(153, 117, 53)</td><td class='dim2'>❌ 다른 색</td></tr></tbody></table><div class="see">같은 초록도 1~2씩 흔들림 → <b>여유</b>를 둔다</div><div class="warn">너무 작으면 놓치고, 너무 크면 빨강도 초록으로</div></div></div></div>
   </section>
 
-  <section class="slide divider" data-title="화면과 색" data-sec="색">
+  <section class="slide" data-title="감시 반복" data-sec="개념">
+    <p class="tag mono-sq rv">1-6 — 감시 반복: 1초에 50번</p>
+    
+    <div class="rv"><div class="step-grid even"><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:28px">반복:
+    그 점의 색을 본다
+    초록이면 → 키를 누르고 0.3초 쉰다
+    0.02초 쉰다</pre></div><div><div class="see">라면 물 끓는지 <b>흘끗흘끗</b>. 쉬지 않고 보면 컴퓨터가 혼자 바빠져 게임까지 느려짐</div></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="빨강 → 초록 → 스페이스" data-sec="color 모드">
     <div class="divider__rail"></div>
     <div class="divider__num">02</div>
-    <p class="tag mono-sq rv">0:45 — 화면 찍기와 색</p>
+    <p class="tag mono-sq rv">0:45 — 연습 게임 color 모드</p>
     <h2 class="divider__word disp rv">COLOR<em>.</em></h2>
-    <p class="divider__ko rv">찍고, 읽고, 비교하고, 계속 지켜보기</p>
-    <p class="divider__q rv">색은 숫자 세 개입니다. 그리고 "똑같은 색"은 찾으면 안 됩니다.</p>
+    <p class="divider__ko rv">빨강 → 초록 → 스페이스</p>
+    <p class="divider__q rv">새 기능을 넣으면 예전 기능부터 확인</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="화면 찍기 mss" data-sec="색">
-    <p class="tag mono-sq rv">201 — 화면 찍기(스크린숏): mss</p>
-    <div class="cols rv" style="grid-template-columns: 1.3fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:26px">grab()                    <span class="c"># 화면 전체</span>
-grab((<span class="a">100, 100, 620, 440</span>))  <span class="c"># 게임 창만</span>
-grab((<span class="a">408, 331, 1, 1</span>))      <span class="c"># 점 하나</span></pre>
-      <div class="card is-hot"><span class="num">영역(region)</span><h3>(왼쪽, 위, 너비, 높이)</h3><p>작게 찍을수록 빠릅니다. 한 점의 색만 필요하면 1×1로 찍습니다.</p></div>
-    </div>
-  </section>
-
-  <section class="slide" data-title="RGB" data-sec="색">
-    <p class="tag mono-sq rv">202 — 색은 숫자 세 개: RGB</p>
-    <h2 class="h2 rv">점 하나 = <em>작은 전구 세 개</em>, 밝기 0~255</h2>
-    <div class="cols c5 rv" style="gap:14px">
-      <div class="card"><div style="height:60px; background:rgb(255,0,0); margin-bottom:18px"></div><h3 style="font-size:27px">(255, 0, 0)</h3><p>새빨강</p></div>
-      <div class="card"><div style="height:60px; background:rgb(0,0,0); border:1px solid rgba(255,255,255,.3); margin-bottom:18px"></div><h3 style="font-size:27px">(0, 0, 0)</h3><p>검정 · 셋 다 꺼짐</p></div>
-      <div class="card"><div style="height:60px; background:rgb(255,255,255); margin-bottom:18px"></div><h3 style="font-size:27px">(255, 255, 255)</h3><p>흰색 · 셋 다 최대</p></div>
-      <div class="card"><div style="height:60px; background:rgb(192,57,43); margin-bottom:18px"></div><h3 style="font-size:27px">(192, 57, 43)</h3><p>연습 게임 빨강</p></div>
-      <div class="card is-hot"><div style="height:60px; background:rgb(39,174,96); margin-bottom:18px"></div><h3 style="font-size:27px">(39, 174, 96)</h3><p>연습 게임 초록</p></div>
-    </div>
-  </section>
-
-  <section class="slide" data-theme="paper" data-title="허용 오차" data-sec="색">
-    <p class="tag mono-sq rv">203 — 허용 오차(tolerance): 175~185cm쯤인 사람 찾기</p>
-    <table class="tbl rv">
-      <thead><tr><th>찾는 색</th><th>지금 본 색</th><th>차이 (R, G, B)</th><th>허용 오차 40이면</th></tr></thead>
-      <tbody>
-        <tr class="frag"><td>(39, 174, 96)</td><td>(39, 174, 96)</td><td class="dim2">(0, 0, 0)</td><td class="dim2">✅ 같은 색</td></tr>
-        <tr class="frag"><td>(39, 174, 96)</td><td>(45, 170, 100)</td><td class="dim2">(6, 4, 4) · 빛 효과로 흔들림</td><td class="dim2">✅ 같은 색</td></tr>
-        <tr class="frag"><td>(39, 174, 96)</td><td>(192, 57, 43)</td><td class="dim2">(153, 117, 53)</td><td><b>❌ 다른 색</b></td></tr>
-      </tbody>
-    </table>
-    <div class="cols c2 rv" style="margin-top:28px">
-      <div class="card"><span class="num">너무 작으면</span><p>진짜 초록도 놓침</p></div>
-      <div class="card"><span class="num">너무 크면</span><p>빨강까지 초록으로 착각</p></div>
-    </div>
-  </section>
-
-  <section class="slide" data-title="감시 반복" data-sec="색">
-    <p class="tag mono-sq rv">204 — 감시 반복(루프): 1초에 50번 흘끗 보기</p>
-    <div class="cols rv" style="grid-template-columns: 1.3fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:26px">반복:
-    그 점의 색을 본다
-    초록이면 → <span class="a">스페이스바</span>, 0.3초 쉼
-    <span class="w">0.02초 쉰다</span>  <span class="c"># 1초에 50번</span></pre>
-      <div class="card is-hot"><span class="num accent">라면 물 끓는지 보기</span><h3>눈을 한 번도 안 깜빡일 필요는 없다</h3><p>쉬지 않고 보면 CPU를 혼자 다 써서 게임까지 느려집니다.</p></div>
-    </div>
-  </section>
-
-  <section class="slide" data-theme="paper" data-title="함께: color 모드" data-sec="색">
-    <p class="tag mono-sq rv">205 — 함께 따라 하기 · 연습 게임에 color 모드</p>
-    <div class="cols rv" style="grid-template-columns: 1.75fr 1fr; gap:40px; align-items:center">
-      <pre class="code" style="font-size:19px"><span class="a">target_game.py</span>에 모드를 추가해 줘.
+  <section class="slide" data-theme="paper" data-title="color 모드 지시" data-sec="color 모드">
+    <p class="tag mono-sq rv">2-1 — 지시하기</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">target_game.py에 모드를 추가해 줘.
 - 지금 있는 과녁 클릭 게임은 "--mode click"으로 실행되게 하고,
   아무것도 안 붙이면 click 모드로
-- 새 모드 <span class="a">"--mode color"</span>: 가운데 100x100 칸이
-  빨간색(192, 57, 43)으로 있다가 1.5~4초 사이 아무 때나
-  초록색(39, 174, 96)으로 바뀜
+- 새 모드 "--mode color": 가운데 100x100 칸이 빨간색(192, 57, 43)으로
+  있다가 1.5~4초 사이 아무 때나 초록색(39, 174, 96)으로 바뀜
 - 초록일 때 스페이스바를 누르면 점수 +1, 초록이 된 순간부터
-  누를 때까지 걸린 시간(ms)을 점수 옆에 표시
-  그리고 다시 빨강으로 돌아가 다음 판을 시작
+  누를 때까지 걸린 시간(ms)을 점수 옆에 표시. 다시 빨강으로 돌아가 다음 판
 - 빨강일 때 미리 누르면 "너무 빨라요!" 표시
-- 창 크기와 위치는 지금처럼 고정</pre>
-      <ol class="list">
-        <li style="font-size:25px">color 모드로 게임 켜기<span style="font-size:20px">python target_game.py --mode color</span></li>
-        <li style="font-size:25px">내 손으로 5판</li>
-        <li style="font-size:25px">반응 시간(ms) 적기<span>사람은 보통 200~300ms 안팎</span></li>
-      </ol>
-    </div>
+- 창 크기와 위치는 지금처럼 고정</pre></div>
+  </section>
+
+  <section class="slide" data-title="내 손 5판" data-sec="color 모드">
+    <p class="tag mono-sq rv">2-2 · 2-3 · 2-4 — 회귀 확인, 내 손 5판, 저장</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:26px">python target_game.py</pre><div class="see">예전 과녁 게임이 그대로 → <b>회귀 확인</b> 끝</div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:24px">python target_game.py --mode color</pre><div class="see">빨강 → 초록 → Space → <code>점수: 1  반응: 312ms</code></div></div><div><table class="tbl sm"><thead><tr><th>판</th><th>내 손 (ms)</th></tr></thead><tbody><tr><td>1</td><td class='dim2'></td></tr><tr><td>2</td><td class='dim2'></td></tr><tr><td>3</td><td class='dim2'></td></tr><tr><td>4</td><td class='dim2'></td></tr><tr><td>5</td><td class='dim2'></td></tr></tbody></table><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:24px">/diff</pre><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">지금 상태를 "연습 게임 color 모드"로 저장해 줘.</pre></div></div></div>
   </section>
 
   <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
     <div data-timer="10">
       <p class="tag mono-sq">쉬는 시간 — Break</p>
       <div class="timer">10:00</div>
-      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 도구함 screen.py와 색 반응 매크로</p>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 도구함 screen.py</p>
       <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
     </div>
   </section>
 
-  <section class="slide divider" data-title="도구함" data-sec="도구함">
+  <section class="slide divider" data-title="screen.py · 허락 규칙 · 할 일 목록" data-sec="도구함">
     <div class="divider__rail"></div>
     <div class="divider__num">03</div>
-    <p class="tag mono-sq rv">1:50 — 직접 만들기</p>
+    <p class="tag mono-sq rv">1:25 — 도구함</p>
     <h2 class="divider__word disp rv">TOOLBOX<em>.</em></h2>
-    <p class="divider__ko rv">screen.py · where.py · color_watch.py</p>
-    <p class="divider__q rv">이제부터 키보드는 수강생이 잡습니다. 막히면 "Claude에게 뭐라고 물어볼까?"부터.</p>
+    <p class="divider__ko rv">screen.py · 허락 규칙 · 할 일 목록</p>
+    <p class="divider__q rv">만든 건 도구함에 넣어 다시 씁니다.</p>
   </section>
 
-  <section class="slide statement" data-theme="paper" data-title="도구함 원칙" data-sec="도구함">
-    <p class="tag mono-sq rv">301 — 오늘의 원칙</p>
-    <h2 class="h1 rv">만든 건 <em>도구함</em>에 넣어<br>다시 씁니다.</h2>
-    <p class="lede rv" style="margin-top:36px">화면 찍기 · 색 읽기 · 클릭은 매크로마다 필요합니다. <strong>screen.py에 한 번 넣고 꺼내 쓰면</strong>, 고칠 때도 한 곳만 고치면 됩니다.</p>
-  </section>
-
-  <section class="slide" data-title="screen.py 만들기" data-sec="도구함">
-    <p class="tag mono-sq rv">302 — 공통 도구함 screen.py</p>
-    <pre class="code rv" style="font-size:20px">화면을 읽는 기능들을 <span class="a">screen.py</span>라는 공통 도구 파일로 만들어 줘. 앞으로 만들 매크로가 모두 이 파일을 가져다 쓸 거야.
-- 파일을 불러오는 순간 Windows <span class="a">DPI 인식</span>을 켜서, 화면 배율이 125%·150%여도 좌표가 어긋나지 않게
-- <span class="a">grab(region)</span>: mss로 화면을 찍어. region은 (왼쪽, 위, 너비, 높이), 없으면 주 모니터 전체
-- <span class="a">pixel(x, y)</span>: 한 점의 색을 (R, G, B) 순서로 돌려줘
-- <span class="a">color_close(rgb, target, tolerance)</span>: R, G, B 각각의 차이가 tolerance 이하면 True
-- <span class="a">click(x, y), press(key)</span>: 클릭과 키 입력. pydirectinput이 설치돼 있으면 그걸 쓰고, 없으면 pyautogui를 써
+  <section class="slide" data-theme="paper" data-title="screen.py 지시" data-sec="도구함">
+    <p class="tag mono-sq rv">3-2 — 지시하기</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:19px">화면을 읽는 기능들을 screen.py라는 공통 도구 파일로 만들어 줘.
+앞으로 만들 매크로가 모두 이 파일을 가져다 쓸 거야.
+- 불러오는 순간 Windows DPI 인식을 켜서 배율 125%·150%여도 좌표가 맞게
+- grab(region): mss로 화면을 찍어. region은 (왼쪽, 위, 너비, 높이), 없으면 전체
+- pixel(x, y): 한 점의 색을 (R, G, B) 순서로
+- color_close(rgb, target, tolerance): 각각의 차이가 tolerance 이하면 True
+- click(x, y), press(key): pydirectinput이 있으면 그걸, 없으면 pyautogui
   pyautogui FAILSAFE는 켜 둬. pydirectinput은 아직 설치하지 마
-- 패키지를 설치하기 전에 무엇을 왜 설치하는지 먼저 말해 줘</pre>
-    <p class="small rv" style="margin-top:22px">설치 질문이 나오면: mss = 화면 사진을 빠르게 찍는 도구, numpy = 숫자 묶음을 다루는 도구 → Yes</p>
+- 패키지를 설치하기 전에 무엇을 왜 설치하는지 먼저 말해 줘
+- 다 만들면 pixel()이 제대로 되는지 짧게 시험해 봐</pre></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="규칙과 where.py" data-sec="도구함">
-    <p class="tag mono-sq rv">303 — 규칙 게시판에 적고, where.py도 같은 자로</p>
-    <div class="cols c2 rv" style="align-items:start">
-      <div>
-        <p class="small" style="margin:0 0 10px">① CLAUDE.md</p>
-        <pre class="code" style="font-size:20px">CLAUDE.md에 이 규칙을 추가해 줘.
-- <span class="a">screen.py</span>는 이 프로젝트의 공통 도구함이다.
-  화면 읽기와 입력 보내기 기능은 screen.py에
-  넣고, 다른 파일은 가져다 쓴다.
-- 같은 기능을 다른 파일에 새로 만들지 않는다.</pre>
-      </div>
-      <div>
-        <p class="small" style="margin:0 0 10px">② where.py</p>
-        <pre class="code" style="font-size:20px"><span class="a">where.py</span>를 고쳐 줘.
-- 맨 처음에 screen.py를 불러와서
-  DPI 인식이 켜지게
+  <section class="slide" data-title="할 일 · 다시 묻지 않기" data-sec="도구함">
+    <p class="tag mono-sq rv">3-3 · 3-4 — 할 일 목록, "다시 묻지 않기"</p>
+    
+    <div class="rv"><div class="step-grid"><div><div class="card is-hot"><span class="num accent">⌨ Ctrl + T</span><h3>Claude의 할 일 목록</h3><p>☐ screen.py 만들기 → ☑ · ☐ mss 설치 · ☐ 시험하기</p></div></div><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:20px"> Bash command
+   python -m pip install mss
+ Do you want to proceed?
+ ❯ 1. Yes
+   2. Yes, and don't ask again for
+      python -m pip install commands
+   3. No</pre><table class="tbl sm"><thead><tr><th>명령</th><th>고를 것</th></tr></thead><tbody><tr><td>pip install …</td><td class='dim2'><b>1. Yes</b> (설치는 매번 확인)</td></tr><tr><td>python …</td><td class='dim2'><b>2. 다시 묻지 않기</b></td></tr></tbody></table></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="/permissions" data-sec="도구함">
+    <p class="tag mono-sq rv">3-5 · 3-6 — /permissions, 규칙 적기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:32px">/permissions</pre><div class="see">"다시 묻지 않기"로 허락한 규칙이 <b>Allow</b> 목록에. 지우기도 여기서</div><div class="warn">지우기(rm, del) · 내려받기 · 폴더 밖 작업은 <b>매번 묻게</b></div></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">CLAUDE.md에 이 규칙을 추가해 줘.
+- screen.py는 이 프로젝트의 공통 도구함이다.
+  화면 읽기와 입력 보내기 기능은 screen.py에 넣고,
+  다른 파일은 가져다 쓴다.
+- 같은 기능을 다른 파일에 새로 만들지 않는다.</pre></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="같은 자 · 화면 보여 주기" data-sec="where">
+    <div class="divider__rail"></div>
+    <div class="divider__num">04</div>
+    <p class="tag mono-sq rv">2:05 — where.py 고치기</p>
+    <h2 class="divider__word disp rv">SEE<em>.</em></h2>
+    <p class="divider__ko rv">같은 자 · 화면 보여 주기</p>
+    <p class="divider__q rv">글로 설명하기 어려우면 보여 주면 됩니다.</p>
+  </section>
+
+  <section class="slide" data-title="칸 좌표" data-sec="where">
+    <p class="tag mono-sq rv">4-1 · 4-2 — where.py 고치고 칸 좌표 재기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:22px">where.py를 고쳐 줘.
+- 맨 처음에 screen.py를 불러와서 DPI 인식이 켜지게
 - 색은 screen.py의 pixel()로 읽어
-- 나머지 동작은 그대로</pre>
-      </div>
-    </div>
-    <p class="lede rv" style="margin-top:28px">color 모드를 켜고 where.py로 <strong>칸 가운데 좌표</strong>를 적기 → 빨강에서 초록으로 숫자가 바뀌는지 확인</p>
+- 나머지 동작은 그대로</pre><ol class="list"><li>탭 2: <code>python target_game.py --mode color</code></li><li>탭 3: <code>python where.py</code></li><li>마우스를 <b>칸 가운데</b></li></ol></div><div><div class="see">빨강일 때 <code>(192, 57, 43)</code> 근처 → 초록이 되면 <code>(39, 174, 96)</code> 근처</div><table class="tbl sm"><thead><tr><th>X</th><th>Y</th><th>빨강</th><th>초록</th></tr></thead><tbody><tr><td></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td></tr></tbody></table><p class="small" style="margin-top:12px">배율이 100%가 아니면 숙제 좌표와 비교 → 달라졌다면 "늘어난 자"</p></div></div></div>
   </section>
 
-  <section class="slide" data-title="color_watch.py" data-sec="매크로">
-    <p class="tag mono-sq rv">304 — 계획 모드(Shift + Tab)로 · 색 반응 매크로</p>
-    <pre class="code rv" style="font-size:21px"><span class="a">color_watch.py</span>를 만들어 줘. screen.py의 도구를 가져다 써.
-- 지켜볼 점의 좌표(X, Y), 찾을 색(R, G, B), 허용 오차, 누를 키는 파일 맨 위에 설정으로 모아 둬
-  처음 값: 좌표는 where.py로 잰 (X, Y), 색 (39, 174, 96), 허용 오차 40, 키 space
-- 0.02초마다(1초에 50번) 그 점의 색을 확인하고, 초록이면 키를 한 번 누른 뒤 0.3초 쉬어
-- F8로 감시 시작/일시정지, F12로 완전히 끝 (macro_v01.py처럼)
-- 키를 누를 때마다 PowerShell에 "초록 발견 → space (몇 번째)"를 보여 줘
-<span class="w">계획을 먼저 보여 줘.</span></pre>
-    <p class="lede rv" style="margin-top:28px">계획에서 찾기: <strong>설정이 맨 위에 모여 있나? 0.02초 쉬는 줄이 있나?</strong></p>
+  <section class="slide" data-theme="paper" data-title="Alt + V" data-sec="where">
+    <p class="tag mono-sq rv">4-3 — 화면 캡처를 Claude에게 보여 주기</p>
+    
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li>초록일 때 <b>Win + Shift + S</b> → 게임 창 드래그</li><li>Claude Code 입력창에서 <b>Alt + V</b></li><li><code>[Image #1]</code>이 붙으면 이어서 입력</li></ol></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">[Image #1] 이 화면에서 매크로가 지켜봐야 할 곳은
+어디고, 그곳의 색은 대략 무엇이야?
+내가 where.py로 잰 좌표는 (X, Y)야. 맞는 위치 같아?</pre><div class="warn">그림을 보고 말한 건 <b>대략</b>. 정확한 값은 where.py</div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:19px">지금 상태를 "screen.py 도구함, where.py 배율 대응"
+으로 저장해 줘.</pre></div></div></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="실행 순서" data-sec="매크로">
-    <p class="tag mono-sq rv">305 — 실행과 확인</p>
-    <ol class="list rv">
-      <li class="frag">창 1: python target_game.py --mode color</li>
-      <li class="frag">창 2: python color_watch.py</li>
-      <li class="frag">F8 → 게임 창을 한 번 클릭<span>스페이스바가 PowerShell이 아니라 게임으로 가도록</span></li>
-      <li class="frag"><b>손 떼고</b> 지켜보기 · 반응 시간 5번 적기</li>
-      <li class="frag">F12로 끝 → 잘 되면 저장(커밋)</li>
-    </ol>
-  </section>
-
-  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="매크로">
-    <div data-timer="60">
-      <p class="tag mono-sq">실습 — 색 반응 매크로 완성</p>
-      <div class="timer">60:00</div>
-      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">screen.py → where.py → color_watch.py → 반응 시간 5번 기록 → 허용 오차 10 · 40 · 150 바꿔 보기</p>
+  <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
+    <div data-timer="10">
+      <p class="tag mono-sq">쉬는 시간 — Break</p>
+      <div class="timer">10:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 색 반응 매크로</p>
       <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
     </div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="사람 대 매크로" data-sec="매크로">
-    <p class="tag mono-sq rv">306 — 사람 대 매크로: 반응 속도</p>
-    <table class="tbl rv">
-      <thead><tr><th>판</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>평균</th></tr></thead>
-      <tbody>
-        <tr><td>내 손 (ms)</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>매크로 (ms)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-    <div class="cols c2 rv" style="margin-top:32px">
-      <div class="card"><span class="num">❓ 생각해 보기</span><h3>매크로를 더 빠르게 하려면?</h3><p>힌트: 0.02초. 그 대가는 무엇일까요?</p></div>
-      <div class="card is-hot"><span class="num">⚠️ 쓰는 곳을 가려야 함</span><h3>대전 · 랭킹에는 쓰지 않기</h3><p>다른 플레이어에게 불공정합니다. 물약 먹기처럼 규칙이 허용하는 자기 캐릭터 관리에 씁니다.</p></div>
-    </div>
+  <section class="slide divider" data-title="color_watch.py" data-sec="매크로">
+    <div class="divider__rail"></div>
+    <div class="divider__num">05</div>
+    <p class="tag mono-sq rv">2:35 — 색 반응 매크로</p>
+    <h2 class="divider__word disp rv">WATCH<em>.</em></h2>
+    <p class="divider__ko rv">color_watch.py</p>
+    <p class="divider__q rv">초록이 되는 순간 대신 누른다</p>
   </section>
 
-  <section class="slide" data-title="막혔을 때" data-sec="매크로">
-    <p class="tag mono-sq rv">307 — 막혔을 때</p>
-    <table class="tbl rv" style="font-size:23px">
-      <tbody>
-        <tr><td>초록인데 가만히 있음</td><td class="dim2">where.py로 같은 좌표 색 확인 → 칸 가운데인지, 허용 오차가 작은지</td></tr>
-        <tr><td>색이 (96, 174, 39)로 거꾸로</td><td class="dim2">mss는 B, G, R 순서 → "pixel()이 R, G, B로 돌려주는지 확인해 줘"</td></tr>
-        <tr><td>스페이스가 PowerShell에</td><td class="dim2">F8 누른 뒤 게임 창을 한 번 클릭</td></tr>
-        <tr><td>"너무 빨라요!"가 계속</td><td class="dim2">허용 오차가 너무 커서 빨강도 초록으로 착각 → 40 이하로</td></tr>
-        <tr><td>컴퓨터가 느려짐</td><td class="dim2">반복 안의 0.02초 쉬는 줄이 빠졌는지</td></tr>
-        <tr class="hot"><td>좌표가 계속 어긋남</td><td>where.py와 매크로가 둘 다 screen.py를 불러오는지</td></tr>
-      </tbody>
-    </table>
+  <section class="slide" data-title="color_watch 지시" data-sec="매크로">
+    <p class="tag mono-sq rv">5-1 — 계획 모드로 지시 (Shift + Tab → plan mode on)</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">color_watch.py를 만들 계획을 세워 줘. screen.py의 도구를 가져다 써.
+- 지켜볼 점의 좌표(X, Y), 찾을 색(R, G, B), 허용 오차, 누를 키는
+  파일 맨 위에 설정으로 모아 둬
+  처음 값: 좌표는 where.py로 잰 (X, Y), 색 (39, 174, 96), 허용 오차 40, 키 space
+- 0.02초마다(1초에 50번) 그 점의 색을 확인하고,
+  초록이면 키를 한 번 누른 뒤 0.3초 쉬어
+- F8로 감시 시작/일시정지, F12로 완전히 끝 (macro_v01.py처럼)
+- 키를 누를 때마다 PowerShell에 "초록 발견 → space (몇 번째)"를 보여 줘</pre></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="시연과 정리" data-sec="정리">
-    <p class="tag mono-sq rv">401 — 시연 · 오늘 배운 것 · 저장</p>
-    <div class="cols c4 rv">
-      <div class="card"><span class="num">좌표</span><p>(0, 0)은 왼쪽 위, Y는 아래로</p></div>
-      <div class="card"><span class="num">배율</span><p>DPI 인식으로 모두 같은 자를 쓴다</p></div>
-      <div class="card"><span class="num">색</span><p>RGB 숫자 세 개 + 허용 오차</p></div>
-      <div class="card is-hot"><span class="num">도구함</span><p>만든 건 screen.py에 넣어 다시 쓴다</p></div>
-    </div>
-    <pre class="code rv" style="font-size:24px; margin-top:32px">지금 상태를 <span class="a">"3회차: 색 반응 매크로 (screen.py, color_watch.py)"</span>로 저장해 줘.</pre>
+  <section class="slide" data-theme="paper" data-title="실행" data-sec="매크로">
+    <p class="tag mono-sq rv">5-2 · 5-3 — 계획 읽고 실행</p>
+    
+    <div class="rv"><div class="step-grid"><div><ul class="chk"><li>screen.py를 <b>가져다</b> 쓰나</li><li>설정이 <b>맨 위에</b> 모여 있나</li><li><b>0.02초 쉬는 줄</b>이 있나</li><li>F8 · F12가 있나</li></ul></div><div><ol class="list"><li>탭 2: <code>python target_game.py --mode color</code></li><li>탭 3: <code>python color_watch.py</code></li><li><b>F8</b> → <b>게임 창을 한 번 클릭</b></li><li><b>손을 떼고</b> 지켜보기 → 기록 → <b>F12</b></li></ol><div class="see"><code>초록 발견 → space (1번째)</code> · 게임 점수 +1 · 반응 시간 표시</div></div></div></div>
+  </section>
+
+  <section class="slide" data-title="반응 비교" data-sec="매크로">
+    <p class="tag mono-sq rv">5-3 — 사람 대 매크로</p>
+    <h2 class="h2 rv">사람 <em>대</em> 매크로</h2>
+    <div class="rv"><table class="tbl"><thead><tr><th>판</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>평균</th></tr></thead><tbody><tr><td>내 손 (ms)</td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td></tr><tr><td>매크로 (ms)</td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td></tr></tbody></table><p class="lede" style="margin-top:28px">사람은 보통 <strong>200~300ms</strong>. 매크로는 대개 훨씬 짧습니다. 더 줄이려면 무엇을 바꿀까요? (힌트: 0.02)</p></div>
+  </section>
+
+  <section class="slide divider" data-title="숫자 바꿔 보기 · 말 보태기" data-sec="실험">
+    <div class="divider__rail"></div>
+    <div class="divider__num">06</div>
+    <p class="tag mono-sq rv">3:20 — 실험</p>
+    <h2 class="divider__word disp rv">TEST<em>.</em></h2>
+    <p class="divider__ko rv">숫자 바꿔 보기 · 말 보태기</p>
+    <p class="divider__q rv">바꾸기 전에 예측을 적습니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="예측 실험" data-sec="실험">
+    <p class="tag mono-sq rv">6-1 — 예측하고 바꿔 보기</p>
+    
+    <div class="rv"><div class="step-grid"><div><table class="tbl"><thead><tr><th>바꿀 것</th><th>값</th><th>내 예측</th><th>실제</th></tr></thead><tbody><tr><td>허용 오차</td><td class='dim2'>10</td><td class='dim2'></td><td class='dim2'></td></tr><tr><td>허용 오차</td><td class='dim2'>150</td><td class='dim2'></td><td class='dim2'></td></tr><tr><td>확인 간격</td><td class='dim2'>0.2</td><td class='dim2'></td><td class='dim2'></td></tr></tbody></table></div><div><div class="see">10 = 초록을 가끔 놓침<br>150 = 빨강에도 눌러 "너무 빨라요!"<br>0.2 = 반응이 느려짐</div><div class="warn">끝나면 원래 값 <b>40, 0.02</b>로</div></div></div></div>
+  </section>
+
+  <section class="slide" data-title="말 보태기" data-sec="실험">
+    <p class="tag mono-sq rv">6-2 — Claude가 일하는 중에 말 보태기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:22px">color_watch.py에 몇 번 눌렀는지 세는 숫자를
+F12로 끝날 때 마지막에 보여 주는 기능을 넣어 줘.</pre><p class="lede" style="margin:16px 0 8px">Claude가 일하는 <strong>중에</strong> 바로:</p><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:22px">그리고 평균 간격(초)도 같이 보여 줘.</pre></div><div><div class="see">두 번째 말이 회색으로 대기했다가 반영</div><table class="tbl sm"><thead><tr><th>상황</th><th>하는 법</th></tr></thead><tbody><tr><td>하나 더 말하고 싶다</td><td class='dim2'>그냥 입력 → Enter</td></tr><tr><td>방향이 틀렸다</td><td class='dim2'><b>Esc</b>로 멈추고 다시</td></tr></tbody></table></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="자기 캐릭터 관리에만" data-sec="마무리">
+    <div class="divider__rail"></div>
+    <div class="divider__num">07</div>
+    <p class="tag mono-sq rv">3:40 — 공정하게 · 저장</p>
+    <h2 class="divider__word disp rv">FAIR<em>.</em></h2>
+    <p class="divider__ko rv">자기 캐릭터 관리에만</p>
+    <p class="divider__q rv"></p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="공정하게" data-sec="마무리">
+    <p class="tag mono-sq rv">7 — 공정하게 쓰기, 저장</p>
+    
+    <div class="rv"><div class="step-grid"><div><div class="card is-hot"><span class="num accent">⚠️ 쓰는 곳을 가려야</span><h3>PvP · 랭킹에서는 쓰지 않습니다</h3><p>불공정한 이득이고 대부분 금지. 오늘 기술은 "체력이 줄면 물약 먹기"처럼 <b>규칙이 허용하는 자기 캐릭터 관리</b>에.</p></div></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:28px">/diff</pre><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:22px">지금 상태를 "3회차: 색 반응 매크로
+color_watch.py"로 저장해 줘.</pre></div></div></div>
+  </section>
+
+  <section class="slide" data-title="요약" data-sec="마무리">
+    <p class="tag mono-sq rv">오늘 배운 Claude Code 기능 · 새로 지켜볼 것</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>하고 싶은 것</th><th>방법</th></tr></thead><tbody><tr><td>화면 보여 주기</td><td class='dim2'>Win + Shift + S → <b>Alt + V</b></td></tr><tr><td>할 일 목록</td><td class='dim2'><b>Ctrl + T</b></td></tr><tr><td>같은 명령 그만 묻게</td><td class='dim2'>2. Yes, and don't ask again</td></tr><tr><td>허락 규칙 보기·지우기</td><td class='dim2'><code>/permissions</code></td></tr><tr><td>일하는 중 말 보태기</td><td class='dim2'>그냥 입력 → Enter</td></tr></tbody></table><div style="height:18px"></div><table class="tbl sm"><thead><tr><th>지켜볼 것</th><th>왜</th></tr></thead><tbody><tr><td>"다시 묻지 않기" 고른 명령</td><td class='dim2'>지우기·내려받기에는 쓰지 않기</td></tr><tr><td>그림 보고 말한 좌표</td><td class='dim2'>대략. 정확한 값은 where.py</td></tr><tr><td>새 기능 뒤 예전 기능</td><td class='dim2'>회귀 확인</td></tr></tbody></table></div>
   </section>
 
   <section class="slide ending" data-theme="lime" data-title="숙제" data-sec="숙제">
-    <p class="tag mono-sq rv">숙제 — 내일까지</p>
-    <h2 class="rv">① 실제 게임의 상태 표시<br>1~2개: 위치와 색</h2>
-    <p class="rv">② 게임 화면 설정 적기: 화면 모드 · 해상도 · UI 크기 · Windows 배율 &nbsp;③ (선택) 허용 오차 바꿔 보기</p>
-    <div class="ending__btns rv"><span>내일: 화면 어디에 있든 그림으로 찾기</span><span class="o">수업 자료 L03</span></div>
+    <p class="tag mono-sq rv">숙제 — 다음 시간까지</p>
+    <h2 class="rv">① 실제 게임의 상태 표시 1~2개<br><span style='font-size:.6em'>좌표 · 평소 색 · 바뀐 색</span></h2>
+    <p class="rv">② 게임 화면 설정 적어 오기 (창 모드 · 해상도 · UI 크기 · 배율 · 모니터) &nbsp;③ (선택) 게임 캡처를 Alt + V로 보여 주고 확인</p>
+    <div class="ending__btns rv"><span>다음: 이미지 찾기</span><span class="o">수업 자료 L03</span></div>
     <div class="ending__word" data-word aria-label="MACRO L03">MACRO <b>03</b></div>
   </section>
 

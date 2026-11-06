@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MACRO L04 · 이미지 찾기</title>
+  <title>L04 이미지 찾기 · 1:1 매크로 과정</title>
   <meta name="theme-color" content="#08090b">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,7 @@
   <div class="progress"></div>
   <main class="viewport">
   <div class="deck">
+
   <section class="slide hero" id="s-cover" data-title="표지" data-sec="4회차">
     <canvas class="hero__canvas" aria-hidden="true"></canvas>
     <div class="hero__hud" aria-hidden="true">
@@ -51,290 +52,259 @@
       <span class="hl"><span>MACRO</span></span>
       <span class="hl hl--2"><span>L04<em>.</em></span></span>
     </h1>
-    <p class="hero__sub rv"><strong>이미지 찾기</strong><br>좌표 대신 그림으로, 화면 어디에 있든 찾아서 누릅니다.</p>
+    <p class="hero__sub rv"><strong>이미지 찾기</strong><br>좌표 대신 그림으로 찾습니다. 버튼이 어디에 있든 찾아서 누릅니다.</p>
     <div class="hero__meta rv">2026-11-15 (일)<br><span class="dim">4시간 · 4/8회</span></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="복습과 숙제 확인" data-sec="복습">
-    <p class="tag mono-sq rv">000 — 어제 복습 + 숙제 확인</p>
-    <ol class="list rv">
-      <li class="frag" style="font-size:36px">where.py와 매크로가 둘 다 screen.py를 불러오는 이유는?<span>같은 자(DPI 인식)를 써야 좌표가 맞으니까</span></li>
-      <li class="frag" style="font-size:36px">숙제 ①: 게임의 상태 표시, 위치와 색<span>평소 색과 바뀐 색이 허용 오차 40 안에서 확실히 구별되나요?</span></li>
-      <li class="frag" style="font-size:36px">숙제 ②: 게임 화면 설정<span>화면 모드 · 해상도 · UI 크기 · Windows 배율 → CLAUDE.md에 기록</span></li>
-    </ol>
+  <section class="slide" data-theme="paper" data-title="시간표" data-sec="4회차">
+    <p class="tag mono-sq rv">000 — 오늘의 시간표 (4시간)</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>시간</th><th>단계</th><th>끝나면</th></tr></thead><tbody><tr><td>0:00</td><td class='dim2'>0 · 이어서 켜기 · 화면 설정</td><td class='dim2'>CLAUDE.md에 화면 설정</td></tr><tr><td>0:15</td><td class='dim2'>1 · 개념: 그림 찾기 · 합격선</td><td class='dim2'>0.85의 뜻</td></tr><tr><td>0:35</td><td class='dim2'>2 · find 모드</td><td class='dim2'>과녁이 돌아다님</td></tr><tr><td>0:55</td><td class='dim2'>3 · 도구함 + 스스로 시험</td><td class='dim2'>find() 완성</td></tr><tr><td>1:25</td><td class='dim2'>☕ 휴식</td><td class='dim2'></td></tr><tr><td>1:35</td><td class='dim2'>4 · 찾을 그림 찍기 · @그림</td><td class='dim2'>target.png</td></tr><tr class="hot"><td>2:05</td><td class='dim2'>5 · find_click.py</td><td class='dim2'>따라가 클릭</td></tr><tr><td>2:45</td><td class='dim2'>☕ 휴식</td><td class='dim2'></td></tr><tr><td>2:55</td><td class='dim2'>6 · 실험: 합격선 · 영역</td><td class='dim2'>실험표</td></tr><tr><td>3:30</td><td class='dim2'>7 · 함정 · /model</td><td class='dim2'></td></tr><tr><td>3:45</td><td class='dim2'>8 · 저장 · 정리</td><td class='dim2'></td></tr></tbody></table></div>
   </section>
 
-  <section class="slide" data-title="오늘 만드는 것" data-sec="복습">
-    <p class="tag mono-sq rv">001 — 오늘 만드는 것</p>
-    <div class="cols c5 rv" style="gap:14px">
-      <div class="card frag"><span class="big disp accent">1</span><h3>find 모드</h3><p>과녁이 아무 데나 나타나고, 맞히면 옮겨 감</p></div>
-      <div class="card frag"><span class="big disp accent">2</span><h3>그림 찾기 도구</h3><p>screen.py에 find() 추가</p></div>
-      <div class="card frag"><span class="big disp accent">3</span><h3>그림 찍기</h3><p>capture_template.py → target.png</p></div>
-      <div class="card frag"><span class="big disp accent">4</span><h3>find_click.py</h3><p>어디로 가든 따라가 클릭</p></div>
-      <div class="card frag is-hot"><span class="big disp accent">5</span><h3>실험 + 저장</h3><p>합격선 · 찾을 영역 실험표, 커밋</p></div>
-    </div>
+  <section class="slide divider" data-title="숙제 · 화면 설정" data-sec="시작">
+    <div class="divider__rail"></div>
+    <div class="divider__num">00</div>
+    <p class="tag mono-sq rv">0:00 — 이어서 켜기</p>
+    <h2 class="divider__word disp rv">RESUME<em>.</em></h2>
+    <p class="divider__ko rv">숙제 · 화면 설정</p>
+    <p class="divider__q rv"></p>
   </section>
 
-  <section class="slide divider" data-title="좌표의 한계" data-sec="개념">
+  <section class="slide" data-title="화면 설정" data-sec="시작">
+    <p class="tag mono-sq rv">0 — 숙제 확인, 화면 설정 기록</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:28px">cd C:\macro-study
+claude -c</pre><div class="see">숙제 상태 표시: 평소 색과 바뀐 색이 <b>오차 40 밖으로</b> 확실히 다른지</div></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">CLAUDE.md에 "게임 화면 설정" 항목을 추가해 줘.
+- 화면 모드: (적어 온 것)
+- 게임 해상도: (적어 온 것)
+- 게임 UI 크기: (적어 온 것)
+- Windows 배율: (적어 온 것)
+이 설정이 바뀌면 찾을 그림을 다시 찍어야
+한다는 것도 적어 줘.</pre></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="그림 찾기 · 일치도 · 합격선" data-sec="개념">
     <div class="divider__rail"></div>
     <div class="divider__num">01</div>
-    <p class="tag mono-sq rv">0:20 — 고정 좌표의 한계</p>
-    <h2 class="divider__word disp rv">MOVE<em>.</em></h2>
-    <p class="divider__ko rv">게임 속 물건은 움직입니다</p>
-    <p class="divider__q rv">어제 매크로는 정해진 한 점만 봤습니다. 그 점에 아무것도 없으면 어떻게 될까요?</p>
+    <p class="tag mono-sq rv">0:15 — 개념</p>
+    <h2 class="divider__word disp rv">MATCH<em>.</em></h2>
+    <p class="divider__ko rv">그림 찾기 · 일치도 · 합격선</p>
+    <p class="divider__q rv">3층 두 번째 집 vs 빨간 대문 집</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="좌표가 깨지는 이유" data-sec="개념">
-    <p class="tag mono-sq rv">101 — 고정 좌표가 깨지는 순간</p>
-    <div class="cols c3 rv">
-      <div class="card"><span class="num">창을 옮기면</span><h3>모든 좌표가 함께 밀림</h3><p>게임 창을 조금만 끌어도 끝</p></div>
-      <div class="card"><span class="num">설정을 바꾸면</span><h3>버튼 위치가 달라짐</h3><p>해상도 · UI 크기 · 배율</p></div>
-      <div class="card is-hot"><span class="num">나올 때마다 다른 곳</span><h3>팝업 · 상자 · 적</h3><p>애초에 정해진 좌표가 없음</p></div>
-    </div>
-    <div class="cols c2 rv" style="margin-top:28px">
-      <div class="card"><span class="num bad">좌표로 찾기</span><h3>"3층 왼쪽에서 두 번째 집"</h3><p>이사하면 끝</p></div>
-      <div class="card"><span class="num good">그림으로 찾기</span><h3>"빨간 대문이 있는 집"</h3><p>어디로 이사해도 찾음</p></div>
-    </div>
+  <section class="slide" data-theme="paper" data-title="좌표 vs 그림" data-sec="개념">
+    <p class="tag mono-sq rv">1-1 — 고정 좌표가 깨지는 이유</p>
+    <h2 class="h2 rv">좌표는 이사하면 <em>끝</em></h2>
+    <div class="rv"><div class="cols c2" style="gap:16px"><div class="card"><span class="num accent">좌표</span><h3>3층 왼쪽 두 번째 집</h3><p>창을 옮기면 · 해상도를 바꾸면 · 팝업이 다른 곳에 뜨면 → 끝</p></div><div class="card is-hot"><span class="num accent">그림</span><h3>빨간 대문이 있는 집</h3><p>어디로 이사해도 찾음</p></div></div></div>
   </section>
 
-  <section class="slide" data-title="숨은그림찾기" data-sec="개념">
-    <p class="tag mono-sq rv">102 — 그림 찾기(템플릿 매칭, template matching)</p>
-    <h2 class="h2 rv"><em>투명 필름</em>으로 하는 숨은그림찾기</h2>
-    <div class="cols rv" style="grid-template-columns: 1.4fr 1fr; gap:48px; align-items:center">
-      <ol class="list">
-        <li class="frag">찾을 물건을 투명 필름에 따라 그린다<span>이 필름이 템플릿 = target.png</span></li>
-        <li class="frag">화면 사진 왼쪽 위부터 한 칸씩 밀며 겹쳐 본다<span>자리마다 얼마나 겹치는지 점수를 매김</span></li>
-        <li class="frag">점수가 가장 높은 자리가 답<span>컴퓨터는 1초도 안 걸림 (OpenCV)</span></li>
-      </ol>
-      <div class="card is-hot"><span class="num accent">우리가 쓸 도구</span><h3>OpenCV(오픈시브이)</h3><p>유명한 그림 처리 도구입니다. 점수 매기는 방식은 0~1로 나오는 TM_CCOEFF_NORMED를 씁니다.</p></div>
-    </div>
+  <section class="slide" data-title="일치도 · 합격선" data-sec="개념">
+    <p class="tag mono-sq rv">1-2 · 1-3 — 투명 필름 숨은그림찾기, 일치도와 합격선</p>
+    
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li>찾을 물건을 <b>투명 필름</b>에 (템플릿)</li><li>화면 위에서 <b>한 칸씩 밀며</b> 점수</li><li><b>가장 높은 자리</b>가 답</li></ol><p class="small" style="margin-top:12px">OpenCV · 1초도 안 걸림</p></div><div><table class="tbl sm"><thead><tr><th>일치도</th><th>뜻</th></tr></thead><tbody><tr><td>1.00</td><td class='dim2'>똑같음</td></tr><tr><td>0.9~0.99</td><td class='dim2'>거의 같음</td></tr><tr><td>0.6~0.9</td><td class='dim2'>다른 것일 수도</td></tr><tr><td>0.5 미만</td><td class='dim2'>닮지 않음</td></tr></tbody></table><table class="tbl sm"><thead><tr><th>합격선</th><th>결과</th></tr></thead><tbody><tr><td>0.99 (너무 높음)</td><td class='dim2'>못 찾음 → 가만히</td></tr><tr><td><b>0.85</b></td><td class='dim2'>처음 값</td></tr><tr class="hot"><td>0.5 (너무 낮음)</td><td class='dim2'><b>잘못 찾음 → 엉뚱한 클릭</b></td></tr></tbody></table></div></div></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="일치도와 합격선" data-sec="개념">
-    <p class="tag mono-sq rv">103 — 일치도(score) 0~1, 그리고 합격선(threshold)</p>
-    <div class="cols rv" style="grid-template-columns: 1fr 1.2fr; gap:48px; align-items:start">
-      <table class="tbl">
-        <thead><tr><th>일치도</th><th>뜻</th></tr></thead>
-        <tbody>
-          <tr><td>1.00</td><td class="dim2">완전히 똑같음</td></tr>
-          <tr><td>0.9~0.99</td><td class="dim2">거의 같음 (빛 효과)</td></tr>
-          <tr><td>0.6~0.9</td><td class="dim2">비슷하지만 다를 수도</td></tr>
-          <tr><td>0.5 미만</td><td class="dim2">거의 닮지 않음</td></tr>
-        </tbody>
-      </table>
-      <div>
-        <div class="card"><span class="num">합격선이 너무 높으면 (0.99)</span><h3>못 찾음</h3><p>조금만 달라져도 매크로가 가만히 있음</p></div>
-        <div class="card is-hot" style="margin-top:18px"><span class="num">합격선이 너무 낮으면 (0.5)</span><h3>잘못 찾음 · 더 위험</h3><p>닮지 않은 곳을 클릭함. 처음 값은 <b>0.85</b></p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide divider" data-title="함께 만들기" data-sec="만들기">
+  <section class="slide divider" data-title="돌아다니는 과녁" data-sec="find 모드">
     <div class="divider__rail"></div>
     <div class="divider__num">02</div>
-    <p class="tag mono-sq rv">0:50 — 함께 만들기</p>
+    <p class="tag mono-sq rv">0:35 — find 모드</p>
+    <h2 class="divider__word disp rv">MOVE<em>.</em></h2>
+    <p class="divider__ko rv">돌아다니는 과녁</p>
+    <p class="divider__q rv">고정 좌표 매크로로는 못 하는 게임</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="find 모드" data-sec="find 모드">
+    <p class="tag mono-sq rv">2 — find 모드 추가, 회귀 확인, 고정 좌표의 한계</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">target_game.py에 "--mode find"를 추가해 줘.
+- click 모드와 같은 과녁이 창 안 아무 곳에나
+  나타나게 (가장자리에 잘리지 않게)
+- 과녁을 클릭하면 점수 +1, 다른 곳으로 옮겨 감
+- 다른 모드는 그대로 둬</pre></div><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:20px">python target_game.py
+python target_game.py --mode color
+python target_game.py --mode find</pre><div class="see">find 모드 + <code>macro_v01.py</code> → 과녁이 옮겨 가면 <b>헛손질</b></div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:18px">지금 상태를 "연습 게임 find 모드"로 저장해 줘.</pre></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="screen.py + 스스로 시험" data-sec="도구함">
+    <div class="divider__rail"></div>
+    <div class="divider__num">03</div>
+    <p class="tag mono-sq rv">0:55 — 도구함에 그림 찾기</p>
     <h2 class="divider__word disp rv">FIND<em>.</em></h2>
-    <p class="divider__ko rv">연습 게임 → 도구함 → 필름 찍기</p>
-    <p class="divider__q rv">어제 만든 도구함 screen.py에 새 도구를 넣습니다.</p>
+    <p class="divider__ko rv">screen.py + 스스로 시험</p>
+    <p class="divider__q rv">"다 됐어요" 대신 증거</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="find 모드" data-sec="만들기">
-    <p class="tag mono-sq rv">201 — 연습 게임에 find 모드</p>
-    <div class="cols rv" style="grid-template-columns: 1.6fr 1fr; gap:40px; align-items:center">
-      <pre class="code" style="font-size:22px"><span class="a">target_game.py</span>에 <span class="a">"--mode find"</span>를 추가해 줘.
-- click 모드와 같은 빨강·흰색 과녁이
-  창 안 아무 곳에나 나타나게
-  (창 가장자리에 잘리지 않게)
-- 과녁을 클릭하면 점수 +1,
-  과녁은 다른 아무 곳으로 옮겨 감
-- 다른 모드는 그대로 둬</pre>
-      <ol class="list">
-        <li style="font-size:26px">직접 몇 번 맞혀 보기<span style="font-size:20px">python target_game.py --mode find</span></li>
-        <li style="font-size:26px">❓ macro_v01.py로 이 게임을 할 수 있을까?</li>
-      </ol>
-    </div>
+  <section class="slide" data-title="find 지시" data-sec="도구함">
+    <p class="tag mono-sq rv">3-1 — 지시하기</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">screen.py에 그림 찾기 도구를 추가해 줘. OpenCV를 써.
+- load_template(path): 그림 파일을 읽어. 한글 경로도 읽히게
+- find_in_image(화면 그림, 찾을 그림, threshold): 가장 비슷한 곳의
+  (가운데 X, 가운데 Y, 일치도). threshold보다 낮으면 None
+  찾는 방식은 TM_CCOEFF_NORMED (일치도가 0~1)
+- find(template_path, region=None, threshold=0.85): 화면(또는 region)을
+  찍어서 찾고, 결과를 화면 전체 기준 좌표로
+- grab()이 돌려주는 그림을 OpenCV에서 바로 쓸 수 있게
+- 패키지를 설치하기 전에 무엇을 왜 설치하는지 먼저 말해 줘</pre><div class="see"><code>opencv-python</code> · <code>numpy</code> 설치 허락 → 이름 확인 → Yes</div></div>
   </section>
 
-  <section class="slide" data-title="screen.py에 찾기" data-sec="만들기">
-    <p class="tag mono-sq rv">202 — 도구함에 그림 찾기 추가</p>
-    <pre class="code rv" style="font-size:20px"><span class="a">screen.py</span>에 그림 찾기 도구를 추가해 줘. OpenCV를 써.
-- <span class="a">load_template(path)</span>: 그림 파일을 읽어. 폴더나 파일 이름에 한글이 있어도 읽히게 해 줘
-- <span class="a">find_in_image(화면 그림, 찾을 그림, threshold)</span>: 화면 그림 안에서 가장 비슷한 곳을 찾아
-  (가운데 X, 가운데 Y, 일치도)를 돌려주고, 일치도가 threshold보다 낮으면 None
-  찾는 방식은 TM_CCOEFF_NORMED (일치도가 0~1로 나오는 방식)
-- <span class="a">find(template_path, region=None, threshold=0.85)</span>: 화면(또는 region 영역)을 찍어서
-  위 함수로 찾고, 결과를 화면 전체 기준 좌표로 돌려줘
-- grab()이 돌려주는 그림을 OpenCV에서 바로 쓸 수 있는 형식으로 맞춰 줘
-- 패키지를 설치하기 전에 무엇을 왜 설치하는지 먼저 말해 줘</pre>
-    <p class="small rv" style="margin-top:22px">설치 질문: opencv-python = 그림 처리 도구 → Yes · region을 쓰면 영역의 왼쪽 위 좌표를 더해야 화면 좌표가 됩니다</p>
-  </section>
-
-  <section class="slide" data-theme="paper" data-title="필름 찍기" data-sec="만들기">
-    <p class="tag mono-sq rv">203 — 찾을 그림 찍기: capture_template.py</p>
-    <div class="cols rv" style="grid-template-columns: 1.55fr 1fr; gap:40px; align-items:center">
-      <pre class="code" style="font-size:20px"><span class="a">capture_template.py</span>를 만들어 줘.
-화면의 일부를 잘라 '찾을 그림'으로 저장하는 도우미야.
-- 실행: python capture_template.py target.png
-  (이름을 안 주면 target.png)
-- 3, 2, 1 카운트다운 뒤 마우스 위치를 '왼쪽 위'로,
-  다시 3, 2, 1 뒤 마우스 위치를 '오른쪽 아래'로 기억
-- 그 사각형을 screen.py의 grab()으로 찍어서 저장.
-  한글 경로에도 저장되게
-- 사각형이 너무 작으면(5픽셀 미만) 다시 하라고 알려 줘</pre>
-      <ol class="list">
-        <li class="frag" style="font-size:25px">게임을 find 모드로</li>
-        <li class="frag" style="font-size:25px">과녁보다 <b>살짝 바깥</b> 왼쪽 위</li>
-        <li class="frag" style="font-size:25px"><b>살짝 바깥</b> 오른쪽 아래</li>
-        <li class="frag" style="font-size:25px">target.png를 열어 확인<span style="font-size:20px">과녁만 딱 들어가는 크기</span></li>
-      </ol>
-    </div>
+  <section class="slide" data-theme="paper" data-title="스스로 시험" data-sec="도구함">
+    <p class="tag mono-sq rv">3-2 — Claude에게 스스로 시험시키기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">find_in_image()가 맞게 동작하는지 스스로 시험해 줘.
+- 가짜 화면 그림(검은 바탕에 빨간 네모)을 만들고,
+  빨간 네모를 잘라 찾을 그림으로 써
+- 찾은 위치가 맞는지, 일치도가 0.99 이상인지
+- 빨간 네모가 없는 그림에서는 None인지
+- 시험 파일은 tests\test_find.py,
+  결과를 표로 알려 줘</pre></div><div><table class="tbl sm"><thead><tr><th>시험</th><th>결과</th></tr></thead><tbody><tr><td>있는 곳 찾기</td><td class='dim2'>✅ 위치 일치 · 1.00</td></tr><tr><td>없는 곳</td><td class='dim2'>✅ None</td></tr></tbody></table><div class="card is-hot" style="margin-top:18px"><span class="num accent">새 습관</span><h3>"만들어 줘" + "스스로 시험해 줘"</h3><p>말 대신 증거. 고칠 때마다 다시 돌리면 깨진 걸 바로 앎</p></div></div></div></div>
   </section>
 
   <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
     <div data-timer="10">
       <p class="tag mono-sq">쉬는 시간 — Break</p>
       <div class="timer">10:00</div>
-      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 그림을 찾아 클릭하는 매크로</p>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 찾을 그림 찍기</p>
       <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
     </div>
   </section>
 
-  <section class="slide divider" data-title="찾아서 클릭" data-sec="매크로">
-    <div class="divider__rail"></div>
-    <div class="divider__num">03</div>
-    <p class="tag mono-sq rv">1:50 — 직접 만들기</p>
-    <h2 class="divider__word disp rv">CLICK<em>.</em></h2>
-    <p class="divider__ko rv">찾고 → 누르고 → 또 찾고</p>
-    <p class="divider__q rv">과녁이 어디로 옮겨 가든 따라갑니다. 브레이크(F12, 왼쪽 위 구석)는 그대로.</p>
-  </section>
-
-  <section class="slide" data-theme="paper" data-title="find_click.py" data-sec="매크로">
-    <p class="tag mono-sq rv">301 — 계획 모드(Shift + Tab)로 · 그림 찾아 클릭</p>
-    <pre class="code rv" style="font-size:21px"><span class="a">find_click.py</span>를 만들어 줘. screen.py의 find()와 click()을 써.
-- 화면에서 target.png를 찾으면 그 가운데를 클릭하고, 못 찾으면 "못 찾음"을 보여 줘
-- 0.4초마다 한 번씩 반복
-- 찾을 그림, 찾을 영역(REGION, 처음엔 None = 화면 전체), 합격선(THRESHOLD 0.85),
-  간격은 파일 맨 위에 설정으로 모아 둬
-- 찾을 때마다 "찾음 (X, Y) 일치도 0.97 → 클릭"처럼 보여 줘
-- F8로 시작/일시정지, F12로 끝 (color_watch.py처럼)
-<span class="w">계획을 먼저 보여 줘.</span></pre>
-    <p class="lede rv" style="margin-top:28px">계획에서 찾기: <strong>설정이 맨 위에? screen.py를 가져다 쓰나? 새로 만들지 않나?</strong></p>
-  </section>
-
-  <section class="slide" data-title="실행 순서" data-sec="매크로">
-    <p class="tag mono-sq rv">302 — 실행과 확인</p>
-    <ol class="list rv">
-      <li class="frag">창 1: python target_game.py --mode find</li>
-      <li class="frag">창 2: python find_click.py</li>
-      <li class="frag">F8 → <b>손 떼고</b> 지켜보기<span>과녁이 옮겨 갈 때마다 따라가서 클릭하나요?</span></li>
-      <li class="frag">PowerShell의 일치도 숫자 읽기<span>몇 점쯤 나오나요? 왜 그럴까요?</span></li>
-      <li class="frag">F12로 끝 → 잘 되면 저장(커밋)</li>
-    </ol>
-  </section>
-
-  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="매크로">
-    <div data-timer="50">
-      <p class="tag mono-sq">실습 — 그림을 찾아 클릭</p>
-      <div class="timer">50:00</div>
-      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">find_click.py 계획 읽기 → 승인 → 실행 → 일치도 숫자 읽기 → 점수가 저절로 오르면 커밋</p>
-      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
-    </div>
-  </section>
-
-  <section class="slide divider" data-title="실험" data-sec="실험">
+  <section class="slide divider" data-title="capture_template.py · @그림" data-sec="찍기">
     <div class="divider__rail"></div>
     <div class="divider__num">04</div>
-    <p class="tag mono-sq rv">2:40 — 실험</p>
+    <p class="tag mono-sq rv">1:35 — 찾을 그림 찍기</p>
+    <h2 class="divider__word disp rv">SNAP<em>.</em></h2>
+    <p class="divider__ko rv">capture_template.py · @그림</p>
+    <p class="divider__q rv">그 물건만 딱 들어가는 크기</p>
+  </section>
+
+  <section class="slide" data-title="과녁 찍기" data-sec="찍기">
+    <p class="tag mono-sq rv">4-1 · 4-2 — 도우미 만들고 과녁 찍기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">capture_template.py를 만들어 줘.
+화면의 일부를 잘라 '찾을 그림'으로 저장하는 도우미야.
+- 실행: python capture_template.py target.png
+- 3,2,1 뒤 마우스 위치 = 왼쪽 위,
+  다시 3,2,1 뒤 = 오른쪽 아래
+- 그 사각형을 grab()으로 찍어 저장. 한글 경로도
+- 5픽셀 미만이면 다시 하라고</pre></div><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:22px">python capture_template.py target.png</pre><ol class="list"><li>과녁 <b>살짝 바깥 왼쪽 위</b></li><li><b>살짝 바깥 오른쪽 아래</b></li></ol><div class="see"><code>target.png 저장 (52x52)</code></div></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="@그림" data-sec="찍기">
+    <p class="tag mono-sq rv">4-3 — 그림 파일을 Claude에게 보여 주기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:24px">@target.png 이 그림에 과녁이 잘리지 않고
+다 들어갔어? 배경이 너무 많이 들어가지는 않았어?</pre><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:26px">start target.png</pre></div><div><div class="see">Claude가 그림을 <b>직접 보고</b> 답함<br>잘렸다고 하면 다시 찍기</div><div class="cols c2" style="gap:16px"><div class="card"><span class="num accent">너무 크면</span><h3>배경까지</h3><p>배경이 바뀌면 못 찾음</p></div><div class="card is-hot"><span class="num accent">너무 작으면</span><h3>헷갈림</h3><p>다른 것과 혼동</p></div></div></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="find_click.py" data-sec="클릭">
+    <div class="divider__rail"></div>
+    <div class="divider__num">05</div>
+    <p class="tag mono-sq rv">2:05 — 찾아서 클릭</p>
+    <h2 class="divider__word disp rv">CHASE<em>.</em></h2>
+    <p class="divider__ko rv">find_click.py</p>
+    <p class="divider__q rv">어디로 가든 따라가 클릭</p>
+  </section>
+
+  <section class="slide" data-title="find_click 지시" data-sec="클릭">
+    <p class="tag mono-sq rv">5-1 — 계획 모드로 지시</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">find_click.py를 만들 계획을 세워 줘. screen.py의 find()와 click()을 써.
+- target.png를 찾으면 가운데를 클릭, 못 찾으면 "못 찾음"
+- 0.4초마다 반복
+- 찾을 그림, 찾을 영역(REGION, 처음엔 None), 합격선(THRESHOLD 0.85),
+  간격은 파일 맨 위에 설정으로
+- 찾을 때마다 "찾음 (X, Y) 일치도 0.97 → 클릭"
+- F8로 시작/일시정지, F12로 끝</pre><ul class="chk"><li>find()를 <b>가져다</b> 쓰나</li><li>설정 네 개가 맨 위에</li><li>F8 · F12</li></ul></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="따라가 클릭" data-sec="클릭">
+    <p class="tag mono-sq rv">5-2 — 실행</p>
+    
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li>탭 2: <code>python target_game.py --mode find</code></li><li>탭 3: <code>python find_click.py</code></li><li><b>F8</b> → 손 떼고 지켜보기</li><li>일치도 숫자 적기</li><li><b>F12</b></li></ol></div><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:20px">찾음 (387, 254) 일치도 0.99 → 클릭
+찾음 (212, 401) 일치도 0.99 → 클릭</pre><div class="see">과녁이 옮겨 갈 때마다 따라가서 클릭 · 점수 +1</div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:19px">지금 상태를 "find_click.py: 그림 찾아 클릭"으로
+저장해 줘. target.png도 함께.</pre></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
+    <div data-timer="10">
+      <p class="tag mono-sq">쉬는 시간 — Break</p>
+      <div class="timer">10:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 실험</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="합격선 · 찾을 영역" data-sec="실험">
+    <div class="divider__rail"></div>
+    <div class="divider__num">06</div>
+    <p class="tag mono-sq rv">2:55 — 실험</p>
     <h2 class="divider__word disp rv">TEST<em>.</em></h2>
-    <p class="divider__ko rv">언제 잘 찾고, 언제 틀릴까</p>
-    <p class="divider__q rv">합격선을 낮춘 채 클릭하면 엉뚱한 곳을 누릅니다. 실험은 클릭하지 않고 찾기만 하는 파일로.</p>
+    <p class="divider__ko rv">합격선 · 찾을 영역</p>
+    <p class="divider__q rv">실험은 클릭 없는 파일로</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="실험 1: 합격선" data-sec="실험">
-    <p class="tag mono-sq rv">401 — 실험 1 · 클릭하지 않는 find_test.py로 합격선 비교</p>
-    <pre class="code rv" style="font-size:19px">실험용 <span class="a">find_test.py</span>를 만들어 줘. 클릭은 하지 말고 '찾기'만 해.
-- 1초마다 화면에서 target.png와 가장 비슷한 곳을 찾아서, 합격선과 상관없이 위치와 일치도를 보여 줘
-  (screen.py의 find_in_image에 threshold 0을 주면 돼)
-- 같은 줄에 합격선 0.99, 0.85, 0.5 각각이라면 "찾음/못 찾음"이 어떻게 될지 같이 보여 줘
-- 한 번 찾는 데 걸린 시간(ms)도 보여 줘
-- 찾을 영역 REGION 설정을 파일 맨 위에 두고 (처음엔 None), Ctrl+C로 끝</pre>
-    <table class="tbl rv" style="font-size:22px; margin-top:24px">
-      <thead><tr><th>상황</th><th>일치도</th><th>0.99</th><th>0.85</th><th>0.5</th></tr></thead>
-      <tbody>
-        <tr><td>A. 게임(find 모드)이 보일 때</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>B. 게임 창 최소화 (과녁 없음)</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>C. 그림판에서 target.png를 크게 확대</td><td></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
+  <section class="slide" data-title="합격선 실험" data-sec="실험">
+    <p class="tag mono-sq rv">6-1 · 6-2 — 실험용 find_test.py, 합격선 실험</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:19px">실험용 find_test.py를 만들어 줘. 클릭은 하지 말고 '찾기'만.
+- 1초마다 target.png와 가장 비슷한 곳의 위치와 일치도
+  (find_in_image에 threshold 0)
+- 같은 줄에 합격선 0.99, 0.85, 0.5 각각 찾음/못 찾음
+- 한 번 찾는 데 걸린 시간(ms)
+- REGION 설정을 맨 위에 (처음엔 None), Ctrl+C로 끝</pre></div><div><table class="tbl sm"><thead><tr><th>상황</th><th>일치도</th><th>0.99</th><th>0.85</th><th>0.5</th></tr></thead><tbody><tr><td>A. 게임 보임</td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td></tr><tr><td>B. 최소화</td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td></tr><tr><td>C. 그림판 확대</td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td><td class='dim2'></td></tr></tbody></table><div class="see">A = 셋 다 찾음<br>B에서 0.5가 찾음 = <b>잘못 찾음</b><br>C = 크기가 달라지면 일치도 급락</div></div></div></div>
   </section>
 
-  <section class="slide" data-title="실험 2: 찾을 영역" data-sec="실험">
-    <p class="tag mono-sq rv">402 — 실험 2 · 찾을 영역(region) 좁히기</p>
-    <div class="cols rv" style="grid-template-columns: 1fr 1.2fr; gap:48px; align-items:start">
-      <ol class="list">
-        <li style="font-size:26px">where.py로 게임 창 안쪽 왼쪽 위 · 오른쪽 아래 재기</li>
-        <li style="font-size:26px">(왼쪽, 위, 너비, 높이)로 바꾸기<span>너비 = 오른쪽 X − 왼쪽 X</span></li>
-        <li style="font-size:26px">"find_test.py의 REGION을 (…)로 바꿔 줘"</li>
-      </ol>
-      <div>
-        <table class="tbl">
-          <thead><tr><th>찾을 영역</th><th>찾는 시간 (ms)</th><th>B 상황 일치도</th></tr></thead>
-          <tbody>
-            <tr><td>화면 전체</td><td></td><td></td></tr>
-            <tr class="hot"><td>게임 창만</td><td></td><td></td></tr>
-          </tbody>
-        </table>
-        <div class="card is-hot" style="margin-top:24px"><span class="num accent">좁히면 좋은 점</span><h3>더 빠르고, 덜 속는다</h3><p>다른 창의 비슷한 그림은 아예 보지 않습니다. 결과가 좋으면 find_click.py의 REGION도 바꾸기.</p></div>
-      </div>
-    </div>
+  <section class="slide" data-theme="paper" data-title="영역 실험" data-sec="실험">
+    <p class="tag mono-sq rv">6-3 — 찾을 영역 좁히기</p>
+    
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li><code>python where.py</code>로 게임 창 안쪽 왼쪽 위 · 오른쪽 아래</li><li>영역 = (왼쪽, 위, 너비, 높이)</li></ol><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:22px">find_test.py의 REGION을
+(왼쪽, 위, 너비, 높이)로 바꿔 줘.</pre></div><div><table class="tbl sm"><thead><tr><th>영역</th><th>시간 (ms)</th><th>B 일치도</th></tr></thead><tbody><tr><td>화면 전체</td><td class='dim2'></td><td class='dim2'></td></tr><tr><td>게임 창만</td><td class='dim2'></td><td class='dim2'></td></tr></tbody></table><div class="see">빨라지고, 다른 창에 속지 않음</div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">find_click.py의 REGION도 같은 값으로 바꿔 줘.</pre></div></div></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="그림 찾기의 함정" data-sec="실험">
-    <p class="tag mono-sq rv">403 — 그림 찾기의 함정</p>
-    <table class="tbl rv" style="font-size:23px">
-      <thead><tr><th>함정</th><th>왜</th><th>대처</th></tr></thead>
-      <tbody>
-        <tr><td>해상도 · 배율 · UI 크기 변경</td><td class="dim2">그림 크기가 달라짐 (실험 C)</td><td>설정 고정, 바뀌면 <b>다시 찍기</b></td></tr>
-        <tr><td>반투명 · 배경이 비침</td><td class="dim2">뒤 배경이 바뀌면 그림도 바뀜</td><td>비치지 않는 가운데만 작게</td></tr>
-        <tr><td>반짝임 · 애니메이션</td><td class="dim2">찍은 순간과 모양이 다름</td><td>움직이지 않는 부분 고르기</td></tr>
-        <tr><td>마우스 올리면 바뀌는 버튼</td><td class="dim2">'불 들어온 모양'이 찍힘</td><td>모서리를 살짝 바깥에서</td></tr>
-        <tr><td>한글 폴더 · 파일 이름</td><td class="dim2">OpenCV 기본 읽기가 조용히 실패</td><td>우리 도구함은 한글도 읽게 만듦</td></tr>
-        <tr><td>전체 화면(독점) 모드</td><td class="dim2">찍으면 검게 나오는 게임이 있음</td><td>창 모드 · 테두리 없는 창</td></tr>
-      </tbody>
-    </table>
+  <section class="slide divider" data-title="언제 틀리는가" data-sec="함정">
+    <div class="divider__rail"></div>
+    <div class="divider__num">07</div>
+    <p class="tag mono-sq rv">3:30 — 함정 · 모델</p>
+    <h2 class="divider__word disp rv">TRAPS<em>.</em></h2>
+    <p class="divider__ko rv">언제 틀리는가</p>
+    <p class="divider__q rv"></p>
   </section>
 
-  <section class="slide" data-title="막혔을 때" data-sec="실험">
-    <p class="tag mono-sq rv">404 — 막혔을 때</p>
-    <table class="tbl rv" style="font-size:23px">
-      <tbody>
-        <tr><td>No module named 'cv2'</td><td class="dim2">패키지 이름은 opencv-python → Claude에게 설치 부탁</td></tr>
-        <tr><td>항상 "못 찾음"</td><td class="dim2">find_test.py로 일치도 확인 → target.png 열어 보기 → 다시 찍기</td></tr>
-        <tr><td>클릭이 살짝 빗나감</td><td class="dim2">where.py와 매크로가 둘 다 screen.py를 불러오는지 (DPI)</td></tr>
-        <tr><td>region을 쓰니 엉뚱한 곳</td><td class="dim2">"find()가 영역의 왼쪽 위 좌표를 더해서 돌려주는지 확인해 줘"</td></tr>
-        <tr><td>target.png가 검게 찍힘</td><td class="dim2">전체 화면 모드 → 창 모드로</td></tr>
-        <tr class="hot"><td>대화가 길어져 엉뚱한 답</td><td>/clear로 새로 시작. 규칙은 CLAUDE.md에 있음</td></tr>
-      </tbody>
-    </table>
+  <section class="slide" data-title="함정" data-sec="함정">
+    <p class="tag mono-sq rv">7-1 — 그림 찾기의 함정</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>함정</th><th>대처</th></tr></thead><tbody><tr><td>해상도 · 배율 · UI 크기를 바꿈</td><td class='dim2'>설정 고정. 바꿨다면 <b>다시 찍기</b></td></tr><tr><td>반투명 버튼</td><td class='dim2'>배경이 비치지 않는 <b>가운데만</b></td></tr><tr><td>반짝이거나 움직이는 그림</td><td class='dim2'>움직이지 않는 부분 · find_test로 합격선 확인</td></tr><tr><td>마우스를 올리면 바뀌는 버튼</td><td class='dim2'>모서리를 <b>살짝 바깥</b>에서</td></tr><tr><td>한글 폴더 · 파일 이름</td><td class='dim2'>우리 도구함은 한글도 읽음</td></tr><tr><td>전체 화면(독점) 모드</td><td class='dim2'>창 모드 · 테두리 없는 창</td></tr></tbody></table><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:18px">C:\macro-study 안에 "그림" 폴더를 만들고, target.png를 "그림\과녁.png"로
+복사해 줘. 그다음 load_template()으로 읽히는지 확인해 줘.</pre></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="시연과 정리" data-sec="정리">
-    <p class="tag mono-sq rv">501 — 시연 · 오늘 배운 것 · 저장</p>
-    <div class="cols c4 rv">
-      <div class="card"><span class="num">왜</span><p>물건은 움직인다 → 좌표 대신 그림</p></div>
-      <div class="card"><span class="num">어떻게</span><p>투명 필름을 한 칸씩 밀며 겹쳐 보기</p></div>
-      <div class="card"><span class="num">합격선</span><p>높으면 못 찾고, 낮으면 잘못 찾는다</p></div>
-      <div class="card is-hot"><span class="num">조건</span><p>화면 설정이 바뀌면 다시 찍는다</p></div>
-    </div>
-    <pre class="code rv" style="font-size:22px; margin-top:32px">지금 상태를 <span class="a">"4회차: 그림 찾기 매크로 (capture_template, find_click, find_test)"</span>로 저장해 줘.
-target.png 같은 찾을 그림도 함께 저장해 줘.</pre>
+  <section class="slide" data-theme="paper" data-title="/model" data-sec="함정">
+    <p class="tag mono-sq rv">7-2 — 모델 바꾸기: /model</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:34px">/model</pre><div class="see">쓸 수 있는 모델 목록과 지금 모델. Esc로 닫아도 됨</div></div><div><table class="tbl"><thead><tr><th>상황</th><th>고르는 법</th></tr></thead><tbody><tr><td>평소</td><td class='dim2'>기본값 그대로</td></tr><tr><td>오래 막힌 어려운 문제</td><td class='dim2'>더 강한 모델로 잠깐</td></tr><tr><td>사용량이 빠듯</td><td class='dim2'>가벼운 모델</td></tr></tbody></table><div class="warn">강한 모델은 사용량을 더 빨리 씀 → <code>/usage</code> 확인, 풀면 원래대로</div></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="저장 · 정리" data-sec="정리">
+    <div class="divider__rail"></div>
+    <div class="divider__num">08</div>
+    <p class="tag mono-sq rv">3:45 — 저장 · 정리</p>
+    <h2 class="divider__word disp rv">WRAP<em>.</em></h2>
+    <p class="divider__ko rv">저장 · 정리</p>
+    <p class="divider__q rv">오늘 만든 것을 저장하고 숙제를 확인합니다.</p>
+  </section>
+
+  <section class="slide" data-title="요약" data-sec="정리">
+    <p class="tag mono-sq rv">오늘 배운 것 · 지켜볼 것</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:20px">지금 상태를 "4회차: 그림 찾기 (capture_template, find_click, find_test)"로 저장해 줘.</pre><div style="height:12px"></div><table class="tbl sm"><thead><tr><th>하고 싶은 것</th><th>방법</th></tr></thead><tbody><tr><td>그림 파일 보여 주기</td><td class='dim2'><code>@target.png …</code></td></tr><tr><td>스스로 시험시키기</td><td class='dim2'>💬 "…스스로 시험해 줘"</td></tr><tr><td>모델 바꾸기</td><td class='dim2'><code>/model</code></td></tr></tbody></table><div style="height:12px"></div><table class="tbl sm"><thead><tr><th>지켜볼 것</th><th>왜</th></tr></thead><tbody><tr><td>"다 됐어요" vs 시험 결과</td><td class='dim2'>말 대신 증거</td></tr><tr><td>합격선을 낮춘 실행</td><td class='dim2'>실험은 클릭 없는 find_test로</td></tr><tr><td>화면 설정 변화</td><td class='dim2'>그림 다시 찍기</td></tr></tbody></table></div>
   </section>
 
   <section class="slide ending" data-theme="lime" data-title="숙제" data-sec="숙제">
-    <p class="tag mono-sq rv">숙제 — 다음 주 토요일까지</p>
-    <h2 class="rv">① 실제 게임에서<br>찾을 그림 2~3개 찍기</h2>
-    <p class="rv">창 모드 · 해상도 고정 · templates 폴더 · 일치도 기록 &nbsp;② 처음 자동화할 작업 하나를 단계 목록으로</p>
-    <div class="ending__btns rv"><span>다음 주: 시나리오 설계와 디버깅</span><span class="o">수업 자료 L04</span></div>
+    <p class="tag mono-sq rv">숙제 — 다음 시간까지</p>
+    <h2 class="rv">① 실제 게임에서 찾을 그림 2~3개<br><span style='font-size:.6em'>templates\ 폴더 · 있을 때 / 없을 때 일치도</span></h2>
+    <p class="rv">② 처음 자동화할 작업을 단계 목록으로 (무엇을 보고 · 무엇을 하고 · 안 되면) &nbsp;③ 💬 "templates 폴더의 그림들을 저장해 줘"</p>
+    <div class="ending__btns rv"><span>다음: 시나리오 설계와 디버깅</span><span class="o">수업 자료 L04</span></div>
     <div class="ending__word" data-word aria-label="MACRO L04">MACRO <b>04</b></div>
   </section>
 

@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MACRO L03 · 화면 읽기: 좌표와 색</title>
+  <meta name="theme-color" content="#08090b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/deck.css">
+</head>
+<body data-theme="dark">
+  <div class="loader" aria-hidden="true">
+    <div class="loader__row">
+      <span class="loader__word loader__word--l">L03</span>
+      <div class="loader__tile"><i></i></div>
+      <span class="loader__word loader__word--r">매크로</span>
+    </div>
+  </div>
+  <header class="nav">
+    <a href="#1" class="nav__brand" aria-label="처음으로" data-go="s-cover">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M4 4h8v3H7v5H4zM28 4v8h-3V7h-5V4zM4 28v-8h3v5h5v3zM28 28h-8v-3h5v-5h3z" fill="currentColor"/></svg>
+      <span>1:1 매크로 과정 · L03</span>
+    </a>
+    <nav class="nav__links" aria-label="슬라이드">
+      <span class="pill nav__count" data-count>01 / 01</span>
+      <button type="button" class="pill" data-overview>전체 보기</button>
+      <a class="pill is-accent" href="index.html">회차 목록</a>
+    </nav>
+  </header>
+  <div class="hud" aria-hidden="true">
+    <span class="hud-bl" data-section></span>
+    <span class="hud-br" data-clock>SEOUL 00:00:00 KST</span>
+  </div>
+  <div class="arrows">
+    <button type="button" class="pill" data-prev aria-label="이전">←</button>
+    <button type="button" class="pill" data-next aria-label="다음">→</button>
+  </div>
+  <div class="progress"></div>
+  <main class="viewport">
+  <div class="deck">
+  <section class="slide hero" id="s-cover" data-title="표지" data-sec="3회차">
+    <canvas class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__hud" aria-hidden="true">
+      <span class="tl">1:1 Course · Lesson 03</span>
+      <span class="tr"><span class="blink">●</span> Live session</span>
+    </div>
+    <h1 class="hero__title disp">
+      <span class="hl"><span>MACRO</span></span>
+      <span class="hl hl--2"><span>L03<em>.</em></span></span>
+    </h1>
+    <p class="hero__sub rv"><strong>화면 읽기: 좌표와 색</strong><br>매크로에 눈을 달아, 색이 바뀌는 순간 키를 누르게 합니다.</p>
+    <div class="hero__meta rv">2026-11-14 (토)<br><span class="dim">4시간 · 3/8회</span></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="복습과 숙제 확인" data-sec="복습">
+    <p class="tag mono-sq rv">000 — 지난주 복습 + 숙제 확인</p>
+    <ol class="list rv">
+      <li class="frag" style="font-size:36px">F8과 F12는 각각 무엇이었죠?<span>F8 시작/일시정지 · F12 완전히 끝</span></li>
+      <li class="frag" style="font-size:36px">숙제 ①: 키를 누르는 모드 보여 주기<span>config.json의 "action": "key" → 실행 → 커밋했는지 git log --oneline</span></li>
+      <li class="frag" style="font-size:36px">숙제 ②: 게임 버튼 좌표는 어떻게 쟀나요?<span>배율에 따라 틀렸을 수도 있어요. 오늘 그 이유를 풉니다.</span></li>
+    </ol>
+  </section>
+
+  <section class="slide" data-title="오늘 만드는 것" data-sec="복습">
+    <p class="tag mono-sq rv">001 — 오늘 만드는 것</p>
+    <div class="cols c4 rv">
+      <div class="card frag"><span class="big disp accent">1</span><h3>color 모드</h3><p>빨강 → 초록이 되면 스페이스바, 반응 시간(ms) 표시</p></div>
+      <div class="card frag"><span class="big disp accent">2</span><h3>screen.py</h3><p>공통 도구함: 화면 찍기 · 색 읽기 · 입력</p></div>
+      <div class="card frag"><span class="big disp accent">3</span><h3>color_watch.py</h3><p>초록이 되면 대신 누르는 매크로</p></div>
+      <div class="card frag is-hot"><span class="big disp accent">4</span><h3>사람 대 매크로</h3><p>반응 속도 비교 기록 + 저장(커밋)</p></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="화면 좌표" data-sec="좌표">
+    <div class="divider__rail"></div>
+    <div class="divider__num">01</div>
+    <p class="tag mono-sq rv">0:20 — 화면 좌표와 배율</p>
+    <h2 class="divider__word disp rv">COORDS<em>.</em></h2>
+    <p class="divider__ko rv">화면 위의 주소</p>
+    <p class="divider__q rv">같은 점인데 프로그램마다 숫자가 다르다면? 노트북 화면 배율 때문입니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="좌표계" data-sec="좌표">
+    <p class="tag mono-sq rv">101 — 화면은 픽셀(pixel)의 바둑판</p>
+    <div class="cols rv" style="grid-template-columns: 1.1fr 1fr; gap:48px; align-items:center">
+      <pre class="code" style="font-size:28px"><span class="a">(0, 0)</span> ──────────▶ X
+  │
+  │       ● (400, 300)
+  │
+  ▼
+  Y</pre>
+      <div>
+        <div class="card is-hot"><span class="num">왼쪽 위가 출발점</span><h3>X는 오른쪽, Y는 아래로 커짐</h3><p>수학 그래프와 Y 방향이 반대입니다.</p></div>
+        <div class="card" style="margin-top:18px"><span class="num">모니터가 여러 대라면</span><h3>주 모니터 왼쪽 위 = (0, 0)</h3><p>왼쪽 모니터는 X가 음수. 게임은 주 모니터에 띄웁니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="배율 문제" data-sec="좌표">
+    <p class="tag mono-sq rv">102 — 화면 배율 125% · 150%가 좌표를 어긋나게 한다</p>
+    <h2 class="h2 rv">눈금이 다른 <em>자 두 개</em>로 같은 점을 재면</h2>
+    <div class="cols c2 rv">
+      <div class="card"><span class="num good">진짜 자 · 1칸 = 1픽셀</span><h3 style="font-size:48px">(500, 400)</h3><p>화면을 찍는 도구(mss)가 쓰는 자</p></div>
+      <div class="card is-hot"><span class="num bad">늘어난 자 · 1칸 = 1.25픽셀</span><h3 style="font-size:48px">(400, 320)</h3><p>배율을 모르는 프로그램에게 Windows가 건네주는 자</p></div>
+    </div>
+    <p class="lede rv" style="margin-top:32px">두 도구가 다른 자를 쓰면 매크로가 <strong>엉뚱한 곳을 보고, 엉뚱한 곳을 누릅니다.</strong></p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="DPI 인식" data-sec="좌표">
+    <p class="tag mono-sq rv">103 — 해결: DPI 인식(DPI awareness)</p>
+    <h2 class="h2 rv">시작할 때 "나는 <em>진짜 자</em>를 쓸게요"</h2>
+    <pre class="code rv" style="font-size:28px">import ctypes
+ctypes.windll.shcore.SetProcessDpiAwareness(<span class="a">2</span>)  <span class="c"># 진짜 픽셀로 잰다</span></pre>
+    <div class="cols c3 rv" style="margin-top:28px">
+      <div class="card"><span class="num">내 배율 확인</span><p>설정 → 시스템 → 디스플레이 → 배율 및 레이아웃</p></div>
+      <div class="card"><span class="num">어디에?</span><p>screen.py 맨 위에 <b>한 번만</b>. 가져다 쓰면 자동으로 켜짐</p></div>
+      <div class="card is-hot"><span class="num">규칙</span><p>좌표를 재는 where.py와 매크로가 <b>같은 자</b>를 쓴다</p></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="화면과 색" data-sec="색">
+    <div class="divider__rail"></div>
+    <div class="divider__num">02</div>
+    <p class="tag mono-sq rv">0:45 — 화면 찍기와 색</p>
+    <h2 class="divider__word disp rv">COLOR<em>.</em></h2>
+    <p class="divider__ko rv">찍고, 읽고, 비교하고, 계속 지켜보기</p>
+    <p class="divider__q rv">색은 숫자 세 개입니다. 그리고 "똑같은 색"은 찾으면 안 됩니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="화면 찍기 mss" data-sec="색">
+    <p class="tag mono-sq rv">201 — 화면 찍기(스크린숏): mss</p>
+    <div class="cols rv" style="grid-template-columns: 1.3fr 1fr; gap:48px; align-items:center">
+      <pre class="code" style="font-size:26px">grab()                    <span class="c"># 화면 전체</span>
+grab((<span class="a">100, 100, 620, 440</span>))  <span class="c"># 게임 창만</span>
+grab((<span class="a">408, 331, 1, 1</span>))      <span class="c"># 점 하나</span></pre>
+      <div class="card is-hot"><span class="num">영역(region)</span><h3>(왼쪽, 위, 너비, 높이)</h3><p>작게 찍을수록 빠릅니다. 한 점의 색만 필요하면 1×1로 찍습니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="RGB" data-sec="색">
+    <p class="tag mono-sq rv">202 — 색은 숫자 세 개: RGB</p>
+    <h2 class="h2 rv">점 하나 = <em>작은 전구 세 개</em>, 밝기 0~255</h2>
+    <div class="cols c5 rv" style="gap:14px">
+      <div class="card"><div style="height:60px; background:rgb(255,0,0); margin-bottom:18px"></div><h3 style="font-size:27px">(255, 0, 0)</h3><p>새빨강</p></div>
+      <div class="card"><div style="height:60px; background:rgb(0,0,0); border:1px solid rgba(255,255,255,.3); margin-bottom:18px"></div><h3 style="font-size:27px">(0, 0, 0)</h3><p>검정 · 셋 다 꺼짐</p></div>
+      <div class="card"><div style="height:60px; background:rgb(255,255,255); margin-bottom:18px"></div><h3 style="font-size:27px">(255, 255, 255)</h3><p>흰색 · 셋 다 최대</p></div>
+      <div class="card"><div style="height:60px; background:rgb(192,57,43); margin-bottom:18px"></div><h3 style="font-size:27px">(192, 57, 43)</h3><p>연습 게임 빨강</p></div>
+      <div class="card is-hot"><div style="height:60px; background:rgb(39,174,96); margin-bottom:18px"></div><h3 style="font-size:27px">(39, 174, 96)</h3><p>연습 게임 초록</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="허용 오차" data-sec="색">
+    <p class="tag mono-sq rv">203 — 허용 오차(tolerance): 175~185cm쯤인 사람 찾기</p>
+    <table class="tbl rv">
+      <thead><tr><th>찾는 색</th><th>지금 본 색</th><th>차이 (R, G, B)</th><th>허용 오차 40이면</th></tr></thead>
+      <tbody>
+        <tr class="frag"><td>(39, 174, 96)</td><td>(39, 174, 96)</td><td class="dim2">(0, 0, 0)</td><td class="dim2">✅ 같은 색</td></tr>
+        <tr class="frag"><td>(39, 174, 96)</td><td>(45, 170, 100)</td><td class="dim2">(6, 4, 4) · 빛 효과로 흔들림</td><td class="dim2">✅ 같은 색</td></tr>
+        <tr class="frag"><td>(39, 174, 96)</td><td>(192, 57, 43)</td><td class="dim2">(153, 117, 53)</td><td><b>❌ 다른 색</b></td></tr>
+      </tbody>
+    </table>
+    <div class="cols c2 rv" style="margin-top:28px">
+      <div class="card"><span class="num">너무 작으면</span><p>진짜 초록도 놓침</p></div>
+      <div class="card"><span class="num">너무 크면</span><p>빨강까지 초록으로 착각</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="감시 반복" data-sec="색">
+    <p class="tag mono-sq rv">204 — 감시 반복(루프): 1초에 50번 흘끗 보기</p>
+    <div class="cols rv" style="grid-template-columns: 1.3fr 1fr; gap:48px; align-items:center">
+      <pre class="code" style="font-size:26px">반복:
+    그 점의 색을 본다
+    초록이면 → <span class="a">스페이스바</span>, 0.3초 쉼
+    <span class="w">0.02초 쉰다</span>  <span class="c"># 1초에 50번</span></pre>
+      <div class="card is-hot"><span class="num accent">라면 물 끓는지 보기</span><h3>눈을 한 번도 안 깜빡일 필요는 없다</h3><p>쉬지 않고 보면 CPU를 혼자 다 써서 게임까지 느려집니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="함께: color 모드" data-sec="색">
+    <p class="tag mono-sq rv">205 — 함께 따라 하기 · 연습 게임에 color 모드</p>
+    <div class="cols rv" style="grid-template-columns: 1.75fr 1fr; gap:40px; align-items:center">
+      <pre class="code" style="font-size:19px"><span class="a">target_game.py</span>에 모드를 추가해 줘.
+- 지금 있는 과녁 클릭 게임은 "--mode click"으로 실행되게 하고,
+  아무것도 안 붙이면 click 모드로
+- 새 모드 <span class="a">"--mode color"</span>: 가운데 100x100 칸이
+  빨간색(192, 57, 43)으로 있다가 1.5~4초 사이 아무 때나
+  초록색(39, 174, 96)으로 바뀜
+- 초록일 때 스페이스바를 누르면 점수 +1, 초록이 된 순간부터
+  누를 때까지 걸린 시간(ms)을 점수 옆에 표시
+  그리고 다시 빨강으로 돌아가 다음 판을 시작
+- 빨강일 때 미리 누르면 "너무 빨라요!" 표시
+- 창 크기와 위치는 지금처럼 고정</pre>
+      <ol class="list">
+        <li style="font-size:25px">color 모드로 게임 켜기<span style="font-size:20px">python target_game.py --mode color</span></li>
+        <li style="font-size:25px">내 손으로 5판</li>
+        <li style="font-size:25px">반응 시간(ms) 적기<span>사람은 보통 200~300ms 안팎</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
+    <div data-timer="10">
+      <p class="tag mono-sq">쉬는 시간 — Break</p>
+      <div class="timer">10:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 도구함 screen.py와 색 반응 매크로</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="도구함" data-sec="도구함">
+    <div class="divider__rail"></div>
+    <div class="divider__num">03</div>
+    <p class="tag mono-sq rv">1:50 — 직접 만들기</p>
+    <h2 class="divider__word disp rv">TOOLBOX<em>.</em></h2>
+    <p class="divider__ko rv">screen.py · where.py · color_watch.py</p>
+    <p class="divider__q rv">이제부터 키보드는 수강생이 잡습니다. 막히면 "Claude에게 뭐라고 물어볼까?"부터.</p>
+  </section>
+
+  <section class="slide statement" data-theme="paper" data-title="도구함 원칙" data-sec="도구함">
+    <p class="tag mono-sq rv">301 — 오늘의 원칙</p>
+    <h2 class="h1 rv">만든 건 <em>도구함</em>에 넣어<br>다시 씁니다.</h2>
+    <p class="lede rv" style="margin-top:36px">화면 찍기 · 색 읽기 · 클릭은 매크로마다 필요합니다. <strong>screen.py에 한 번 넣고 꺼내 쓰면</strong>, 고칠 때도 한 곳만 고치면 됩니다.</p>
+  </section>
+
+  <section class="slide" data-title="screen.py 만들기" data-sec="도구함">
+    <p class="tag mono-sq rv">302 — 공통 도구함 screen.py</p>
+    <pre class="code rv" style="font-size:20px">화면을 읽는 기능들을 <span class="a">screen.py</span>라는 공통 도구 파일로 만들어 줘. 앞으로 만들 매크로가 모두 이 파일을 가져다 쓸 거야.
+- 파일을 불러오는 순간 Windows <span class="a">DPI 인식</span>을 켜서, 화면 배율이 125%·150%여도 좌표가 어긋나지 않게
+- <span class="a">grab(region)</span>: mss로 화면을 찍어. region은 (왼쪽, 위, 너비, 높이), 없으면 주 모니터 전체
+- <span class="a">pixel(x, y)</span>: 한 점의 색을 (R, G, B) 순서로 돌려줘
+- <span class="a">color_close(rgb, target, tolerance)</span>: R, G, B 각각의 차이가 tolerance 이하면 True
+- <span class="a">click(x, y), press(key)</span>: 클릭과 키 입력. pydirectinput이 설치돼 있으면 그걸 쓰고, 없으면 pyautogui를 써
+  pyautogui FAILSAFE는 켜 둬. pydirectinput은 아직 설치하지 마
+- 패키지를 설치하기 전에 무엇을 왜 설치하는지 먼저 말해 줘</pre>
+    <p class="small rv" style="margin-top:22px">설치 질문이 나오면: mss = 화면 사진을 빠르게 찍는 도구, numpy = 숫자 묶음을 다루는 도구 → Yes</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="규칙과 where.py" data-sec="도구함">
+    <p class="tag mono-sq rv">303 — 규칙 게시판에 적고, where.py도 같은 자로</p>
+    <div class="cols c2 rv" style="align-items:start">
+      <div>
+        <p class="small" style="margin:0 0 10px">① CLAUDE.md</p>
+        <pre class="code" style="font-size:20px">CLAUDE.md에 이 규칙을 추가해 줘.
+- <span class="a">screen.py</span>는 이 프로젝트의 공통 도구함이다.
+  화면 읽기와 입력 보내기 기능은 screen.py에
+  넣고, 다른 파일은 가져다 쓴다.
+- 같은 기능을 다른 파일에 새로 만들지 않는다.</pre>
+      </div>
+      <div>
+        <p class="small" style="margin:0 0 10px">② where.py</p>
+        <pre class="code" style="font-size:20px"><span class="a">where.py</span>를 고쳐 줘.
+- 맨 처음에 screen.py를 불러와서
+  DPI 인식이 켜지게
+- 색은 screen.py의 pixel()로 읽어
+- 나머지 동작은 그대로</pre>
+      </div>
+    </div>
+    <p class="lede rv" style="margin-top:28px">color 모드를 켜고 where.py로 <strong>칸 가운데 좌표</strong>를 적기 → 빨강에서 초록으로 숫자가 바뀌는지 확인</p>
+  </section>
+
+  <section class="slide" data-title="color_watch.py" data-sec="매크로">
+    <p class="tag mono-sq rv">304 — 계획 모드(Shift + Tab)로 · 색 반응 매크로</p>
+    <pre class="code rv" style="font-size:21px"><span class="a">color_watch.py</span>를 만들어 줘. screen.py의 도구를 가져다 써.
+- 지켜볼 점의 좌표(X, Y), 찾을 색(R, G, B), 허용 오차, 누를 키는 파일 맨 위에 설정으로 모아 둬
+  처음 값: 좌표는 where.py로 잰 (X, Y), 색 (39, 174, 96), 허용 오차 40, 키 space
+- 0.02초마다(1초에 50번) 그 점의 색을 확인하고, 초록이면 키를 한 번 누른 뒤 0.3초 쉬어
+- F8로 감시 시작/일시정지, F12로 완전히 끝 (macro_v01.py처럼)
+- 키를 누를 때마다 PowerShell에 "초록 발견 → space (몇 번째)"를 보여 줘
+<span class="w">계획을 먼저 보여 줘.</span></pre>
+    <p class="lede rv" style="margin-top:28px">계획에서 찾기: <strong>설정이 맨 위에 모여 있나? 0.02초 쉬는 줄이 있나?</strong></p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="실행 순서" data-sec="매크로">
+    <p class="tag mono-sq rv">305 — 실행과 확인</p>
+    <ol class="list rv">
+      <li class="frag">창 1: python target_game.py --mode color</li>
+      <li class="frag">창 2: python color_watch.py</li>
+      <li class="frag">F8 → 게임 창을 한 번 클릭<span>스페이스바가 PowerShell이 아니라 게임으로 가도록</span></li>
+      <li class="frag"><b>손 떼고</b> 지켜보기 · 반응 시간 5번 적기</li>
+      <li class="frag">F12로 끝 → 잘 되면 저장(커밋)</li>
+    </ol>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="매크로">
+    <div data-timer="60">
+      <p class="tag mono-sq">실습 — 색 반응 매크로 완성</p>
+      <div class="timer">60:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">screen.py → where.py → color_watch.py → 반응 시간 5번 기록 → 허용 오차 10 · 40 · 150 바꿔 보기</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="사람 대 매크로" data-sec="매크로">
+    <p class="tag mono-sq rv">306 — 사람 대 매크로: 반응 속도</p>
+    <table class="tbl rv">
+      <thead><tr><th>판</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>평균</th></tr></thead>
+      <tbody>
+        <tr><td>내 손 (ms)</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>매크로 (ms)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="cols c2 rv" style="margin-top:32px">
+      <div class="card"><span class="num">❓ 생각해 보기</span><h3>매크로를 더 빠르게 하려면?</h3><p>힌트: 0.02초. 그 대가는 무엇일까요?</p></div>
+      <div class="card is-hot"><span class="num">⚠️ 쓰는 곳을 가려야 함</span><h3>대전 · 랭킹에는 쓰지 않기</h3><p>다른 플레이어에게 불공정합니다. 물약 먹기처럼 규칙이 허용하는 자기 캐릭터 관리에 씁니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="막혔을 때" data-sec="매크로">
+    <p class="tag mono-sq rv">307 — 막혔을 때</p>
+    <table class="tbl rv" style="font-size:23px">
+      <tbody>
+        <tr><td>초록인데 가만히 있음</td><td class="dim2">where.py로 같은 좌표 색 확인 → 칸 가운데인지, 허용 오차가 작은지</td></tr>
+        <tr><td>색이 (96, 174, 39)로 거꾸로</td><td class="dim2">mss는 B, G, R 순서 → "pixel()이 R, G, B로 돌려주는지 확인해 줘"</td></tr>
+        <tr><td>스페이스가 PowerShell에</td><td class="dim2">F8 누른 뒤 게임 창을 한 번 클릭</td></tr>
+        <tr><td>"너무 빨라요!"가 계속</td><td class="dim2">허용 오차가 너무 커서 빨강도 초록으로 착각 → 40 이하로</td></tr>
+        <tr><td>컴퓨터가 느려짐</td><td class="dim2">반복 안의 0.02초 쉬는 줄이 빠졌는지</td></tr>
+        <tr class="hot"><td>좌표가 계속 어긋남</td><td>where.py와 매크로가 둘 다 screen.py를 불러오는지</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="시연과 정리" data-sec="정리">
+    <p class="tag mono-sq rv">401 — 시연 · 오늘 배운 것 · 저장</p>
+    <div class="cols c4 rv">
+      <div class="card"><span class="num">좌표</span><p>(0, 0)은 왼쪽 위, Y는 아래로</p></div>
+      <div class="card"><span class="num">배율</span><p>DPI 인식으로 모두 같은 자를 쓴다</p></div>
+      <div class="card"><span class="num">색</span><p>RGB 숫자 세 개 + 허용 오차</p></div>
+      <div class="card is-hot"><span class="num">도구함</span><p>만든 건 screen.py에 넣어 다시 쓴다</p></div>
+    </div>
+    <pre class="code rv" style="font-size:24px; margin-top:32px">지금 상태를 <span class="a">"3회차: 색 반응 매크로 (screen.py, color_watch.py)"</span>로 저장해 줘.</pre>
+  </section>
+
+  <section class="slide ending" data-theme="lime" data-title="숙제" data-sec="숙제">
+    <p class="tag mono-sq rv">숙제 — 내일까지</p>
+    <h2 class="rv">① 실제 게임의 상태 표시<br>1~2개: 위치와 색</h2>
+    <p class="rv">② 게임 화면 설정 적기: 화면 모드 · 해상도 · UI 크기 · Windows 배율 &nbsp;③ (선택) 허용 오차 바꿔 보기</p>
+    <div class="ending__btns rv"><span>내일: 화면 어디에 있든 그림으로 찾기</span><span class="o">수업 자료 L03</span></div>
+    <div class="ending__word" data-word aria-label="MACRO L03">MACRO <b>03</b></div>
+  </section>
+
+  </div>
+  </main>
+  <div class="overview" aria-hidden="true">
+    <div class="overview__head"><span class="mono">전체 슬라이드 — 클릭해서 이동</span><button type="button" class="pill" data-close>닫기 ✕</button></div>
+    <div class="overview__grid"></div>
+  </div>
+  <div class="help">→ / Space 다음 · ← 이전 · O 전체 보기 · F 전체 화면 · L 레이저 켜기/끄기 · 숫자+Enter 이동</div>
+  <script src="js/deck.js"></script>
+  <script src="js/laser.js"></script>
+</body>
+</html>

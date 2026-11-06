@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7회차 · 쓰기 편하게 만들기</title>
+  <meta name="theme-color" content="#08090b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/deck.css">
+</head>
+<body data-theme="dark">
+  <div class="loader" aria-hidden="true">
+    <div class="loader__row">
+      <span class="loader__word loader__word--l">L07</span>
+      <div class="loader__tile"><i></i></div>
+      <span class="loader__word loader__word--r">매크로</span>
+    </div>
+  </div>
+  <header class="nav">
+    <a href="#1" class="nav__brand" aria-label="처음으로" data-go="s-cover">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M4 4h8v3H7v5H4zM28 4v8h-3V7h-5V4zM4 28v-8h3v5h5v3zM28 28h-8v-3h5v-5h3z" fill="currentColor"/></svg>
+      <span>1:1 매크로 과정 · L07</span>
+    </a>
+    <nav class="nav__links" aria-label="슬라이드">
+      <span class="pill nav__count" data-count>01 / 01</span>
+      <button type="button" class="pill" data-overview>전체 보기</button>
+      <a class="pill is-accent" href="index.html">회차 목록</a>
+    </nav>
+  </header>
+  <div class="hud" aria-hidden="true">
+    <span class="hud-bl" data-section></span>
+    <span class="hud-br" data-clock>SEOUL 00:00:00 KST</span>
+  </div>
+  <div class="arrows">
+    <button type="button" class="pill" data-prev aria-label="이전">←</button>
+    <button type="button" class="pill" data-next aria-label="다음">→</button>
+  </div>
+  <div class="progress"></div>
+  <main class="viewport">
+  <div class="deck">
+
+  <section class="slide hero" id="s-cover" data-title="표지" data-sec="7회차">
+    <canvas class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__hud" aria-hidden="true">
+      <span class="tl">1:1 Course · Lesson 07</span>
+      <span class="tr"><span class="blink">●</span> Live session</span>
+    </div>
+    <h1 class="hero__title disp">
+      <span class="hl"><span>MACRO</span></span>
+      <span class="hl hl--2"><span>L07<em>.</em></span></span>
+    </h1>
+    <p class="hero__sub rv"><strong>쓰기 편하게 만들기</strong><br>명령어 대신 버튼으로. 조종판, 실행 파일, 미래의 나를 위한 설명서.</p>
+    <div class="hero__meta rv">2026-11-28 (토)<br><span class="dim">4시간 · 7/8회</span></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="지난주 시험 기록" data-sec="복습">
+    <p class="tag mono-sq rv">000 — 지난주 시험 기록 돌아보기</p>
+    <ol class="list rv">
+      <li class="frag" style="font-size:36px">몇 번 돌렸고, 몇 번 성공했나요?<span>logs/macro.log</span></li>
+      <li class="frag" style="font-size:36px">실패했을 때 어떻게 멈췄나요?<span>logs/ 폴더의 실패 화면</span></li>
+      <li class="frag" style="font-size:36px">제일 자주 실패한 단계는?<span>오늘은 그것 하나만 고칩니다</span></li>
+    </ol>
+  </section>
+
+  <section class="slide" data-title="기록 읽고 고치기" data-sec="복습">
+    <p class="tag mono-sq rv">001 — 기록은 매크로의 블랙박스</p>
+    <div class="cols rv" style="grid-template-columns: 1.5fr 1fr; gap:40px; align-items:center">
+      <pre class="code" style="font-size:21px"><span class="a">logs/macro.log</span>를 읽고, 몇 회차의 몇 번째 단계가
+몇 번 실패했는지 표로 정리해 줘.
+logs 폴더의 실패 화면도 열어 보고,
+단계마다 실패 원인을 추측해 줘.
+<span class="w">아직 고치지는 말고, 고칠 순서를 제안해 줘.</span></pre>
+      <div class="card is-hot"><span class="num accent">고친 다음에 꼭</span><h3>매뉴얼도 고치고, 커밋</h3><p>코드만 고치면 그때뿐. 작업 매뉴얼과 완료 체크리스트까지 고쳐야 다음에도 반영됩니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="오늘 만드는 것" data-sec="복습">
+    <p class="tag mono-sq rv">002 — 오늘 만드는 것</p>
+    <div class="cols c3 rv" style="gap:16px">
+      <div class="card frag"><span class="num">1</span><h3>기록 정리와 수정</h3><p>실패 원인 1개 고치고 커밋</p></div>
+      <div class="card frag"><span class="num">2</span><h3>조종판 설계도</h3><p>종이 한 장</p></div>
+      <div class="card frag is-hot"><span class="num accent">3</span><h3>control_panel.py</h3><p>시작 · 일시정지 · 정지 · 실시간 기록</p></div>
+      <div class="card frag"><span class="num">4</span><h3>설정 칸</h3><p>반복 횟수 · 일치 기준</p></div>
+      <div class="card frag"><span class="num">5</span><h3>MacroPanel.exe / run.bat</h3><p>더블클릭으로 열기</p></div>
+      <div class="card frag"><span class="num">6</span><h3>README.md</h3><p>미래의 나를 위한 설명서</p></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="왜 조종판인가" data-sec="조종판">
+    <div class="divider__rail"></div>
+    <div class="divider__num">01</div>
+    <p class="tag mono-sq rv">0:20 — 왜 조종판인가</p>
+    <h2 class="divider__word disp rv">PANEL<em>.</em></h2>
+    <p class="divider__ko rv">명령어 대신 버튼으로</p>
+    <p class="divider__q rv">버튼과 칸으로 쓰는 화면을 GUI(그래픽 사용자 화면)라고 합니다. 우리는 조종판이라고 부릅니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="보닛 vs 운전석" data-sec="조종판">
+    <p class="tag mono-sq rv">101 — 비유: 시동 거는 법</p>
+    <div class="cols c2 rv">
+      <div class="card"><span class="num bad">✕ 지금</span><h3>보닛 열고 전선 이어 시동</h3><p>PowerShell → cd → python scenario.py scenario.json. 횟수를 바꾸려면 json 파일을 열어서 고치기.</p></div>
+      <div class="card is-hot"><span class="num good">✓ 오늘</span><h3>운전석에 앉아 버튼으로</h3><p>더블클릭 → 시나리오 열기 → ▶ 시작. 횟수는 칸에 숫자로. 브레이크(정지)는 손 닿는 곳에.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="엔진은 그대로" data-sec="조종판">
+    <p class="tag mono-sq rv">102 — 엔진은 그대로, 운전석만 새로</p>
+    <table class="tbl rv">
+      <thead><tr><th>파일</th><th>역할</th><th>오늘</th></tr></thead>
+      <tbody>
+        <tr><td>screen.py</td><td class="dim2">화면 보기, 클릭·키 입력 (눈과 손)</td><td class="dim2">그대로</td></tr>
+        <tr><td>scenario.py</td><td class="dim2">단계를 순서대로 실행 (엔진)</td><td class="dim2">그대로 가져다 씀</td></tr>
+        <tr><td>scenario.json + 그림</td><td class="dim2">할 일 목록과 찾을 그림</td><td class="dim2">그대로</td></tr>
+        <tr class="hot"><td>control_panel.py</td><td>버튼으로 엔진을 켜고 끔 (운전석)</td><td>새로 만듦</td></tr>
+      </tbody>
+    </table>
+    <p class="lede rv" style="margin-top:28px">⚠️ Claude에게 분명히: <strong>"기존 엔진을 그대로 가져다 써"</strong></p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="종이에 먼저" data-sec="조종판">
+    <p class="tag mono-sq rv">103 — 종이에 먼저 그리기 (5분)</p>
+    <div class="cols rv" style="grid-template-columns: 1.25fr 1fr; gap:48px; align-items:center">
+      <pre class="code" style="font-size:24px"><span class="c"># 매크로 조종판</span>
+[시나리오 열기]  scenario.json
+반복 횟수 [ 10 ]   (0 = 무한)
+[<span class="a">▶ 시작</span>]  [⏸ 일시정지]  [<span class="w">■ 정지</span>]
+상태: <span class="a">실행 중</span>
+──────────────────────────
+▶ 1회차 시작
+  1. find_click 성공
+  2. wait 성공</pre>
+      <ol class="list">
+        <li>파일 고르기 버튼</li>
+        <li>바꾸고 싶은 숫자</li>
+        <li>시작 · 일시정지 · 정지</li>
+        <li>지금 상태 글자</li>
+        <li>기록이 올라오는 칸</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide" data-title="계획 모드 지시" data-sec="조종판">
+    <p class="tag mono-sq rv">104 — 계획 모드(Shift + Tab)로 지시</p>
+    <pre class="code rv" style="font-size:21px"><span class="a">control_panel.py</span>를 만들어 줘. 매크로를 버튼으로 쓰는 조종판이야.
+- tkinter로 작은 창. 항상 다른 창보다 위에 뜨게
+- [시나리오 열기] 버튼으로 json 파일을 고르고, 고른 파일 이름을 옆에 표시
+- "반복 횟수" 입력 칸 (0이면 무한 반복)
+- [▶ 시작] [⏸ 일시정지] [■ 정지] 버튼
+- 지금 상태(대기 중 / 실행 중 / 일시정지 / 정지 / 끝)를 글자와 색으로 표시
+- 아래 기록 칸에 매크로 기록이 실시간으로. logs/macro.log에도 그대로 남게
+- F8(시작/일시정지)과 F12(정지) 단축키도 그대로 동작
+- <span class="a">매크로 엔진은 새로 만들지 말고 scenario.py의 실행 코드를 그대로 가져다 써</span>
+- <span class="a">매크로는 별도 스레드에서 돌려서, 실행 중에도 창이 멈추지 않게 해 줘</span>
+<span class="w">계획을 먼저 보여 줘.</span></pre>
+  </section>
+
+  <section class="slide divider" data-title="창이 멈추지 않게" data-sec="스레드">
+    <div class="divider__rail"></div>
+    <div class="divider__num">02</div>
+    <p class="tag mono-sq rv">0:50 — 창이 멈추지 않게</p>
+    <h2 class="divider__word disp rv">THREAD<em>.</em></h2>
+    <p class="divider__ko rv">일꾼 두 명이 따로 일한다</p>
+    <p class="divider__q rv">시작을 눌렀더니 창이 하얗게 굳고 "응답 없음". 조종판에서 가장 흔한 실수입니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="식당 비유" data-sec="스레드">
+    <p class="tag mono-sq rv">201 — 비유: 작은 식당</p>
+    <div class="cols c3 rv">
+      <div class="card frag"><span class="num">조종판 창</span><h3>홀 직원</h3><p>손님 응대만. 버튼 누르기, 글자 바꾸기, 창 그리기.</p></div>
+      <div class="card frag"><span class="num">매크로 (스레드)</span><h3>주방 직원</h3><p>요리만. 그림 찾기, 클릭, 기다리기. 따로 한 명 더 둡니다.</p></div>
+      <div class="card frag is-hot"><span class="num">기록 전달</span><h3>창구의 쪽지</h3><p>주방은 테이블에 직접 가지 않고 쪽지를 올려 둡니다. 홀이 0.1초마다 옮겨 적습니다.</p></div>
+    </div>
+    <p class="lede rv" style="margin-top:32px">홀 직원이 요리까지 하러 들어가면? 불러도 대답이 없습니다. 그게 <strong>"응답 없음"</strong>입니다.</p>
+  </section>
+
+  <section class="slide" data-title="실행과 확인" data-sec="스레드">
+    <p class="tag mono-sq rv">202 — 실행과 확인 (연습 게임 → 실제 게임)</p>
+    <ol class="list rv">
+      <li class="frag">python control_panel.py → 시나리오 열기 → 반복 3 → ▶ 시작</li>
+      <li class="frag">실행 중에 <b class="accent">조종판 창을 끌어 옮기기</b><span>부드럽게 움직이면 스레드가 제대로 된 것</span></li>
+      <li class="frag">⏸ 일시정지 → ▶ 이어서 → ■ 정지</li>
+      <li class="frag">F8, F12도 확인<span>노트북이면 Fn + F8</span></li>
+      <li class="frag">잘되면 저장: "7회차: 조종판 control_panel.py"</li>
+    </ol>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
+    <div data-timer="10">
+      <p class="tag mono-sq">쉬는 시간 — Break</p>
+      <div class="timer">10:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 설정 칸과 실행 파일(.exe)</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="코드 밖의 설정" data-sec="설정">
+    <div class="divider__rail"></div>
+    <div class="divider__num">03</div>
+    <p class="tag mono-sq rv">1:50 — 상태, 기록, 설정</p>
+    <h2 class="divider__word disp rv">SETTINGS<em>.</em></h2>
+    <p class="divider__ko rv">코드를 열지 않고 숫자를 바꾼다</p>
+    <p class="divider__q rv">2회차 config.json과 같은 생각입니다. 이번엔 칸에 숫자를 넣습니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="일치 기준 칸" data-sec="설정">
+    <p class="tag mono-sq rv">301 — 일치 기준(threshold) 칸 추가</p>
+    <div class="cols rv" style="grid-template-columns: 1.5fr 1fr; gap:40px; align-items:center">
+      <pre class="code" style="font-size:21px">조종판에 <span class="a">"일치 기준"</span> 입력 칸을 추가해 줘.
+- 0.70부터 0.99까지만 넣을 수 있게
+- 처음 값은 고른 시나리오 파일의 threshold
+- [시작]을 누르면 이 값으로 실행.
+  시나리오 파일 자체는 바꾸지 마
+- 범위를 벗어나면 시작하지 말고
+  알림 창으로 알려 줘</pre>
+      <div class="card is-hot"><span class="num">확인할 세 곳</span><h3>상태 글자 · 기록 칸 · macro.log</h3><p>세 곳이 같은 이야기를 하는지 봅니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="일치 기준 고르기" data-sec="설정">
+    <p class="tag mono-sq rv">302 — 그림이 얼마나 닮아야 "찾았다"일까 (4회차 복습)</p>
+    <div class="cols c3 rv">
+      <div class="card"><span class="num accent">0.95</span><h3>아주 엄격</h3><p>비슷한 버튼이 많아 엉뚱한 곳을 누를 때</p></div>
+      <div class="card is-hot"><span class="num accent">0.85 · 기본</span><h3>보통</h3><p>대부분은 이 값으로 충분합니다</p></div>
+      <div class="card"><span class="num accent">0.75</span><h3>느슨</h3><p>버튼이 반짝이거나 색이 변해 자주 못 찾을 때</p></div>
+    </div>
+    <p class="lede rv" style="margin-top:32px">💡 <strong>0.02씩</strong> 조금만 바꾸고, 바꿀 때마다 기록을 확인합니다.</p>
+  </section>
+
+  <section class="slide divider" data-title="실행 파일" data-sec="실행 파일">
+    <div class="divider__rail"></div>
+    <div class="divider__num">04</div>
+    <p class="tag mono-sq rv">2:20 — 실행 파일(.exe)</p>
+    <h2 class="divider__word disp rv">PACKAGE<em>.</em></h2>
+    <p class="divider__ko rv">재료와 요리법 → 데우기만 하면 되는 도시락</p>
+    <p class="divider__q rv">PyInstaller(파이인스톨러)가 파이썬 코드를 더블클릭으로 여는 파일 하나로 묶어 줍니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="PyInstaller 지시" data-sec="실행 파일">
+    <p class="tag mono-sq rv">401 — 실행 파일 만들기</p>
+    <pre class="code rv" style="font-size:21px">control_panel.py를 더블클릭으로 여는 실행 파일(.exe)로 만들고 싶어.
+- PyInstaller를 써. 설치하기 전에 나에게 먼저 물어봐
+- 파일 하나로(one-file), 검은 PowerShell 창은 뜨지 않게(no console)
+- 이름은 <span class="a">MacroPanel</span>
+- 만드는 명령은 <span class="a">build_exe.bat</span>에 적어 둬서 다음에도 더블클릭으로 다시 만들 수 있게
+- 시나리오 파일과 찾을 그림은 exe 안에 넣지 말고, <span class="a">exe 옆에</span> 두고 쓰는 방식으로
+- logs 폴더(기록, 실패 화면)도 exe가 있는 폴더에 생기게
+- build, dist 폴더는 저장(커밋)하지 않게 .gitignore에 추가해 줘
+- 다 만들면 결과 파일 위치와, 무엇을 어디로 복사해야 하는지 알려 줘</pre>
+    <p class="small rv" style="margin-top:20px">⚠️ 코드를 고친 뒤에는 build_exe.bat을 다시 실행해야 exe에 반영됩니다.</p>
+  </section>
+
+  <section class="slide" data-title="Windows 경고" data-sec="실행 파일">
+    <p class="tag mono-sq rv">402 — Windows가 경고하면: 침착하게</p>
+    <div class="cols c3 rv">
+      <div class="card"><span class="num accent">왜 뜨나</span><h3>서명 없는 새 프로그램</h3><p>Windows가 처음 보는 파일이라 조심하는 것입니다. 내 파일이 위험하다는 뜻은 아닙니다.</p></div>
+      <div class="card"><span class="num accent">이렇게</span><h3>내가 만든 게 확실할 때만</h3><p>"추가 정보 → 실행". 남에게 받은 exe에는 절대 하지 않습니다. 격리되면 되살리지 않고 run.bat으로.</p></div>
+      <div class="card is-hot"><span class="num accent">하지 않는 것</span><h3>보안 기능 끄기</h3><p>백신·실시간 보호 끄기, 검사 제외 등록은 하지 않습니다. exe를 남에게 나눠 주지도 않습니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="run.bat" data-sec="실행 파일">
+    <p class="tag mono-sq rv">403 — 대안: run.bat으로 더블클릭 실행</p>
+    <div class="cols rv" style="grid-template-columns: 1fr 1.3fr; gap:40px; align-items:start">
+      <pre class="code" style="font-size:21px"><span class="a">run.bat</span>을 만들어 줘.
+- 더블클릭하면 이 파일이 있는
+  폴더로 이동해서
+  control_panel.py를 실행
+- 에러가 나면 창이 바로 닫히지
+  않고 메시지를 읽을 수 있게</pre>
+      <table class="tbl" style="font-size:22px">
+        <thead><tr><th></th><th>exe</th><th>run.bat</th></tr></thead>
+        <tbody>
+          <tr><td>Python 필요</td><td class="dim2">없음</td><td class="dim2">있음</td></tr>
+          <tr><td>코드 고친 뒤</td><td class="dim2">다시 만들기</td><td class="dim2">바로 반영</td></tr>
+          <tr><td>보안 경고</td><td class="dim2">뜰 수 있음</td><td class="dim2">거의 없음</td></tr>
+          <tr><td>지금 추천</td><td class="dim2">잘 열릴 때만</td><td><b>계속 고칠 동안</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small rv" style="margin-top:22px">바탕 화면에: run.bat 우클릭 → (Windows 11은 추가 옵션 표시) → 보내기 → 바탕 화면에 바로 가기 만들기</p>
+  </section>
+
+  <section class="slide" data-title="README" data-sec="README">
+    <p class="tag mono-sq rv">501 — README: 3개월 뒤의 나에게</p>
+    <pre class="code rv" style="font-size:21px"><span class="a">README.md</span>를 만들어 줘. 3개월 뒤의 내가 이것만 보고 다시 쓸 수 있게,
+코딩을 모르는 사람 눈높이로.
+1. 이 매크로가 하는 일, 그리고 CLAUDE.md의 게임 규칙 요약 (허용 범위)
+2. 실행하는 법 (MacroPanel.exe 또는 run.bat, 처음 설치할 때 필요한 것)
+3. 멈추는 법 (F8, F12, 정지 버튼, 마우스를 왼쪽 위 구석으로)
+4. 게임 화면이 바뀌어 그림을 못 찾을 때 템플릿을 다시 찍는 법
+5. 시나리오 단계를 바꾸는 법 (scenario.json 예시 포함)
+6. 실패했을 때 볼 곳 (logs/macro.log, 실패 화면)
+7. exe를 다시 만드는 법 (build_exe.bat)
+<span class="w">지금 폴더에 실제로 있는 파일과 명령만 쓰고, 확인되지 않은 내용은 [확인 필요]로 표시해.</span></pre>
+    <p class="lede rv" style="margin-top:22px">검증: README 4번을 <strong>적힌 대로만</strong> 따라 해 보기. 막히면 README가 부족한 것.</p>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="실습">
+    <div data-timer="40">
+      <p class="tag mono-sq">실습 — 직접 만들기</p>
+      <div class="timer">40:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">exe 또는 run.bat → README → README 4번 따라 해 보기 → "7회차 완성: 조종판, 설정 칸, 실행 파일, README" 커밋</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="막혔을 때" data-sec="실습">
+    <p class="tag mono-sq rv">601 — 막혔을 때</p>
+    <table class="tbl rv" style="font-size:23px">
+      <tbody>
+        <tr><td>창이 "응답 없음"</td><td class="dim2">"매크로가 창과 같은 스레드에서 돌고 있어? 창이 굳어"</td></tr>
+        <tr><td>기록 칸이 비어 있음</td><td class="dim2">macro.log에는 있는지 보고, 어디에 안 나오는지 말하기</td></tr>
+        <tr><td>exe가 아무 반응 없음</td><td class="dim2">"에러를 볼 수 있게 콘솔 창이 있는 버전으로 한 번만 만들어 줘"</td></tr>
+        <tr><td>exe에서 그림을 못 찾음</td><td class="dim2">시나리오 파일과 그림이 같은 폴더에 있는지</td></tr>
+        <tr><td>logs가 exe 옆에 없음</td><td class="dim2">"exe로 실행할 때 logs가 어디 생기는지 확인하고 exe 옆으로 고쳐 줘"</td></tr>
+        <tr class="hot"><td>Windows 경고 · 격리</td><td>보안은 끄지 않고 run.bat으로</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="시연" data-sec="정리">
+    <p class="tag mono-sq rv">701 — 시연</p>
+    <h2 class="h1 rv">더블클릭 → 시나리오 열기 → <em>▶</em><br>→ <em>F8</em> → 이어서 → <em>■</em> → 기록 설명</h2>
+  </section>
+
+  <section class="slide" data-title="오늘 정리" data-sec="정리">
+    <p class="tag mono-sq rv">702 — 오늘 배운 것</p>
+    <div class="cols c4 rv">
+      <div class="card"><span class="num">조종판</span><p>엔진은 그대로, 운전석만 새로</p></div>
+      <div class="card"><span class="num">스레드</span><p>홀 직원과 주방 직원은 따로</p></div>
+      <div class="card"><span class="num">실행 파일</span><p>경고가 떠도 보안은 끄지 않는다</p></div>
+      <div class="card is-hot"><span class="num">README</span><p>적힌 대로 따라 해 봐야 검증</p></div>
+    </div>
+    <p class="lede rv" style="margin-top:36px">❓ 3개월 뒤의 나에게 제일 고마울 것은? → <strong>README</strong></p>
+  </section>
+
+  <section class="slide ending" data-theme="lime" data-title="숙제" data-sec="숙제">
+    <p class="tag mono-sq rv">숙제 — 내일 수업 전까지</p>
+    <h2 class="rv">① 실제 게임에서 조종판으로<br>두 번 써 보고 불편한 점 적기</h2>
+    <p class="rv">② 작업 매뉴얼 체크리스트를 조종판 기준으로 &nbsp;③ 가장 작은 불편 하나 고치고 커밋</p>
+    <div class="ending__btns rv"><span>내일: 마무리와 혼자 고치는 법</span><span class="o">수업 자료 L07</span></div>
+    <div class="ending__word" data-word aria-label="MACRO L07">MACRO <b>07</b></div>
+  </section>
+
+  </div>
+  </main>
+  <div class="overview" aria-hidden="true">
+    <div class="overview__head"><span class="mono">전체 슬라이드 — 클릭해서 이동</span><button type="button" class="pill" data-close>닫기 ✕</button></div>
+    <div class="overview__grid"></div>
+  </div>
+  <div class="help">→ / Space 다음 · ← 이전 · O 전체 보기 · F 전체 화면 · L 레이저 켜기/끄기 · 숫자+Enter 이동</div>
+  <script src="js/deck.js"></script>
+  <script src="js/laser.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1:1 매크로 과정</title>
+  <meta name="theme-color" content="#08090b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/deck.css">
+</head>
+<body data-theme="dark">
+  <div class="loader" aria-hidden="true">
+    <div class="loader__row">
+      <span class="loader__word loader__word--l">INDEX</span>
+      <div class="loader__tile"><i></i></div>
+      <span class="loader__word loader__word--r">매크로</span>
+    </div>
+  </div>
+  <header class="nav">
+    <a href="#1" class="nav__brand" aria-label="처음으로" data-go="s-cover">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M4 4h8v3H7v5H4zM28 4v8h-3V7h-5V4zM4 28v-8h3v5h5v3zM28 28h-8v-3h5v-5h3z" fill="currentColor"/></svg>
+      <span>1:1 매크로 과정 · INDEX</span>
+    </a>
+    <nav class="nav__links" aria-label="슬라이드">
+      <span class="pill nav__count" data-count>01 / 01</span>
+      <button type="button" class="pill" data-overview>전체 보기</button>
+      
+    </nav>
+  </header>
+  <div class="hud" aria-hidden="true">
+    <span class="hud-bl" data-section></span>
+    <span class="hud-br" data-clock>SEOUL 00:00:00 KST</span>
+  </div>
+  <div class="arrows">
+    <button type="button" class="pill" data-prev aria-label="이전">←</button>
+    <button type="button" class="pill" data-next aria-label="다음">→</button>
+  </div>
+  <div class="progress"></div>
+  <main class="viewport">
+  <div class="deck">
+
+  <section class="slide" id="s-cover" data-title="회차 목록" data-sec="회차 목록">
+    <p class="tag mono-sq rv">1:1 과정 — Claude Code로 게임 매크로 만들기 · 4주 8회</p>
+    <ul class="toc rv">
+      <li><a href="L01.html"><small>01</small>설치와 첫 대화</a></li>
+      <li><a href="L05.html"><small>05</small>시나리오 설계</a></li>
+      <li><a href="L02.html"><small>02</small>코드 읽기 · Git</a></li>
+      <li><a href="L06.html"><small>06</small>실제 게임 적용</a></li>
+      <li><a href="L03.html"><small>03</small>화면 읽기</a></li>
+      <li><a href="L07.html"><small>07</small>쓰기 편하게</a></li>
+      <li><a href="L04.html"><small>04</small>이미지 찾기</a></li>
+      <li><a href="L08.html"><small>08</small>마무리</a></li>
+    </ul>
+  </section>
+
+  </div>
+  </main>
+  <div class="overview" aria-hidden="true">
+    <div class="overview__head"><span class="mono">전체 슬라이드 — 클릭해서 이동</span><button type="button" class="pill" data-close>닫기 ✕</button></div>
+    <div class="overview__grid"></div>
+  </div>
+  <div class="help">→ / Space 다음 · ← 이전 · O 전체 보기 · F 전체 화면 · L 레이저 켜기/끄기 · 숫자+Enter 이동</div>
+  <script src="js/deck.js"></script>
+  <script src="js/laser.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2회차 · 코드 읽기, 저장 지점, 단축키</title>
+  <meta name="theme-color" content="#08090b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/deck.css">
+</head>
+<body data-theme="dark">
+  <div class="loader" aria-hidden="true">
+    <div class="loader__row">
+      <span class="loader__word loader__word--l">L02</span>
+      <div class="loader__tile"><i></i></div>
+      <span class="loader__word loader__word--r">매크로</span>
+    </div>
+  </div>
+  <header class="nav">
+    <a href="#1" class="nav__brand" aria-label="처음으로" data-go="s-cover">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M4 4h8v3H7v5H4zM28 4v8h-3V7h-5V4zM4 28v-8h3v5h5v3zM28 28h-8v-3h5v-5h3z" fill="currentColor"/></svg>
+      <span>1:1 매크로 과정 · L02</span>
+    </a>
+    <nav class="nav__links" aria-label="슬라이드">
+      <span class="pill nav__count" data-count>01 / 01</span>
+      <button type="button" class="pill" data-overview>전체 보기</button>
+      <a class="pill is-accent" href="index.html">회차 목록</a>
+    </nav>
+  </header>
+  <div class="hud" aria-hidden="true">
+    <span class="hud-bl" data-section></span>
+    <span class="hud-br" data-clock>SEOUL 00:00:00 KST</span>
+  </div>
+  <div class="arrows">
+    <button type="button" class="pill" data-prev aria-label="이전">←</button>
+    <button type="button" class="pill" data-next aria-label="다음">→</button>
+  </div>
+  <div class="progress"></div>
+  <main class="viewport">
+  <div class="deck">
+
+  <section class="slide hero" id="s-cover" data-title="표지" data-sec="2회차">
+    <canvas class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__hud" aria-hidden="true">
+      <span class="tl">1:1 Course · Lesson 02</span>
+      <span class="tr"><span class="blink">●</span> Live session</span>
+    </div>
+    <h1 class="hero__title disp">
+      <span class="hl"><span>MACRO</span></span>
+      <span class="hl hl--2"><span>L02<em>.</em></span></span>
+    </h1>
+    <p class="hero__sub rv"><strong>코드 읽기, 저장 지점, 단축키</strong><br>Claude가 쓴 코드를 읽고, 망가져도 되돌리고, F8로 켜고 끕니다.</p>
+    <div class="hero__meta rv">2026-11-08 (일)<br><span class="dim">4시간 · 2/8회</span></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="복습 질문" data-sec="복습">
+    <p class="tag mono-sq rv">000 — 어제 복습: 말로 설명해 보기</p>
+    <ol class="list rv">
+      <li class="frag" style="font-size:38px">Claude Code를 켜려면?<span>cd C:\macro-study → claude</span></li>
+      <li class="frag" style="font-size:38px">매크로를 급하게 멈추려면?<span>마우스를 왼쪽 위 구석으로</span></li>
+      <li class="frag" style="font-size:38px">CLAUDE.md는 뭐였죠?<span>Claude가 먼저 읽는 이 폴더의 규칙 게시판</span></li>
+    </ol>
+  </section>
+
+  <section class="slide" data-title="오늘 만드는 것" data-sec="복습">
+    <p class="tag mono-sq rv">001 — 오늘 만드는 것</p>
+    <div class="cols c4 rv">
+      <div class="card frag"><span class="big disp accent">1</span><h3>게임 규칙 기록</h3><p>CLAUDE.md에 허용 범위</p></div>
+      <div class="card frag"><span class="big disp accent">2</span><h3>저장 지점 2개+</h3><p>Git 커밋</p></div>
+      <div class="card frag"><span class="big disp accent">3</span><h3>where.py</h3><p>좌표·색 도우미</p></div>
+      <div class="card frag is-hot"><span class="big disp accent">4</span><h3>매크로 v0.1</h3><p>F8 켜기/끄기 · F12 종료 · 설정 · 기록</p></div>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="게임 규칙" data-sec="게임 규칙">
+    <div class="divider__rail"></div>
+    <div class="divider__num">01</div>
+    <p class="tag mono-sq rv">0:20 — 게임 규칙 같이 읽기</p>
+    <h2 class="divider__word disp rv">RULES<em>.</em></h2>
+    <p class="divider__ko rv">숙제로 찾아온 약관 문장을 함께</p>
+    <p class="divider__q rv">애매하면 Claude에게 쉬운 말로 풀게 하되, 최종 기준은 게임 운영사의 공지와 답변입니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="규칙을 CLAUDE.md에" data-sec="게임 규칙">
+    <p class="tag mono-sq rv">101 — 허용 범위를 Claude의 규칙 게시판에</p>
+    <pre class="code rv" style="font-size:25px">CLAUDE.md에 <span class="a">"게임 규칙"</span> 항목을 추가해 줘.
+- 게임 이름: (게임 이름)
+- 허용되는 것: (약관에서 확인한 내용)
+- 금지되는 것: (약관에서 확인한 내용)
+이 규칙에 어긋나는 기능을 내가 요청하면, 만들기 전에 먼저 알려 줘.</pre>
+    <p class="lede rv" style="margin-top:28px">이제 Claude는 이 폴더에서 일할 때마다 <strong>게임 규칙을 먼저 읽습니다.</strong></p>
+  </section>
+
+  <section class="slide divider" data-title="코드 읽기" data-sec="코드 읽기">
+    <div class="divider__rail"></div>
+    <div class="divider__num">02</div>
+    <p class="tag mono-sq rv">0:45 — 코드 읽기</p>
+    <h2 class="divider__word disp rv">READ<em>.</em></h2>
+    <p class="divider__ko rv">쓰는 건 Claude, 읽고 고치는 건 나</p>
+    <p class="divider__q rv">"이 숫자가 뭘 하는지"만 알아도 고칠 수 있습니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="설명시키기" data-sec="코드 읽기">
+    <p class="tag mono-sq rv">201 — Claude에게 설명시키기</p>
+    <pre class="code rv" style="font-size:30px">autoclick.py를 한 줄씩,
+코딩을 처음 배우는 사람에게 설명하듯 알려 줘.</pre>
+    <div class="cols c3 rv" style="margin-top:28px">
+      <div class="card"><p>"이 줄이 없으면 어떻게 돼?"</p></div>
+      <div class="card"><p>"이 숫자를 바꾸면 무엇이 달라져?"</p></div>
+      <div class="card is-hot"><p>"고쳐도 되는 부분과 건드리면 안 되는 부분을 나눠 줘."</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="파이썬 기본 7가지" data-sec="코드 읽기">
+    <p class="tag mono-sq rv">202 — 파이썬 기본 7가지</p>
+    <table class="tbl rv" style="font-size:24px">
+      <thead><tr><th>개념</th><th>생김새</th><th>뜻</th></tr></thead>
+      <tbody>
+        <tr><td>변수</td><td><code>TIMES = 20</code></td><td class="dim2">이름 붙인 상자</td></tr>
+        <tr><td>출력</td><td><code>print("끝!")</code></td><td class="dim2">화면에 글자 보여 주기</td></tr>
+        <tr><td>가져오기</td><td><code>import pyautogui</code></td><td class="dim2">남이 만든 도구 상자 꺼내 쓰기</td></tr>
+        <tr><td>반복</td><td><code>for i in range(20):</code></td><td class="dim2">아래 줄들을 20번</td></tr>
+        <tr><td>조건</td><td><code>if 점수 > 10:</code></td><td class="dim2">맞을 때만 실행</td></tr>
+        <tr><td>함수</td><td><code>def click_loop():</code></td><td class="dim2">여러 줄을 묶어 이름 붙인 것</td></tr>
+        <tr class="hot"><td>딕셔너리</td><td><code>config["click_x"]</code></td><td>이름표 달린 서랍 (config.json)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="실험으로 이해하기" data-sec="코드 읽기">
+    <p class="tag mono-sq rv">203 — 실험으로 이해하기</p>
+    <div class="cols c2 rv">
+      <div class="card"><span class="num">실험 1</span><h3>TIMES = 20 → 5</h3><p>실행하고 무엇이 달라졌는지 말해 보기</p></div>
+      <div class="card"><span class="num">실험 2</span><h3># time.sleep(INTERVAL)</h3><p>줄 앞에 # 를 붙이면(주석) 그 줄은 실행되지 않음</p></div>
+    </div>
+    <p class="lede rv" style="margin-top:32px">⚠️ 파이썬은 <strong>들여쓰기(줄 앞 공백 4칸)</strong>로 "어디에 속하는지"를 정합니다.</p>
+  </section>
+
+  <section class="slide divider" data-title="저장 지점" data-sec="Git">
+    <div class="divider__rail"></div>
+    <div class="divider__num">03</div>
+    <p class="tag mono-sq rv">1:25 — 저장 지점</p>
+    <h2 class="divider__word disp rv">SAVE<em>.</em></h2>
+    <p class="divider__ko rv">Git = 코드의 세이브 포인트</p>
+    <p class="divider__q rv">보스전 전에 저장해 두면, 져도 그 시점부터 다시 할 수 있습니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="Git 맡기기" data-sec="Git">
+    <p class="tag mono-sq rv">301 — Claude에게 맡기기</p>
+    <pre class="code rv" style="font-size:25px">이 폴더를 git 저장소로 만들고, 지금 상태를
+<span class="a">"1회차 완성: 연습 게임과 자동 클릭"</span>이라는 이름으로 저장(커밋)해 줘.
+macro.log 같은 기록 파일은 저장하지 않게 .gitignore도 만들어 줘.</pre>
+    <p class="lede rv" style="margin-top:28px">🔁 습관: 기능 하나가 <strong>실행해서 잘 되면 → 바로 저장</strong></p>
+  </section>
+
+  <section class="slide" data-title="Git 명령 + 망가뜨리기" data-sec="Git">
+    <p class="tag mono-sq rv">302 — 직접 알아 둘 것 + 일부러 망가뜨려 보기</p>
+    <div class="cols c2 rv" style="align-items:start">
+      <table class="tbl">
+        <tbody>
+          <tr><td>git status</td><td class="dim2">마지막 저장 이후 바뀐 파일</td></tr>
+          <tr><td>git log --oneline</td><td class="dim2">저장 지점 목록</td></tr>
+          <tr class="hot"><td>"되돌려 줘"</td><td>Claude에게: 마지막 저장 지점으로 ○○.py 되돌리기</td></tr>
+        </tbody>
+      </table>
+      <ol class="list">
+        <li class="frag">autoclick.py 내용을 전부 지우고 저장</li>
+        <li class="frag">"마지막 저장 지점으로 되돌려 줘"</li>
+        <li class="frag">살아난 것 확인 → 이제 마음껏 시도!</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
+    <div data-timer="10">
+      <p class="tag mono-sq">쉬는 시간 — Break</p>
+      <div class="timer">10:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 좌표 도우미와 매크로 v0.1</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="where.py" data-sec="좌표">
+    <p class="tag mono-sq rv">401 — 좌표 도우미 where.py</p>
+    <div class="cols rv" style="grid-template-columns: 1.4fr 1fr; gap:48px; align-items:center">
+      <pre class="code" style="font-size:24px"><span class="a">where.py</span>를 만들어 줘.
+마우스를 움직이면 지금 마우스의 X, Y 좌표와
+그 자리의 색(R, G, B)을 PowerShell 한 줄에
+계속 바꿔 가며 보여 줘. Ctrl+C로 끝나게 해 줘.</pre>
+      <pre class="code" style="font-size:24px">X=  408  Y=  331  색=(231, 76, 60)</pre>
+    </div>
+    <p class="small rv" style="margin-top:24px">화면 배율(125%·150%)이 좌표를 어긋나게 할 수 있어요. 3회차에 다룹니다.</p>
+  </section>
+
+  <section class="slide divider" data-title="매크로 v0.1" data-sec="매크로 v0.1">
+    <div class="divider__rail"></div>
+    <div class="divider__num">04</div>
+    <p class="tag mono-sq rv">2:10 — 매크로 v0.1</p>
+    <h2 class="divider__word disp rv">TOGGLE<em>.</em></h2>
+    <p class="divider__ko rv">진짜 매크로에 필요한 4가지</p>
+    <p class="divider__q rv">켜고 끄는 단축키 · 끝내는 단축키 · 코드 밖의 설정 파일 · 무엇을 했는지 남기는 기록</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="계획 모드 지시" data-sec="매크로 v0.1">
+    <p class="tag mono-sq rv">501 — 계획 모드(Shift + Tab)로 지시</p>
+    <pre class="code rv" style="font-size:21px"><span class="a">macro_v01.py</span>를 만들어 줘.
+- F8을 누르면 자동 클릭 시작, 다시 누르면 일시정지
+- F12를 누르면 프로그램이 완전히 끝남
+- 클릭 위치(X, Y), 클릭 간격, 단축키는 <span class="a">config.json</span>에서 읽어 와
+- 언제 시작·정지·클릭했는지 <span class="a">macro.log</span>에 시간과 함께 기록
+- pyautogui FAILSAFE는 그대로 켜 둬
+- 키보드 감시에는 pynput을 써. 설치 전에 나에게 물어봐
+<span class="w">계획을 먼저 보여 줘.</span></pre>
+  </section>
+
+  <section class="slide" data-title="두 사람이 일한다" data-sec="매크로 v0.1">
+    <p class="tag mono-sq rv">502 — 계획에서 찾아볼 것</p>
+    <div class="cols c3 rv">
+      <div class="card is-hot"><span class="num accent">동시에 두 가지 (스레드)</span><h3>두 사람이 일한다</h3><p>한 명은 키보드만 지켜보고, 한 명은 클릭만 합니다.</p></div>
+      <div class="card"><span class="num accent">config.json</span><h3>숫자는 코드 밖에</h3><p>코드를 안 고치고 간격·위치를 바꿉니다.</p></div>
+      <div class="card"><span class="num accent">FAILSAFE</span><h3>브레이크는 그대로</h3><p>구석으로 밀면 멈추는 기능은 끄지 않습니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="실행과 확인" data-sec="매크로 v0.1">
+    <p class="tag mono-sq rv">503 — 실행과 확인</p>
+    <ol class="list rv">
+      <li class="frag">python target_game.py · python macro_v01.py</li>
+      <li class="frag">F8 시작 → F8 멈춤 → F12 끝<span>노트북이면 Fn + F8</span></li>
+      <li class="frag">macro.log 열어서 기록 확인</li>
+      <li class="frag">config.json 간격 0.1로 → 코드 수정 없이 빨라짐</li>
+      <li class="frag">잘 되면 저장: "매크로 v0.1: F8 켜기/끄기, 설정 파일, 기록"</li>
+    </ol>
+  </section>
+
+  <section class="slide" data-title="막혔을 때" data-sec="매크로 v0.1">
+    <p class="tag mono-sq rv">504 — 막혔을 때</p>
+    <table class="tbl rv">
+      <tbody>
+        <tr><td>F8 반응 없음</td><td class="dim2">Fn + F8 / config.json의 키 이름</td></tr>
+        <tr><td>macro.log가 안 생김</td><td class="dim2">PowerShell이 C:\macro-study에 있는지</td></tr>
+        <tr><td>코드가 망가짐</td><td class="dim2">"마지막 저장 지점으로 되돌려 줘"</td></tr>
+        <tr class="hot"><td>에러 메시지</td><td>통째로 복사해서 Claude에게 붙여 넣기</td></tr>
+      </tbody>
+    </table>
+    <p class="lede rv" style="margin-top:28px">"안 돼요"보다 <strong>에러 메시지 한 줄</strong>이 열 배 빨리 고쳐집니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="시연" data-sec="정리">
+    <p class="tag mono-sq rv">601 — 시연</p>
+    <h2 class="h1 rv">게임 켜기 → <em>F8</em> → 멈춤<br>→ <em>F12</em> → 기록 설명</h2>
+  </section>
+
+  <section class="slide" data-title="키 입력 미리 보기" data-sec="정리">
+    <p class="tag mono-sq rv">602 — 미리 보기: 게임에 키 입력 보내기</p>
+    <div class="cols c2 rv" style="align-items:center">
+      <pre class="code" style="font-size:26px">pyautogui.press(<span class="a">"1"</span>)          <span class="c"># 1번 키</span>
+pyautogui.hotkey(<span class="a">"ctrl"</span>, <span class="a">"s"</span>)  <span class="c"># Ctrl+S</span></pre>
+      <div class="card is-hot"><span class="num accent">6회차에 확인</span><h3>게임이 키를 무시한다면?</h3><p>많은 게임은 DirectX 방식으로 키를 받습니다. 그때는 pydirectinput을 씁니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide ending" data-theme="lime" data-title="숙제" data-sec="숙제">
+    <p class="tag mono-sq rv">숙제 — 다음 주 토요일까지</p>
+    <h2 class="rv">① 클릭 대신 키를 누르는<br>모드 추가하고 커밋</h2>
+    <p class="rv">② 실제 게임 버튼 2~3개의 좌표·색 적어 오기 &nbsp;③ 헷갈리는 파이썬 개념 하나 Claude에게 설명받기</p>
+    <div class="ending__btns rv"><span>다음 주: 매크로에 눈 달기 (화면 읽기)</span><span class="o">수업 자료 L02</span></div>
+    <div class="ending__word" data-word aria-label="MACRO L02">MACRO <b>02</b></div>
+  </section>
+
+  </div>
+  </main>
+  <div class="overview" aria-hidden="true">
+    <div class="overview__head"><span class="mono">전체 슬라이드 — 클릭해서 이동</span><button type="button" class="pill" data-close>닫기 ✕</button></div>
+    <div class="overview__grid"></div>
+  </div>
+  <div class="help">→ / Space 다음 · ← 이전 · O 전체 보기 · F 전체 화면 · L 레이저 켜기/끄기 · 숫자+Enter 이동</div>
+  <script src="js/deck.js"></script>
+  <script src="js/laser.js"></script>
+</body>
+</html>

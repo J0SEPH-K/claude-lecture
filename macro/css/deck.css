@@ -333,3 +333,29 @@ code, pre { font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo,
 html.laser-on, html.laser-on * { cursor: none !important; user-select: none; -webkit-user-select: none; }
 html.laser-on .overview.is-open, html.laser-on .overview.is-open * { cursor: auto !important; }
 html.laser-on .overview.is-open button { cursor: pointer !important; }
+
+/* ---- 1:1 과정 단계 슬라이드 ---- */
+.where { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 18px; letter-spacing: .02em; padding: 7px 16px; border-radius: 999px; margin: 0 0 12px; }
+.where.ps { background: #1b2735; color: #a8ccff; }
+.where.cc { background: var(--accent); color: #111210; }
+.where.key { background: rgba(255,255,255,.1); color: var(--fg); }
+[data-theme="paper"] .where.key { background: rgba(17,18,16,.08); color: var(--paper-ink); }
+.see, .warn { padding: 12px 0 12px 22px; font-size: 24px; line-height: 1.45; word-break: keep-all; margin-top: 18px; }
+.see { border-left: 4px solid var(--accent); }
+.warn { border-left: 4px solid var(--warn); }
+[data-theme="paper"] .see { border-left-color: #6f8f00; }
+.see b, .warn b { font-weight: 700; }
+.see::before { content: "👀 이렇게 보이면 정상 "; display: block; font-family: var(--f-mono); font-size: 15px; opacity: .6; margin-bottom: 4px; }
+.warn::before { content: "⚠️ 주의 "; display: block; font-family: var(--f-mono); font-size: 15px; opacity: .6; margin-bottom: 4px; }
+.step-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 44px; align-items: start; }
+.step-grid.even { grid-template-columns: 1fr 1fr; }
+.step-grid .code { font-size: 24px; line-height: 1.5; white-space: pre-wrap; }
+.tbl.sm { font-size: 21px; }
+.tbl.sm td { padding: 10px 14px 10px 0; }
+.chk { list-style: none; padding: 0; margin: 0; }
+.chk li { font-size: 27px; padding: 12px 0 12px 46px; position: relative; border-bottom: 1px solid var(--line); word-break: keep-all; }
+.chk li::before { content: "☐"; position: absolute; left: 0; top: 10px; font-size: 30px; color: var(--accent); }
+[data-theme="paper"] .chk li { border-color: rgba(17,18,16,.14); }
+[data-theme="paper"] .chk li::before { color: #6f8f00; }
+[data-theme="paper"] .tbl .hot td { color: #4a6200; font-weight: 600; }
+.see + .where, .warn + .where, .code + .where, .list + .where, .chk + .where { margin-top: 22px; }

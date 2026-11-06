@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>1회차 · 설치와 Claude Code 첫 대화</title>
+  <title>L01 설치와 Claude Code 첫 대화 · 1:1 매크로 과정</title>
   <meta name="theme-color" content="#08090b">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308090b'/%3E%3Cpath d='M8 8h6v2H10v4H8zM24 8v6h-2v-4h-4V8zM8 24v-6h2v4h4v2zM24 24h-6v-2h4v-4h2z' fill='%23d4ff3a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,286 +52,449 @@
       <span class="hl"><span>MACRO</span></span>
       <span class="hl hl--2"><span>L01<em>.</em></span></span>
     </h1>
-    <p class="hero__sub rv"><strong>설치와 Claude Code 첫 대화</strong><br>오늘은 개발 환경을 갖추고, 말로 지시해서 첫 자동 클릭을 만듭니다.</p>
+    <p class="hero__sub rv"><strong>설치와 Claude Code 첫 대화</strong><br>개발 환경을 갖추고, Claude Code가 어떤 화면에서 어떻게 일하는지 익힌 뒤, 말로 지시해서 첫 자동 클릭을 만듭니다.</p>
     <div class="hero__meta rv">2026-11-07 (토)<br><span class="dim">4시간 · 1/8회</span></div>
   </section>
 
-  <section class="slide statement" data-theme="paper" data-title="최종 목표" data-sec="1회차">
-    <p class="tag mono-sq rv">000 — 4주 뒤의 모습</p>
-    <h2 class="h1 rv">내 게임에서 돌아가는 매크로를<br><em>Claude Code와 함께 직접</em> 만들기.</h2>
-    <p class="lede rv" style="margin-top:36px">코드를 외우는 과정이 아닙니다. <strong>정확히 지시하고, 결과를 확인하는 법</strong>을 배웁니다.</p>
+  <section class="slide" data-theme="paper" data-title="표시 읽는 법" data-sec="1회차">
+    <p class="tag mono-sq rv">000 — 이 수업 보는 법</p>
+    <h2 class="h2 rv">어디에 입력하는지 <em>먼저 보세요</em></h2>
+    <div class="rv"><table class="tbl"><thead><tr><th>표시</th><th>뜻</th></tr></thead><tbody><tr><td><span class="where ps">🖥 PowerShell에 입력</span></td><td class='dim2'>검은 터미널 창에 그대로 치고 Enter</td></tr><tr><td><span class="where cc">💬 Claude Code에 입력</span></td><td class='dim2'>Claude Code 입력창(<code>&gt;</code> 옆)에 붙여 넣고 Enter</td></tr><tr><td><span class="where key">👀 이렇게 보이면 정상</span></td><td class='dim2'>화면에 이 비슷한 내용이 나오면 잘된 것</td></tr><tr><td><span class="where key">⚠️ 주의</span></td><td class='dim2'>여기서 자주 틀립니다</td></tr></tbody></table><p class="lede" style="margin-top:28px">💬 문장은 그대로 붙여 넣어도 되고, 내 말로 바꿔도 됩니다. 중요한 것은 <strong>무엇을, 어떤 조건으로</strong>.</p></div>
   </section>
 
-  <section class="slide" id="s-plan" data-title="4주 로드맵" data-sec="1회차">
+  <section class="slide" data-title="시간표" data-sec="1회차">
+    <p class="tag mono-sq rv">000 — 오늘의 시간표 (4시간)</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>시간</th><th>단계</th><th>끝나면</th></tr></thead><tbody><tr><td>0:00</td><td class='dim2'>0 · 시작 전에</td><td class='dim2'>오늘 무엇을 만들지 앎</td></tr><tr><td>0:15</td><td class='dim2'>1 · 컴퓨터 기본기</td><td class='dim2'>폴더를 만들고 이동</td></tr><tr><td>0:45</td><td class='dim2'>2 · 설치</td><td class='dim2'>버전 확인 3줄이 숫자를 보여 줌</td></tr><tr><td>1:15</td><td class='dim2'>☕ 휴식</td><td class='dim2'></td></tr><tr><td>1:25</td><td class='dim2'>3 · Claude Code 둘러보기</td><td class='dim2'>켜고, 읽고, 멈추고, 끌 수 있음</td></tr><tr><td>2:05</td><td class='dim2'>4 · 실습 ① hello.py</td><td class='dim2'>말로 만든 프로그램을 실행</td></tr><tr><td>2:35</td><td class='dim2'>5 · 실습 ② CLAUDE.md</td><td class='dim2'>규칙 게시판 완성</td></tr><tr><td>2:55</td><td class='dim2'>☕ 휴식</td><td class='dim2'></td></tr><tr><td>3:05</td><td class='dim2'>6 · 실습 ③ 연습 게임</td><td class='dim2'>과녁 게임이 뜸</td></tr><tr class="hot"><td>3:35</td><td class='dim2'>7 · 실습 ④ 자동 클릭</td><td class='dim2'>손대지 않아도 +20</td></tr><tr><td>3:55</td><td class='dim2'>8 · 정리</td><td class='dim2'>다음에 이어서 하는 법</td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="4주 로드맵" data-sec="1회차">
     <p class="tag mono-sq rv">000 — 4주 로드맵 (토·일 4시간 × 8회)</p>
-    <div class="cols c4 rv" style="gap:14px">
-      <div class="card is-hot"><span class="num accent">1회 · 오늘</span><h3>설치 + 첫 대화</h3><p>연습 게임, 첫 자동 클릭</p></div>
-      <div class="card"><span class="num">2회</span><h3>코드 읽기 · Git · 단축키</h3><p>F8로 켜고 끄는 매크로</p></div>
-      <div class="card"><span class="num">3회</span><h3>화면 읽기</h3><p>좌표와 색으로 반응</p></div>
-      <div class="card"><span class="num">4회</span><h3>이미지 찾기</h3><p>어디 있든 버튼을 찾아 클릭</p></div>
-      <div class="card"><span class="num">5회</span><h3>시나리오 설계</h3><p>단계 · 조건 · 재시도</p></div>
-      <div class="card"><span class="num">6회</span><h3>실제 게임 적용</h3><p>게임 속 작업 1개 완성</p></div>
-      <div class="card"><span class="num">7회</span><h3>쓰기 편하게</h3><p>설정 화면 · 실행 파일</p></div>
-      <div class="card"><span class="num">8회</span><h3>마무리</h3><p>최종 시연 · 혼자 고치는 법</p></div>
-    </div>
-  </section>
-
-  <section class="slide" data-theme="paper" data-title="오늘 만드는 것" data-sec="1회차">
-    <p class="tag mono-sq rv">001 — 오늘 만드는 것</p>
-    <div class="cols c4 rv">
-      <div class="card frag"><span class="big disp">1</span><h3>설치</h3><p>Python · Git · Claude Code</p></div>
-      <div class="card frag"><span class="big disp">2</span><h3>연습 폴더</h3><p>C:\macro-study + 규칙 파일 CLAUDE.md</p></div>
-      <div class="card frag"><span class="big disp">3</span><h3>연습 게임</h3><p>과녁을 클릭하면 점수 +1</p></div>
-      <div class="card frag is-hot"><span class="big disp">4</span><h3>자동 클릭</h3><p>손대지 않아도 점수 +20</p></div>
-    </div>
+    
+    <div class="rv"><div class="cols c4" style="gap:16px"><div class="card is-hot"><span class="num accent">1회 · 오늘</span><h3>설치 + 첫 대화</h3><p>연습 게임, 첫 자동 클릭</p></div><div class="card"><span class="num accent">2회</span><h3>코드 읽기 · 저장 지점</h3><p>F8로 켜고 끄는 매크로</p></div><div class="card"><span class="num accent">3회</span><h3>화면 읽기</h3><p>좌표와 색으로 반응</p></div><div class="card"><span class="num accent">4회</span><h3>이미지 찾기</h3><p>어디 있든 찾아 클릭</p></div></div><div style="height:16px"></div><div class="cols c4" style="gap:16px"><div class="card"><span class="num accent">5회</span><h3>시나리오 설계</h3><p>단계 · 조건 · 재시도</p></div><div class="card"><span class="num accent">6회</span><h3>실제 게임 적용</h3><p>게임 속 작업 1개 완성</p></div><div class="card"><span class="num accent">7회</span><h3>쓰기 편하게</h3><p>설정 화면 · 실행 파일</p></div><div class="card"><span class="num accent">8회</span><h3>마무리</h3><p>최종 시연 · 혼자 고치기</p></div></div></div>
   </section>
 
   <section class="slide" data-title="매크로 사용 범위" data-sec="1회차">
-    <p class="tag mono-sq rv">001 — 시작 전에 꼭 정할 것</p>
+    <p class="tag mono-sq rv">000 — 시작 전에 꼭 정할 것</p>
     <h2 class="h2 rv">매크로는 <em>허용된 범위 안에서만</em></h2>
-    <div class="cols c3 rv">
-      <div class="card"><span class="num accent">확인</span><h3>게임 이용약관 · 운영 정책</h3><p>오늘 숙제로 찾아와서 다음 시간에 같이 읽습니다.</p></div>
-      <div class="card"><span class="num accent">우리가 쓰는 방식</span><h3>화면을 보고, 키·마우스를 대신 누르기</h3><p>사람이 하는 입력을 대신할 뿐입니다.</p></div>
-      <div class="card is-hot"><span class="num accent">하지 않는 것</span><h3>안티치트 회피 · 메모리 조작 · 게임 파일 변조</h3><p>계정 정지는 되돌릴 수 없습니다.</p></div>
-    </div>
+    <div class="rv"><div class="cols c3" style="gap:16px"><div class="card"><span class="num accent">우리가 쓰는 방식</span><h3>화면을 보고, 키·마우스를 대신 누르기</h3><p>사람이 하는 입력을 대신할 뿐입니다.</p></div><div class="card"><span class="num accent">꼭 확인</span><h3>게임 이용약관 · 운영 정책</h3><p>오늘 숙제로 찾아와서 다음 시간에 같이 읽습니다.</p></div><div class="card is-hot"><span class="num accent">하지 않는 것</span><h3>안티치트 회피 · 메모리 조작 · 게임 파일 변조</h3><p>계정 정지는 되돌릴 수 없습니다. 애매하면 안 합니다.</p></div></div></div>
   </section>
 
-  <section class="slide divider" data-title="컴퓨터 기본기" data-sec="기본기">
+  <section class="slide divider" data-title="확장자 · 경로 · 터미널" data-sec="기본기">
     <div class="divider__rail"></div>
     <div class="divider__num">01</div>
-    <p class="tag mono-sq rv">0:20 — 컴퓨터 기본기</p>
+    <p class="tag mono-sq rv">0:15 — 컴퓨터 기본기</p>
     <h2 class="divider__word disp rv">BASICS<em>.</em></h2>
-    <p class="divider__ko rv">경로 · 확장자 · PowerShell</p>
+    <p class="divider__ko rv">확장자 · 경로 · 터미널</p>
     <p class="divider__q rv">Claude Code는 이 세 가지 위에서 일합니다.</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="경로 = 집 주소" data-sec="기본기">
-    <p class="tag mono-sq rv">101 — 폴더와 경로(Path)</p>
-    <h2 class="h2 rv">경로는 파일의 <em>집 주소</em>입니다</h2>
-    <pre class="code rv" style="font-size:40px; text-align:center; padding:48px">C:\<span class="a">macro-study</span>\autoclick.py</pre>
-    <div class="cols c3 rv" style="margin-top:28px">
-      <div class="card"><span class="num">C:\</span><h3>C 드라이브 = 동네</h3></div>
-      <div class="card"><span class="num">macro-study\</span><h3>폴더 = 건물</h3></div>
-      <div class="card is-hot"><span class="num">autoclick.py</span><h3>파일 = 호수</h3></div>
-    </div>
+  <section class="slide" data-theme="paper" data-title="확장자" data-sec="기본기">
+    <p class="tag mono-sq rv">1-1 — 파일 확장자 보이게 하기</p>
+    <h2 class="h2 rv">이름 끝까지 <em>보이게</em></h2>
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li>작업 표시줄에서 <b>파일 탐색기</b> 열기</li><li>위쪽 <b>보기</b> → <b>표시</b> → <b>파일 확장명</b> 체크<span>Windows 10: 보기 탭 → 파일 확장명</span></li></ol></div><div><div class="see"><code>메모</code>가 아니라 <code>메모.txt</code>처럼 끝까지 보임</div><table class="tbl sm"><thead><tr><th>확장자</th><th>뜻</th></tr></thead><tbody><tr><td>.py</td><td class='dim2'>파이썬 프로그램</td></tr><tr><td>.md</td><td class='dim2'>메모(마크다운)</td></tr><tr><td>.json</td><td class='dim2'>설정 파일</td></tr></tbody></table></div></div></div>
   </section>
 
-  <section class="slide" data-title="확장자 보이기" data-sec="기본기">
-    <p class="tag mono-sq rv">102 — 파일 확장자 보이게 하기</p>
-    <h2 class="h2 rv">파일 탐색기 → <em>보기 → 표시 → 파일 확장명</em></h2>
-    <div class="cols c2 rv">
-      <div class="card"><span class="num bad">✕ 끄면</span><h3 style="font-size:48px">autoclick</h3><p>무슨 파일인지 모름</p></div>
-      <div class="card is-hot"><span class="num good">✓ 켜면</span><h3 style="font-size:48px">autoclick<span class="accent">.py</span></h3><p>.py = 파이썬 프로그램</p></div>
-    </div>
+  <section class="slide" data-title="경로 = 집 주소" data-sec="기본기">
+    <p class="tag mono-sq rv">1-2 — 경로(Path)</p>
+    <h2 class="h2 rv">경로는 파일의 <em>집 주소</em></h2>
+    <div class="rv"><pre class="code" style="font-size:44px; text-align:center; padding:44px">C:\<span class="a">macro-study</span>\autoclick.py</pre><div class="cols c4" style="gap:16px"><div class="card"><span class="num accent">C:\</span><h3>동네</h3><p>C 드라이브</p></div><div class="card"><span class="num accent">macro-study</span><h3>건물</h3><p>폴더</p></div><div class="card"><span class="num accent">autoclick.py</span><h3>호수</h3><p>파일</p></div><div class="card"><span class="num accent">\</span><h3>들어간다</h3><p>그 안으로</p></div></div></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="PowerShell 명령 4개" data-sec="기본기">
-    <p class="tag mono-sq rv">103 — PowerShell: 글자로 명령하는 창</p>
-    <table class="tbl rv">
-      <thead><tr><th>명령</th><th>뜻</th><th>예시</th></tr></thead>
-      <tbody>
-        <tr class="frag"><td>cd 폴더</td><td class="dim2">그 폴더로 이동</td><td><code>cd C:\macro-study</code></td></tr>
-        <tr class="frag"><td>ls</td><td class="dim2">지금 폴더에 뭐가 있나</td><td><code>ls</code></td></tr>
-        <tr class="frag"><td>mkdir 폴더</td><td class="dim2">새 폴더 만들기</td><td><code>mkdir C:\macro-study</code></td></tr>
-        <tr class="frag"><td>python 파일</td><td class="dim2">파이썬 프로그램 실행</td><td><code>python autoclick.py</code></td></tr>
-      </tbody>
-    </table>
-    <p class="small rv" style="margin-top:24px">💡 ↑ 키 = 방금 친 명령 다시 · Tab 키 = 파일 이름 자동 완성</p>
+  <section class="slide" data-theme="paper" data-title="터미널 열기" data-sec="기본기">
+    <p class="tag mono-sq rv">1-3 — 터미널 열기</p>
+    <h2 class="h2 rv">글자로 컴퓨터에 <em>명령하는 창</em></h2>
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li><b>Windows 키</b></li><li><code>터미널</code> 입력<span>Windows 10은 <code>PowerShell</code></span></li><li><b>터미널</b> 앱 열기</li></ol></div><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:30px">PS C:\Users\(내 이름)&gt;</pre><div class="see"><b>PS</b> = PowerShell<br>그 뒤 = <b>지금 서 있는 폴더</b><br><b>&gt;</b> = 명령을 입력하세요</div></div></div></div>
   </section>
 
-  <section class="slide divider" data-title="설치" data-sec="설치">
+  <section class="slide" data-title="명령 4개" data-sec="기본기">
+    <p class="tag mono-sq rv">1-4 — 명령 4개 직접 해 보기</p>
+    <h2 class="h2 rv">한 줄씩 치고 <em>Enter</em></h2>
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:32px">mkdir C:\macro-study
+cd C:\macro-study
+ls
+explorer .</pre></div><div><table class="tbl sm"><thead><tr><th>명령</th><th>뜻</th></tr></thead><tbody><tr><td>mkdir</td><td class='dim2'>새 폴더 만들기</td></tr><tr><td>cd</td><td class='dim2'>폴더로 들어가기</td></tr><tr><td>ls</td><td class='dim2'>안에 뭐가 있나</td></tr><tr><td>explorer .</td><td class='dim2'>지금 폴더를 탐색기로</td></tr></tbody></table><div class="see">앞부분이 <code>PS C:\macro-study&gt;</code>로 바뀜</div></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="터미널 요령" data-sec="기본기">
+    <p class="tag mono-sq rv">1-5 — 터미널 요령</p>
+    
+    <div class="rv"><div class="cols c4" style="gap:16px"><div class="card"><span class="num accent">↑ 화살표</span><h3>방금 친 명령 다시</h3><p>다시 칠 필요 없음</p></div><div class="card"><span class="num accent">Tab</span><h3>이름 자동 완성</h3><p><code>cd C:\mac</code> + Tab</p></div><div class="card"><span class="num accent">Ctrl + C</span><h3>프로그램 강제 멈춤</h3><p>선택한 글이 없을 때</p></div><div class="card is-hot"><span class="num accent">오른쪽 클릭</span><h3>붙여 넣기</h3><p>또는 Ctrl + V</p></div></div><div class="warn">아무것도 선택하지 않고 <b>Ctrl + C</b>를 누르면 복사가 아니라 <b>멈춤</b>입니다.</div></div>
+  </section>
+
+  <section class="slide" data-title="1단계 확인" data-sec="기본기">
+    <p class="tag mono-sq rv">1 — 확인</p>
+    <h2 class="h2 rv">다음으로 가기 전에 <em>체크</em></h2>
+    <div class="rv"><ul class="chk"><li>파일 이름 끝에 <code>.txt</code> 같은 확장자가 보인다</li><li>터미널 첫 줄이 <code>PS C:\macro-study&gt;</code>로 바뀌어 있다</li></ul></div>
+  </section>
+
+  <section class="slide divider" data-title="Python · Git · Claude Code" data-sec="설치">
     <div class="divider__rail"></div>
     <div class="divider__num">02</div>
-    <p class="tag mono-sq rv">0:50 — 설치</p>
+    <p class="tag mono-sq rv">0:45 — 설치</p>
     <h2 class="divider__word disp rv">INSTALL<em>.</em></h2>
-    <p class="divider__ko rv">Python → Git → Claude Code</p>
-    <p class="divider__q rv">하나 설치할 때마다 PowerShell을 새로 열고 확인합니다.</p>
+    <p class="divider__ko rv">Python · Git · Claude Code</p>
+    <p class="divider__q rv">새로 설치한 프로그램은 새 터미널 창에서만 보입니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="설치할 것" data-sec="설치">
+    <p class="tag mono-sq rv">2 — 설치할 것 세 가지</p>
+    
+    <div class="rv"><div class="cols c3" style="gap:16px"><div class="card"><span class="num accent">엔진</span><h3>Python</h3><p>우리가 만들 매크로의 언어</p></div><div class="card"><span class="num accent">게임의 세이브</span><h3>Git</h3><p>작업을 저장 지점으로 남김 (2회차)</p></div><div class="card is-hot"><span class="num accent">옆자리 선배</span><h3>Claude Code</h3><p>말로 지시하면 만들고 실행</p></div></div></div>
   </section>
 
   <section class="slide" data-title="Python 설치" data-sec="설치">
-    <p class="tag mono-sq rv">201 — Python(파이썬): 우리가 만들 프로그램의 언어</p>
-    <div class="cols rv" style="grid-template-columns: 1fr 1fr; gap:48px; align-items:center">
-      <ol class="list">
-        <li>python.org → Downloads → Windows 최신 버전</li>
-        <li><b class="accent">Add python.exe to PATH</b> 체크 ✅<span>제일 많이 놓치는 단계</span></li>
-        <li>Install Now</li>
-        <li>PowerShell을 새로 열고 확인</li>
-      </ol>
-      <div>
-        <pre class="code" style="font-size:34px">python --version</pre>
-        <p class="lede" style="margin-top:20px; font-size:26px"><strong>Python 3.13.x</strong>처럼 숫자가 나오면 성공. Microsoft Store가 열리면 PATH 체크를 놓친 것입니다.</p>
-      </div>
-    </div>
+    <p class="tag mono-sq rv">2-1 — Python 설치</p>
+    <h2 class="h2 rv">PATH 체크 <em>꼭</em></h2>
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li><b>python.org/downloads/windows</b></li><li><b>Python 3.13</b> → Windows installer (64-bit)<span>3.14·3.15보다 부품 호환이 확실</span></li><li><b class="accent">Add python.exe to PATH</b> 체크 ✅<span>제일 많이 놓치는 단계</span></li><li>Install Now → Close</li><li><b>터미널을 닫고 새로 열기</b></li></ol></div><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:34px">python --version</pre><div class="see"><code>Python 3.13.x</code></div><div class="warn">Microsoft Store가 열리면 PATH 체크가 빠진 것<br>→ 설치 파일 다시 실행 → Modify → Add Python to environment variables</div></div></div></div>
   </section>
 
   <section class="slide" data-theme="paper" data-title="Git 설치" data-sec="설치">
-    <p class="tag mono-sq rv">202 — Git(깃): 코드의 세이브 포인트 (2회차에 사용)</p>
-    <pre class="code rv" style="font-size:34px">winget install --id Git.Git -e</pre>
-    <pre class="code rv" style="font-size:34px; margin-top:20px">git --version</pre>
-    <p class="small rv" style="margin-top:24px">winget이 없으면 git-scm.com에서 설치 파일을 내려받습니다.</p>
+    <p class="tag mono-sq rv">2-2 — Git 설치</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">winget install --id Git.Git -e</pre><ol class="list"><li>동의 질문 → <code>Y</code> Enter</li><li>변경 허용 창 → <b>예</b></li><li><b>터미널 닫고 새로 열기</b></li></ol></div><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">git --version</pre><div class="see"><code>git version 2.xx.x.windows.x</code></div></div></div></div>
   </section>
 
   <section class="slide" data-title="Claude Code 설치" data-sec="설치">
-    <p class="tag mono-sq rv">203 — Claude Code(클로드 코드)</p>
-    <h2 class="h2 rv">PowerShell에 <em>한 줄</em></h2>
-    <pre class="code rv" style="font-size:38px">irm https://claude.ai/install.ps1 | iex</pre>
-    <div class="cols c3 rv" style="margin-top:28px">
-      <div class="card"><span class="num accent">조건</span><p>Windows 10(1809 이상) 또는 11 · 관리자 권한 필요 없음</p></div>
-      <div class="card"><span class="num accent">다른 방법</span><p><code>winget install Anthropic.ClaudeCode</code></p></div>
-      <div class="card is-hot"><span class="num accent">설치 후</span><p>PowerShell을 <b>닫았다가 다시</b> 엽니다</p></div>
-    </div>
+    <p class="tag mono-sq rv">2-3 — Claude Code 설치</p>
+    <h2 class="h2 rv">한 줄이면 <em>설치</em></h2>
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">irm https://claude.ai/install.ps1 | iex</pre><table class="tbl sm"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>irm</td><td class='dim2'>인터넷에서 설치 파일을 받아라</td></tr><tr><td>iex</td><td class='dim2'>받은 것을 실행해라</td></tr><tr><td>조건</td><td class='dim2'>Windows 10(1809+)·11, 관리자 권한 불필요</td></tr></tbody></table></div><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">claude --version</pre><div class="see"><code>2.x.x (Claude Code)</code></div><div class="warn">명령을 찾을 수 없다 → 터미널 껐다 켜기<br>다른 방법: <code>winget install Anthropic.ClaudeCode</code></div></div></div></div>
   </section>
 
   <section class="slide" data-theme="paper" data-title="설치 확인" data-sec="설치">
-    <p class="tag mono-sq rv">204 — 확인</p>
-    <div class="cols c2 rv" style="align-items:start">
-      <div>
-        <pre class="code" style="font-size:30px">python --version
+    <p class="tag mono-sq rv">2 — 확인 (세 줄 모두 숫자가 나와야 다음으로)</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:38px">python --version
 git --version
-claude --version
-claude doctor</pre>
-      </div>
-      <div class="card is-hot"><span class="num">claude doctor</span><h3>설치 · 로그인 · 설정을 한 번에 점검</h3><p>문제가 있으면 무엇이 문제인지 알려 줍니다. 결과를 같이 읽어 봅시다.</p></div>
-    </div>
+claude --version</pre></div><div><ul class="chk"><li>Python 3.13.x</li><li>git version 2.x</li><li>2.x.x (Claude Code)</li></ul></div></div></div>
   </section>
 
   <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
     <div data-timer="10">
       <p class="tag mono-sq">쉬는 시간 — Break</p>
       <div class="timer">10:00</div>
-      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: Claude Code와 첫 대화</p>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: Claude Code 둘러보기</p>
       <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
     </div>
   </section>
 
-  <section class="slide divider" data-title="Claude Code 켜기" data-sec="Claude Code">
+  <section class="slide divider" data-title="화면 · 허락 · 조작" data-sec="Claude Code">
     <div class="divider__rail"></div>
     <div class="divider__num">03</div>
-    <p class="tag mono-sq rv">1:50 — Claude Code 처음 켜기</p>
+    <p class="tag mono-sq rv">1:25 — Claude Code 둘러보기</p>
+    <h2 class="divider__word disp rv">TOUR<em>.</em></h2>
+    <p class="divider__ko rv">화면 · 허락 · 조작</p>
+    <p class="divider__q rv">내 옆자리에 앉아 키보드를 같이 쓰는 선배. 허락은 내가 합니다.</p>
+  </section>
+
+  <section class="slide" data-title="채팅과 차이" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-1 — 채팅 Claude와 무엇이 다른가</p>
+    <h2 class="h2 rv">Claude에게 <em>손과 발</em>을</h2>
+    <div class="rv"><table class="tbl"><thead><tr><th></th><th>일반 Claude (채팅)</th><th>Claude Code</th></tr></thead><tbody><tr><td>하는 일</td><td class='dim2'>대답과 설명</td><td class='dim2'>대답 + <b>파일 만들기·고치기·명령 실행</b></td></tr><tr><td>내 파일</td><td class='dim2'>내가 올려 줘야 봄</td><td class='dim2'><b>지정한 폴더 안을 직접 읽음</b></td></tr><tr><td>결과물</td><td class='dim2'>화면의 글</td><td class='dim2'><b>폴더에 실제로 생긴 파일</b></td></tr><tr><td>실수하면</td><td class='dim2'>틀린 답</td><td class='dim2'>틀린 파일 → 그래서 <b>허락과 확인</b></td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="화면 네 가지" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-2 — Claude Code를 쓰는 화면 네 가지</p>
+    <h2 class="h2 rv">머리는 하나, <em>얼굴은 넷</em></h2>
+    <div class="rv"><table class="tbl sm"><thead><tr><th>화면</th><th>여는 법</th><th>장점</th><th>이 과정</th></tr></thead><tbody><tr class="hot"><td>터미널 (CLI)</td><td class='dim2'><code>claude</code> 입력</td><td class='dim2'>기능이 가장 먼저, 매크로 실행도 같은 곳</td><td class='dim2'>✅ 주로 사용</td></tr><tr><td>데스크톱 앱 Code 탭</td><td class='dim2'>Claude 앱 → Code 탭 → 폴더 선택</td><td class='dim2'>버튼·메뉴, 바뀐 파일 보기 좋음</td><td class='dim2'>구경</td></tr><tr><td>VS Code 확장</td><td class='dim2'>확장 "Claude Code" 설치</td><td class='dim2'>편집기 옆에서 대화</td><td class='dim2'>나중에</td></tr><tr><td>웹 claude.ai/code</td><td class='dim2'>브라우저</td><td class='dim2'>PC가 꺼져도 클라우드에서</td><td class='dim2'>안 씀</td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-title="왜 터미널" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-2 — 왜 터미널이 주인공인가</p>
+    
+    <div class="rv"><div class="cols c3" style="gap:16px"><div class="card"><span class="num accent">한곳에서</span><h3>만들기 → 실행 → 고치기</h3><p>매크로도 <code>python 파일.py</code>로 터미널에서 실행</p></div><div class="card"><span class="num accent">가장 먼저</span><h3>새 기능이 터미널에 먼저</h3><p>인터넷 자료도 대부분 터미널 기준</p></div><div class="card is-hot"><span class="num accent">웹은 안 됨</span><h3>클라우드는 내 화면을 못 봄</h3><p>매크로 테스트는 내 PC에서만</p></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="첫 실행" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-3 — 첫 실행과 로그인</p>
+    <h2 class="h2 rv">처음 한 번만 <em>세 단계</em></h2>
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:34px">cd C:\macro-study
+claude</pre><div class="warn"><b>시작한 폴더 안에서 일합니다.</b> 꼭 <code>macro-study</code>에서 켜기</div></div><div><ol class="list"><li>글자 색 테마 고르기<span>나중에 <code>/theme</code>로 변경</span></li><li>로그인 → <b>Claude 계정 (Pro/Max)</b> → 브라우저에서 승인<span>안 열리면 주소 복사해 붙여 넣기</span></li><li>이 폴더를 믿나요? → 경로 확인 → <b>Yes</b></li></ol></div></div></div>
+  </section>
+
+  <section class="slide" data-title="화면 구성" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-4 — 화면 구성 읽기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:22px">╭────────────────────────────╮
+│ ✻ Welcome to Claude Code   │
+│   cwd: C:\macro-study      │
+╰────────────────────────────╯
+
+ ● Write(hello.py)
+   ⎿ Wrote 3 lines
+
+╭────────────────────────────╮
+│ &gt;                          │
+╰────────────────────────────╯
+  ? for shortcuts   (모드 표시)</pre></div><div><table class="tbl sm"><thead><tr><th>부분</th><th>볼 것</th></tr></thead><tbody><tr><td>cwd</td><td class='dim2'>일하는 폴더가 맞나</td></tr><tr><td>● 줄</td><td class='dim2'>Claude가 한 행동 하나하나</td></tr><tr><td>&gt; 입력창</td><td class='dim2'>여기에 지시</td></tr><tr><td>아래 줄</td><td class='dim2'>지금 모드 · <code>?</code> 단축키</td></tr><tr><td>움직이는 글자</td><td class='dim2'>일하는 중 → Esc로 멈춤</td></tr></tbody></table></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="허락 질문" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-5 — 허락 질문 (가장 중요)</p>
+    <h2 class="h2 rv">Claude는 <em>먼저 묻습니다</em></h2>
+    <div class="rv"><div class="step-grid"><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:21px"> Create file  hello.py
+ ╭───────────────────────╮
+ │ print("안녕하세요")     │
+ ╰───────────────────────╯
+ Do you want to create hello.py?
+ ❯ 1. Yes
+   2. Yes, allow all edits during this session
+   3. No, and tell Claude what to do differently</pre></div><div><table class="tbl sm"><thead><tr><th>선택</th><th>언제</th></tr></thead><tbody><tr class="hot"><td>1. Yes</td><td class='dim2'><b>오늘은 항상 이것</b></td></tr><tr><td>2. Yes, allow all…</td><td class='dim2'>익숙해진 뒤, 안전한 일만</td></tr><tr><td>3. No</td><td class='dim2'>무엇을 하려는지 모를 때</td></tr></tbody></table></div></div></div>
+  </section>
+
+  <section class="slide" data-title="허락 전 3가지" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-5 — Yes 누르기 전에 읽을 3가지</p>
+    <h2 class="h2 rv">모르면 <em>No</em>, 그리고 질문</h2>
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li><b>무엇을?</b><span>파일 만들기 / 고치기 / 명령 실행</span></li><li><b>어디에?</b><span><code>C:\macro-study</code> 안인가</span></li><li><b>명령이라면?</b><span>지우기(rm, del) · 설치(pip install) · 내려받기</span></li></ol></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:28px">방금 하려던 게 뭐야?
+코딩 초보도 알 수 있게
+한 문장으로 설명해 줘.</pre><div class="see">모르면 <b>3. No</b> → 이렇게 묻기</div></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="키보드" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-6 — 꼭 알아야 할 키</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>키</th><th>하는 일</th></tr></thead><tbody><tr><td>Enter</td><td class='dim2'>보내기</td></tr><tr><td>Shift + Enter</td><td class='dim2'>줄 바꾸기 (보내지 않고)</td></tr><tr class="hot"><td>Esc</td><td class='dim2'><b>멈추기</b> (한 일은 남음)</td></tr><tr><td>Esc 두 번</td><td class='dim2'>되감기 메뉴: 이전 시점으로 (2회차)</td></tr><tr><td>Shift + Tab</td><td class='dim2'>모드 바꾸기: 보통 → 수정 자동 허락 → 계획</td></tr><tr><td>↑</td><td class='dim2'>전에 보낸 말 다시</td></tr><tr><td>Ctrl + C ×2</td><td class='dim2'>Claude Code 끝내기</td></tr><tr><td>Alt + V</td><td class='dim2'>캡처 이미지 붙여 넣기</td></tr><tr><td>?</td><td class='dim2'>단축키 도움말 (입력창이 비었을 때)</td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-title="맨 앞 글자" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-6 — 입력창 맨 앞 글자</p>
+    
+    <div class="rv"><div class="cols c3" style="gap:16px"><div class="card"><span class="num accent">/</span><h3>명령</h3><p><code>/help</code> <code>/init</code> <code>/clear</code></p></div><div class="card is-hot"><span class="num accent">@</span><h3>파일 콕 집기</h3><p><code>@hello.py 설명해 줘</code><br>치면 자동 완성</p></div><div class="card"><span class="num accent">!</span><h3>바로 터미널 명령</h3><p><code>!python hello.py</code><br>Claude를 거치지 않음</p></div></div><div style="height:22px"></div><table class="tbl sm"><thead><tr><th>오늘 쓰는 명령</th><th>하는 일</th></tr></thead><tbody><tr><td>/help</td><td class='dim2'>도움말</td></tr><tr><td>/init</td><td class='dim2'>규칙 파일 CLAUDE.md 만들기</td></tr><tr><td>/memory</td><td class='dim2'>규칙 파일 보기·고치기</td></tr><tr><td>/clear</td><td class='dim2'>대화 비우기</td></tr><tr><td>/usage</td><td class='dim2'>남은 사용량</td></tr><tr><td>/exit</td><td class='dim2'>끝내기</td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="데스크톱 앱" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3-7 — (구경) 데스크톱 앱의 Code 탭</p>
+    <h2 class="h2 rv">같은 Claude Code, <em>다른 얼굴</em></h2>
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li>Claude 앱 → 위쪽 <b>Code</b> 탭</li><li>입력창 아래 <b>폴더 선택</b> → C:\macro-study</li><li><b>권한 모드</b> 고르기</li><li><b>Changes</b>에서 바뀐 줄 보기</li></ol></div><div><table class="tbl sm"><thead><tr><th>앱의 모드</th><th>터미널에서는</th></tr></thead><tbody><tr><td>Manual</td><td class='dim2'>보통 (매번 물어봄)</td></tr><tr><td>Accept edits</td><td class='dim2'>Shift + Tab 한 번</td></tr><tr><td>Plan</td><td class='dim2'>계획 모드</td></tr><tr class="hot"><td>Bypass permissions</td><td class='dim2'>❌ 쓰지 않음</td></tr></tbody></table><div class="see">머리는 같습니다. 터미널에서 배운 것이 앱에서도 통합니다.</div></div></div></div>
+  </section>
+
+  <section class="slide" data-title="3단계 확인" data-sec="Claude Code">
+    <p class="tag mono-sq rv">3 — 확인</p>
+    <h2 class="h2 rv">켜고, 읽고, <em>끄기</em></h2>
+    <div class="rv"><ul class="chk"><li><code>C:\macro-study</code>에서 <code>claude</code>를 켜면 환영 상자에 그 폴더가 보인다</li><li><code>/help</code>를 쳐서 도움말이 나왔다가 <b>Esc</b>로 닫았다</li><li><b>Ctrl + C 두 번</b>으로 끄고, <code>claude</code>로 다시 켰다</li></ul></div>
+  </section>
+
+  <section class="slide divider" data-title="hello.py" data-sec="실습 ①">
+    <div class="divider__rail"></div>
+    <div class="divider__num">04</div>
+    <p class="tag mono-sq rv">2:05 — 실습 ① 첫 파일</p>
     <h2 class="divider__word disp rv">HELLO<em>.</em></h2>
-    <p class="divider__ko rv">내 옆자리에 앉아 키보드를 같이 쓰는 선배</p>
-    <p class="divider__q rv">파일을 만들고, 실행하고, 결과를 보고 스스로 고칩니다. 대신 허락은 내가 합니다.</p>
+    <p class="divider__ko rv">hello.py</p>
+    <p class="divider__q rv">말로 시키고, 허락하고, 직접 실행합니다.</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="권한 질문" data-sec="Claude Code">
-    <p class="tag mono-sq rv">301 — 켜기와 권한(허락) 질문</p>
-    <div class="cols rv" style="grid-template-columns: 1fr 1.5fr; gap:48px; align-items:start">
-      <pre class="code" style="font-size:28px">mkdir C:\macro-study
-cd C:\macro-study
-claude</pre>
-      <table class="tbl">
-        <thead><tr><th>선택</th><th>언제</th></tr></thead>
-        <tbody>
-          <tr><td>Yes</td><td class="dim2">이번 한 번만. 처음 보는 작업 (기본)</td></tr>
-          <tr><td>Yes, don't ask again</td><td class="dim2">안전하다고 확인된 같은 종류의 일</td></tr>
-          <tr><td>No</td><td class="dim2">무엇을 하려는지 모를 때 → "그게 뭐야?"</td></tr>
-        </tbody>
-      </table>
+  <section class="slide" data-theme="paper" data-title="첫 지시" data-sec="실습 ①">
+    <p class="tag mono-sq rv">4-1 — 첫 지시</p>
+    <h2 class="h2 rv">첫 지시</h2>
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:26px">안녕. 나는 코딩을 처음 배우고 있어.
+이 폴더에 hello.py를 만들어서
+"안녕하세요, (내 이름)입니다"와
+오늘 날짜를 출력하게 해 줘.
+그리고 내가 직접 실행하는 명령어도 알려 줘.</pre></div><div><ol class="list"><li>Claude가 짧게 계획을 말함</li><li><b>Do you want to create hello.py?</b> → 읽고 <b>1. Yes</b></li><li>"python hello.py로 실행하세요" 안내</li></ol></div></div></div>
+  </section>
+
+  <section class="slide" data-title="직접 실행" data-sec="실습 ①">
+    <p class="tag mono-sq rv">4-2 — 내가 직접 실행하기</p>
+    
+    <div class="rv"><div class="step-grid"><div><p class="lede" style="margin:0 0 10px">방법 A · Claude Code 안에서</p><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:30px">!python hello.py</pre><p class="lede" style="margin:24px 0 10px">방법 B · 새 탭(+)에서 ← 매크로는 이쪽</p><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">cd C:\macro-study
+python hello.py</pre></div><div><div class="see"><code>안녕하세요, (내 이름)입니다</code> + 오늘 날짜</div><div class="cols c2" style="gap:16px"><div class="card"><span class="num accent">탭 1</span><h3>Claude Code</h3><p>지시하는 곳</p></div><div class="card is-hot"><span class="num accent">탭 2</span><h3>실행용</h3><p>프로그램 돌리는 곳</p></div></div></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="고치기" data-sec="실습 ①">
+    <p class="tag mono-sq rv">4-3 — 고치게 시키기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:28px">hello.py를 고쳐 줘.
+이름 아래에 "오늘의 기분: 좋음"도
+한 줄 더 출력해 줘.</pre></div><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:26px"> print("안녕하세요")
++print("오늘의 기분: 좋음")</pre><div class="see"><b>Edit file</b> 허락 질문<br>초록 <b>+</b> = 추가되는 줄 · 빨강 <b>-</b> = 지워지는 줄</div><p class="small">탭 2에서 ↑ → Enter로 다시 실행</p></div></div></div>
+  </section>
+
+  <section class="slide" data-title="Esc 연습" data-sec="실습 ①">
+    <p class="tag mono-sq rv">4-4 — 멈추기 연습</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:26px">1부터 100까지 숫자마다 한 줄씩 설명을 붙인
+아주 긴 글을 써 줘.</pre><p class="lede" style="margin:18px 0">글이 나오기 시작하면 → <strong>Esc</strong></p><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:26px">그건 그만하고, 지금 이 폴더에
+어떤 파일이 있는지만 알려 줘.</pre></div><div><div class="see"><code>Interrupted</code> 표시 후 멈춤<br>언제든 멈추고 다시 지시할 수 있습니다</div></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="@ 사용" data-sec="실습 ①">
+    <p class="tag mono-sq rv">4-5 — 파일을 콕 집어 묻기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:30px">@hello.py 이 파일을 한 줄씩,
+코딩을 처음 보는 사람이 알 수 있게
+설명해 줘.</pre></div><div><div class="see"><code>@hel</code>까지 치면 자동 완성 목록 → <b>Tab</b></div><ul class="chk"><li>hello.py를 직접 실행했다</li><li>+ / - 줄의 뜻을 안다</li><li>Esc로 멈춰 보았다</li></ul></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="CLAUDE.md" data-sec="실습 ②">
+    <div class="divider__rail"></div>
+    <div class="divider__num">05</div>
+    <p class="tag mono-sq rv">2:35 — 실습 ② 규칙 파일</p>
+    <h2 class="divider__word disp rv">RULES<em>.</em></h2>
+    <p class="divider__ko rv">CLAUDE.md</p>
+    <p class="divider__q rv">Claude가 이 폴더에서 일을 시작할 때마다 먼저 읽는 규칙 게시판</p>
+  </section>
+
+  <section class="slide" data-title="/init" data-sec="실습 ②">
+    <p class="tag mono-sq rv">5-2 — 만들기</p>
+    
+    <div class="rv"><div class="step-grid even"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:44px">/init</pre></div><div><div class="see">폴더를 살펴보고 <code>CLAUDE.md</code>를 만들겠다고 허락을 구함 → <b>Yes</b></div><p class="lede" style="margin-top:28px">한 번 적어 두면 <strong>"나는 초보야", "주석은 한국어로"</strong>를 매번 말하지 않아도 됩니다.</p></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="규칙 추가" data-sec="실습 ②">
+    <p class="tag mono-sq rv">5-3 — 우리 규칙 추가하기</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">CLAUDE.md에 이 프로젝트의 규칙을 추가해 줘.
+- 나는 코딩 초보다. 설명은 쉬운 한국어로,
+  전문 용어는 처음 나올 때 풀어서 설명한다.
+- 모든 코드에 한국어 주석을 단다.
+- 새 패키지를 설치하기 전에 무엇을 왜 설치하는지
+  먼저 말하고 허락을 받는다.
+- 한 번에 한 기능만 만들고, 만들 때마다
+  내가 직접 실행하는 명령을 알려 준다.
+- 파일을 지우거나 이 폴더 밖을 건드리는 일은
+  하기 전에 반드시 물어본다.
+- 목표는 매크로가 허용된 게임에서 쓸 매크로.
+  안티치트 회피, 게임 메모리 읽기·수정,
+  게임 파일 변경은 쓰지 않는다.</pre></div>
+  </section>
+
+  <section class="slide" data-title="규칙 확인" data-sec="실습 ②">
+    <p class="tag mono-sq rv">5-4 · 5-5 — 확인하고 시험하기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:32px">/memory</pre><div class="see">목록에서 이 프로젝트의 CLAUDE.md → 방금 넣은 규칙이 있으면 성공</div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:32px">/clear</pre></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:24px">이 프로젝트에서 네가 지켜야 할 규칙이 뭐야?</pre><div class="see">대화를 비웠는데도 규칙을 말함 = CLAUDE.md를 읽었다</div><div class="warn">대화는 길어질수록 앞부분을 덜 정확히 기억합니다.<br>주제가 바뀌면 <b>/clear</b>, 중요한 건 <b>파일에</b>.</div></div></div></div>
+  </section>
+
+  <section class="slide" data-theme="lime" data-title="쉬는 시간" data-sec="쉬는 시간">
+    <div data-timer="10">
+      <p class="tag mono-sq">쉬는 시간 — Break</p>
+      <div class="timer">10:00</div>
+      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">다음: 실습 ③ 연습 게임</p>
+      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
     </div>
-    <p class="small rv" style="margin-top:22px">처음 켜면 브라우저가 열립니다. Claude Pro 또는 Max 계정으로 로그인하세요.</p>
   </section>
 
-  <section class="slide" data-title="조작 5가지" data-sec="Claude Code">
-    <p class="tag mono-sq rv">302 — 꼭 알아야 할 조작 5가지</p>
-    <div class="cols c5 rv" style="gap:14px">
-      <div class="card frag"><span class="num accent">멈춤</span><h3>Esc</h3><p>잘못 가고 있을 때</p></div>
-      <div class="card frag is-hot"><span class="num accent">계획 모드</span><h3>Shift + Tab</h3><p>바로 고치지 않고 계획부터</p></div>
-      <div class="card frag"><span class="num accent">규칙 파일</span><h3>/init</h3><p>CLAUDE.md 만들기</p></div>
-      <div class="card frag"><span class="num accent">새로 시작</span><h3>/clear</h3><p>주제가 바뀔 때</p></div>
-      <div class="card frag"><span class="num accent">끝내기</span><h3>Ctrl + C ×2</h3><p>Claude Code 종료</p></div>
-    </div>
+  <section class="slide divider" data-title="target_game.py" data-sec="실습 ③">
+    <div class="divider__rail"></div>
+    <div class="divider__num">06</div>
+    <p class="tag mono-sq rv">3:05 — 실습 ③ 연습용 과녁 게임</p>
+    <h2 class="divider__word disp rv">TARGET<em>.</em></h2>
+    <p class="divider__ko rv">target_game.py</p>
+    <p class="divider__q rv">진짜 게임 대신, 4주 내내 쓸 안전한 연습장을 직접 만듭니다.</p>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="대화 1: hello.py" data-sec="Claude Code">
-    <p class="tag mono-sq rv">303 — 대화 1 · 첫 파일</p>
-    <div class="cols rv" style="grid-template-columns: 1.5fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:24px">안녕. 나는 코딩을 처음 배우고 있어.
-이 폴더에 <span class="a">hello.py</span>를 만들어서
-"안녕하세요, (내 이름)입니다"와 오늘 날짜를
-출력하게 해 줘.
-그리고 내가 직접 실행하는 명령어도 알려 줘.</pre>
-      <div>
-        <h2 class="h2" style="font-size:44px">코드는 한 줄도 안 썼지만,<br><em>프로그램이 생겼습니다</em></h2>
-        <p class="lede" style="font-size:24px">알려 준 명령을 <b>다른 PowerShell 창</b>에서 직접 실행해 봅니다.</p>
-      </div>
-    </div>
+  <section class="slide" data-theme="paper" data-title="계획 모드" data-sec="실습 ③">
+    <p class="tag mono-sq rv">6-1 — 계획 모드로 바꾸기</p>
+    <h2 class="h2 rv">고치기 전에 <em>계획부터</em></h2>
+    <div class="rv"><div class="step-grid even"><div><div class="card is-hot"><span class="num accent">⌨</span><h3>Shift + Tab 을 몇 번</h3><p>아래 줄에 <b>plan mode on</b>이 보일 때까지</p></div></div><div><div class="see">계획 모드에서는 파일을 고치지 않고 <b>계획만</b> 보여 줌</div><p class="lede" style="margin-top:28px">큰 작업은 <strong>계획부터 보고</strong> 시키는 것이 안전합니다.</p></div></div></div>
   </section>
 
-  <section class="slide" data-title="대화 2: CLAUDE.md" data-sec="Claude Code">
-    <p class="tag mono-sq rv">304 — 대화 2 · 이 폴더의 규칙 게시판</p>
-    <div class="cols rv" style="grid-template-columns: 1.6fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:21px"><span class="a">/init</span>
-CLAUDE.md에 이 프로젝트의 규칙을 추가해 줘.
-- 나는 코딩 초보다. 모든 코드에 한국어 주석을 단다.
-- 새 패키지를 설치하기 전에 무엇을 왜 설치하는지 먼저 말한다.
-- 한 번에 한 기능만 만들고, 실행 방법을 알려 준다.
-- 목표는 매크로가 허용된 게임용 매크로다.
-  안티치트 회피·게임 메모리 조작은 쓰지 않는다.</pre>
-      <div class="card is-hot"><span class="num accent">CLAUDE.md</span><h3>Claude가 이 폴더에서 일할 때마다 먼저 읽는 규칙</h3><p>같은 말을 매번 반복하지 않아도 됩니다.</p></div>
-    </div>
-  </section>
-
-  <section class="slide" data-theme="paper" data-title="대화 3: 연습 게임" data-sec="실습">
-    <p class="tag mono-sq rv">305 — 대화 3 · 연습용 과녁 게임 (계획 모드로)</p>
-    <div class="cols rv" style="grid-template-columns: 1.5fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:22px">매크로 연습용 게임을 <span class="a">target_game.py</span>로 만들어 줘.
+  <section class="slide" data-title="게임 지시" data-sec="실습 ③">
+    <p class="tag mono-sq rv">6-2 — 지시하기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:21px">매크로 연습용 게임을 target_game.py로 만들 계획을 세워 줘.
 - tkinter로 600x400 창, 배경은 어두운 색
-- 창은 항상 화면 (100, 100) 위치, 크기 고정
-- 가운데 빨강·흰색 과녁(동심원)
-  과녁을 클릭하면 점수 +1
+- 창은 항상 화면의 (100, 100) 위치에 열리고 크기가 고정
+- 가운데에 빨강·흰색 과녁(동심원)이 있고,
+  과녁을 클릭하면 점수가 1 올라감
 - 왼쪽 위에 "점수: 0" 표시
-- 창이 항상 다른 창보다 위에 뜨게</pre>
-      <div>
-        <h2 class="h2" style="font-size:44px">계획을 <em>먼저</em> 읽고,<br>그다음 승인</h2>
-        <p class="lede" style="font-size:24px">Shift + Tab으로 계획 모드 → 계획 읽기 → 승인 → <b>python target_game.py</b></p>
-      </div>
-    </div>
+- 창이 항상 다른 창보다 위에 떠 있게
+- 실행할 때 --mode click / color / find 를 고를 수 있게 하되,
+  오늘은 click 모드만 완성</pre></div><div><div class="see">계획을 보여 주고 <b>진행할까요?</b> 라고 물음</div><p class="small" style="margin-top:14px">여러 줄은 <b>Shift + Enter</b>, 또는 통째로 붙여 넣기</p></div></div></div>
   </section>
 
-  <section class="slide" data-title="대화 4: 자동 클릭" data-sec="실습">
-    <p class="tag mono-sq rv">306 — 대화 4 · 첫 자동 클릭</p>
-    <div class="cols rv" style="grid-template-columns: 1.5fr 1fr; gap:48px; align-items:center">
-      <pre class="code" style="font-size:22px"><span class="a">autoclick.py</span>를 만들어 줘.
+  <section class="slide" data-theme="paper" data-title="계획 승인" data-sec="실습 ③">
+    <p class="tag mono-sq rv">6-3 — 계획 읽고 승인하기</p>
+    
+    <div class="rv"><div class="step-grid"><div><ul class="chk"><li>파일 이름이 <code>target_game.py</code>인가</li><li>크기·위치·점수 조건이 다 들어 있나</li><li>설치할 것이 있나<br><span class='small'>tkinter는 Python에 들어 있음</span></li></ul></div><div><div class="see">괜찮으면 <b>Yes</b> 계열 선택 → 모드가 보통으로 → 파일 만들기 허락 → <b>Yes</b></div><div class="warn">고칠 점이 있으면 <b>No</b> → 말로 고쳐 달라고</div></div></div></div>
+  </section>
+
+  <section class="slide" data-title="게임 실행" data-sec="실습 ③">
+    <p class="tag mono-sq rv">6-4 · 6-5 — 실행하고 고치기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:32px">python target_game.py</pre><div class="see">어두운 창 가운데 과녁 · 클릭하면 점수 +1</div></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:24px">과녁을 조금 더 크게 하고, 클릭하면
+과녁이 잠깐 초록색으로 깜빡이게 해 줘.</pre><div class="warn">고친 뒤에는 <b>껐다가 다시 실행</b>해야 바뀐 내용이 보입니다</div></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="autoclick.py" data-sec="실습 ④">
+    <div class="divider__rail"></div>
+    <div class="divider__num">07</div>
+    <p class="tag mono-sq rv">3:35 — 실습 ④ 첫 자동 클릭</p>
+    <h2 class="divider__word disp rv">CLICK<em>.</em></h2>
+    <p class="divider__ko rv">autoclick.py</p>
+    <p class="divider__q rv">브레이크(비상 정지)부터 만든다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="자동 클릭 지시" data-sec="실습 ④">
+    <p class="tag mono-sq rv">7-1 — 지시하기</p>
+    
+    <div class="rv"><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:24px">autoclick.py를 만들어 줘.
 - 실행하면 3, 2, 1 카운트다운을 하고,
   그때 마우스가 있는 위치를 기억해
 - 그 위치를 0.3초 간격으로 20번 클릭
 - 마우스를 화면 왼쪽 위 구석으로 옮기면
-  바로 멈추게 (pyautogui FAILSAFE)
-- 패키지 설치 전에는 나에게 먼저 물어봐</pre>
-      <ol class="list">
-        <li>창 1: python target_game.py</li>
-        <li>창 2: python autoclick.py</li>
-        <li>3초 안에 마우스를 과녁 위로</li>
-        <li><b>손 떼고</b> 점수 +20 확인 🎉</li>
-      </ol>
-    </div>
+  바로 멈추게 (pyautogui의 FAILSAFE)
+- 필요한 패키지가 있으면
+  설치하기 전에 나에게 먼저 물어봐</pre></div>
   </section>
 
-  <section class="slide" data-theme="lime" data-title="실습 타이머" data-sec="실습">
-    <div data-timer="60">
-      <p class="tag mono-sq">실습 — 브레이크부터 만든다</p>
-      <div class="timer">60:00</div>
-      <p class="lede" style="color:rgba(17,18,16,.7); margin-top:20px">횟수 100, 간격 1초로 바꿔 실행 → 도중에 마우스를 왼쪽 위 구석으로 → 멈추는지 확인</p>
-      <div class="timer-ctrl"><button type="button" class="pill" data-start>시작 / 멈춤</button><button type="button" class="pill" data-reset>처음으로</button></div>
-    </div>
+  <section class="slide" data-title="pip 허락" data-sec="실습 ④">
+    <p class="tag mono-sq rv">7-2 — 패키지 설치 허락</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where key">🖼 화면 예시</span><pre class="code" style="font-size:28px">python -m pip install pyautogui</pre><div class="see">Claude가 이 명령을 실행해도 되는지 물음 → 이름 확인 → <b>Yes</b></div></div><div><div class="cols c2" style="gap:16px"><div class="card"><span class="num accent">pip</span><h3>파이썬의 앱스토어</h3><p></p></div><div class="card is-hot"><span class="num accent">패키지</span><h3>남이 만든 부품</h3><p>pyautogui = 마우스·키보드 조작</p></div></div><div class="warn">처음 보는 이상한 이름 → <b>No</b> → "그게 뭐고 왜 필요해?"</div></div></div></div>
   </section>
 
-  <section class="slide" data-theme="paper" data-title="오늘 정리" data-sec="정리">
-    <p class="tag mono-sq rv">401 — 오늘 배운 것</p>
-    <div class="cols c4 rv">
-      <div class="card"><span class="num">기본기</span><p>경로 = 집 주소, PowerShell 명령 4개</p></div>
-      <div class="card"><span class="num">Claude Code</span><p>허락은 내가, 모르면 No 후 질문</p></div>
-      <div class="card"><span class="num">CLAUDE.md</span><p>폴더의 규칙 게시판</p></div>
-      <div class="card is-hot"><span class="num">매크로</span><p>멈추는 법(브레이크)부터 만든다</p></div>
-    </div>
-    <p class="lede rv" style="margin-top:36px">❓ 오늘 제일 잘 된 지시는? 왜 잘 됐을까요? → <strong>구체적이었기 때문</strong></p>
+  <section class="slide" data-theme="paper" data-title="자동 클릭 실행" data-sec="실습 ④">
+    <p class="tag mono-sq rv">7-3 — 실행 (창 배치가 중요)</p>
+    
+    <div class="rv"><div class="step-grid"><div><ol class="list"><li>탭 2: <code>python target_game.py</code></li><li>터미널을 게임 창과 <b>겹치지 않게</b> 옆으로</li><li><b>+</b>로 탭 3 → 아래 명령</li><li>3초 안에 마우스를 <b>과녁 위에</b></li><li><b>손을 뗀다</b></li></ol></div><div><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">cd C:\macro-study
+python autoclick.py</pre><div class="see">점수가 저절로 <b>+20</b> 🎉</div></div></div></div>
+  </section>
+
+  <section class="slide" data-title="비상 정지" data-sec="실습 ④">
+    <p class="tag mono-sq rv">7-4 — 비상 정지 시험</p>
+    <h2 class="h2 rv">브레이크가 <em>먼저</em></h2>
+    <div class="rv"><div class="step-grid even"><div><div class="card is-hot"><span class="num accent">시험</span><h3>클릭 도중 마우스를 왼쪽 위 구석으로 세게</h3><p>FAILSAFE가 작동해야 합니다</p></div></div><div><div class="see"><code>FailSafeException</code> 같은 글이 나오며 멈춤</div><p class="lede" style="margin-top:28px"><strong>매크로에는 항상 비상 정지가 있어야 합니다.</strong></p></div></div></div>
+  </section>
+
+  <section class="slide divider" data-title="사용량 · 이어서 하기" data-sec="정리">
+    <div class="divider__rail"></div>
+    <div class="divider__num">08</div>
+    <p class="tag mono-sq rv">3:55 — 정리</p>
+    <h2 class="divider__word disp rv">WRAP<em>.</em></h2>
+    <p class="divider__ko rv">사용량 · 이어서 하기</p>
+    <p class="divider__q rv">다음 시간에는 오늘 대화를 그대로 이어서 시작합니다.</p>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="이어서 하기" data-sec="정리">
+    <p class="tag mono-sq rv">8-1 · 8-2 — 사용량, 끝내기, 이어서 하기</p>
+    
+    <div class="rv"><div class="step-grid"><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:30px">/usage</pre><div class="see">얼마나 썼는지, 언제 다시 채워지는지<br>한도에 닿으면 <code>Usage limit reached · limit resets (시각)</code></div></div><div><span class="where cc">💬 Claude Code에 입력</span><pre class="code" style="font-size:26px">/exit</pre><span class="where ps">🖥 PowerShell에 입력</span><pre class="code" style="font-size:30px">cd C:\macro-study
+claude -c</pre><div class="see"><b>-c</b> = continue, 지난 대화를 이어서<br>골라서 열기: <code>/resume</code></div></div></div></div>
+  </section>
+
+  <section class="slide" data-title="요약" data-sec="정리">
+    <p class="tag mono-sq rv">오늘 배운 것 한 장 요약</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>하고 싶은 것</th><th>방법</th></tr></thead><tbody><tr><td>켜기</td><td class='dim2'><code>cd C:\macro-study</code> → <code>claude</code></td></tr><tr><td>이어서 켜기</td><td class='dim2'><code>claude -c</code></td></tr><tr><td>멈추기</td><td class='dim2'>Esc</td></tr><tr><td>계획부터</td><td class='dim2'>Shift + Tab → plan mode</td></tr><tr><td>파일 콕 집기</td><td class='dim2'><code>@파일이름</code></td></tr><tr><td>바로 명령</td><td class='dim2'><code>!명령</code></td></tr><tr><td>대화 비우기</td><td class='dim2'><code>/clear</code></td></tr><tr><td>규칙 보기</td><td class='dim2'><code>/memory</code></td></tr><tr><td>사용량</td><td class='dim2'><code>/usage</code></td></tr><tr><td>끝내기</td><td class='dim2'><code>/exit</code></td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-theme="paper" data-title="지켜볼 것" data-sec="정리">
+    <p class="tag mono-sq rv">늘 지켜볼 것</p>
+    <h2 class="h2 rv">Claude Code를 쓸 때 <em>늘</em></h2>
+    <div class="rv"><table class="tbl sm"><thead><tr><th>지켜볼 것</th><th>어떻게</th></tr></thead><tbody><tr><td>지금 폴더 (cwd)</td><td class='dim2'>켤 때 환영 상자의 경로 확인</td></tr><tr><td>허락 질문</td><td class='dim2'>무엇을 / 어디에 / 무슨 명령인지 읽고 Yes</td></tr><tr class="hot"><td>"다 됐어요"</td><td class='dim2'>말이 아니라 <b>직접 실행한 결과</b>가 기준</td></tr><tr><td>대화 길이</td><td class='dim2'>주제가 바뀌면 /clear, 중요한 건 CLAUDE.md</td></tr><tr><td>사용량</td><td class='dim2'>가끔 /usage</td></tr><tr><td>개인정보</td><td class='dim2'>비밀번호·계정 정보는 절대 입력하지 않기</td></tr><tr><td>모드</td><td class='dim2'>아래 줄 확인. bypass는 쓰지 않음</td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-title="문제 해결" data-sec="정리">
+    <p class="tag mono-sq rv">잘 안 될 때</p>
+    
+    <div class="rv"><table class="tbl sm"><thead><tr><th>증상</th><th>이렇게</th></tr></thead><tbody><tr><td>python → Microsoft Store</td><td class='dim2'>PATH 설정 다시 (2-1)</td></tr><tr><td>claude를 찾을 수 없음</td><td class='dim2'>터미널 껐다 켜기 → 강사에게 화면</td></tr><tr><td>No module named 'pyautogui'</td><td class='dim2'>💬 "pyautogui 설치해 줘"</td></tr><tr><td>클릭이 엉뚱한 곳</td><td class='dim2'>카운트다운 끝에 마우스가 과녁 위였나</td></tr><tr><td>매크로가 안 멈춤</td><td class='dim2'>왼쪽 위 구석 / 실행한 탭에서 Ctrl + C</td></tr><tr><td>Claude가 엉뚱하게</td><td class='dim2'>Esc → "그게 아니라 ~해 줘"</td></tr><tr><td>오류 뜻을 모름</td><td class='dim2'>오류 글 통째로 복사 → 💬 "무슨 뜻이고 어떻게 고쳐?"</td></tr><tr><td>화면을 보여 주고 싶음</td><td class='dim2'>Win + Shift + S 캡처 → Alt + V</td></tr></tbody></table></div>
   </section>
 
   <section class="slide ending" data-theme="lime" data-title="숙제" data-sec="숙제">
-    <p class="tag mono-sq rv">숙제 — 내일까지</p>
+    <p class="tag mono-sq rv">숙제 — 다음 시간까지</p>
     <h2 class="rv">① 게임 이용약관에서<br>매크로 관련 문장 찾아오기</h2>
-    <p class="rv">② 자동으로 하고 싶은 일 3가지: <b>언제 · 무엇을 · 얼마나</b> &nbsp;③ autoclick.py 숫자 바꿔 다시 실행</p>
-    <div class="ending__btns rv"><span>내일: 코드 읽기 · Git · F8 단축키</span><span class="o">수업 자료 L01</span></div>
+    <p class="rv">② 자동으로 하고 싶은 일 3가지: <b>언제 · 무엇을 · 얼마나</b> &nbsp;③ <code>claude -c</code>로 이어서 → 클릭 50번, 간격 0.1초로 바꿔 실행</p>
+    <div class="ending__btns rv"><span>다음: 코드 읽기 · 저장 지점 · F8 단축키</span><span class="o">수업 자료 L01</span></div>
     <div class="ending__word" data-word aria-label="MACRO L01">MACRO <b>01</b></div>
   </section>
 
